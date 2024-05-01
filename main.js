@@ -37,7 +37,7 @@ const subirDatosMoto = (id, marca, modelo, anio, condicion, cilincrada, kilometr
                 }
             
                 catalogoMotosWeb.push(moto)
-                verDatosMoto(id)
+                verDatosMoto(id,'AGREGADA')
                 continuar = false
                 break
                 
@@ -63,31 +63,31 @@ const editarDatosMoto = id => {
                     case 'MARCA':
                         const marcaEditada = prompt('( EDITAR MOTO )\nIngrese la nueva MARCA de la moto:')
                         catalogoMotosWeb[i].marca = marcaEditada
-                        verDatosMoto(id)
+                        verDatosMoto(id,'EDITADA')
                         break
 
                     case 'MODELO':
                         const modeloEditado = prompt('( EDITAR MOTO )\nIngrese el nuevo MODELO de la moto:')
                         catalogoMotosWeb[i].modelo = modeloEditado
-                        verDatosMoto(id)
+                        verDatosMoto(id,'EDITADA')
                         break
 
                     case 'CONDICION':
                         const condicionEditada = prompt('( EDITAR MOTO )\nIngrese la nueva CONDICION de la moto:')
                         catalogoMotosWeb[i].condicion = condicionEditada
-                        verDatosMoto(id)
+                        verDatosMoto(id,'EDITADA')
                         break
 
                     case 'KILOMETRAJE':
                         const kilometrajeEditado = parseInt(prompt('( EDITAR MOTO )\nIngrese el nuevo KILOMETRAJE de la moto:'))
                         catalogoMotosWeb[i].kilometraje = kilometrajeEditado
-                        verDatosMoto(id)
+                        verDatosMoto(id,'EDITADA')
                         break
 
                     case 'PRECIO':
                         const precioEditado = parseFloat(prompt('( EDITAR MOTO )\nIngrese el nuevo PRECIO de la moto:'))
                         catalogoMotosWeb[i].precio = precioEditado
-                        verDatosMoto(id)
+                        verDatosMoto(id,'EDITADA')
                         break
                 
                     default:
@@ -143,10 +143,10 @@ const verListadoMotos = () => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const verDatosMoto = id => {
+const verDatosMoto = (id, accion) => {
     for (const moto of catalogoMotosWeb) {
         if (moto.id == id) {
-            alert(`✅ MOTO AGREGADA CON ÉXITO!\nID: ${moto.id}\nMARCA: ${moto.marca}\nMODELO: ${moto.modelo}\nAÑO: ${moto.anio}\nCONDICIÓN: ${moto.condicion}\nCILINDRADA: ${moto.cilincrada}ci\nKILOMETRAJE: ${numeroFormateado(moto.kilometraje)}kms.\nPRECIO: U$S ${numeroFormateado(moto.precio)}`)
+            alert(`✅ MOTO ${accion} CON ÉXITO!\nID: ${moto.id}\nMARCA: ${moto.marca}\nMODELO: ${moto.modelo}\nAÑO: ${moto.anio}\nCONDICIÓN: ${moto.condicion}\nCILINDRADA: ${moto.cilincrada}ci\nKILOMETRAJE: ${numeroFormateado(moto.kilometraje)}kms.\nPRECIO: U$S ${numeroFormateado(moto.precio)}`)
             break
         }
     }
