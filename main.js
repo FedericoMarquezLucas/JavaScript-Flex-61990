@@ -12,37 +12,24 @@ const numeroFormateado = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 
 const subirDatosMoto = (id, marca, modelo, anio, condicion, cilincrada, kilometraje, precio) => {
 
-    let continuar = true
+    const buscarCoincidencia = (motoId) => !!catalogoMotosWeb.find((object) => object.id === motoId);
 
-    while (continuar) {
-        for (const moto of catalogoMotosWeb) {
-            if (moto.id === id) {
-
-                alert(`El ID ingresado '${id}' ya está en uso en el catálogo. Comience el proceso AGREGAR de nuevo`)
-                continuar = false
-                accionInteractiva()
-                break
-
-            } else {
-                
-                const moto = {
-                    id: id,
-                    marca: marca,
-                    modelo: modelo,
-                    anio: anio,
-                    condicion: condicion,
-                    cilincrada: cilincrada,
-                    kilometraje: kilometraje,
-                    precio: precio
-                }
-            
-                catalogoMotosWeb.push(moto)
-                verDatosMoto(id,'AGREGADA')
-                continuar = false
-                break
-                
-            }
+    if (buscarCoincidencia(id)) {
+        alert(`El ID ingresado '${id}' ya está en uso en el catálogo. Comience el proceso AGREGAR de nuevo`)
+    } else {
+        const moto = {
+            id: id,
+            marca: marca,
+            modelo: modelo,
+            anio: anio,
+            condicion: condicion,
+            cilincrada: cilincrada,
+            kilometraje: kilometraje,
+            precio: precio
         }
+    
+        catalogoMotosWeb.push(moto)
+        verDatosMoto(id,'AGREGADA')
     }
 
 }
