@@ -16,7 +16,7 @@ const subirDatosMoto = (id, marca, modelo, anio, condicion, cilincrada, kilometr
 
     while (continuar) {
         for (const moto of catalogoMotosWeb) {
-            if (moto.id == id) {
+            if (moto.id === id) {
 
                 alert(`El ID ingresado '${id}' ya está en uso en el catálogo. Comience el proceso AGREGAR de nuevo`)
                 continuar = false
