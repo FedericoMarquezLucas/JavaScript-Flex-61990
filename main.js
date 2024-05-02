@@ -10,9 +10,11 @@ const numeroFormateado = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const subirDatosMoto = (id, marca, modelo, anio, condicion, cilincrada, kilometraje, precio) => {
+const buscarCoincidencia = (motoId) => !!catalogoMotosWeb.find((object) => object.id === motoId);
 
-    const buscarCoincidencia = (motoId) => !!catalogoMotosWeb.find((object) => object.id === motoId);
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const subirDatosMoto = (id, marca, modelo, anio, condicion, cilincrada, kilometraje, precio) => {
 
     if (buscarCoincidencia(id)) {
         alert(`El ID ingresado '${id}' ya está en uso en el catálogo. Comience el proceso AGREGAR de nuevo`)
@@ -103,14 +105,16 @@ const eliminarMoto = () => {
         let motoEliminar = parseInt(prompt('( 🚨 ELIMINAR MOTO )\nIngrese el NÚMERO IDENTIFICADOR ( ID ) de la moto que desea eliminar:'), 10)
 
         for (let i = 0; i < catalogoMotosWeb.length; i++) {
-            if (catalogoMotosWeb[i].id === motoEliminar) {
+            if (catalogoMotosWeb[i].id == motoEliminar) {
                 catalogoMotosWeb.splice(i, 1)
+                alert(`✅ MOTO ID: ${motoEliminar} ELIMINADA CON ÉXITO!`)
+                break
+            } else if (!buscarCoincidencia(motoEliminar)) {
+                alert(`🚨 El ID ingresado '${motoEliminar}' no devuelve ninguna coincidencia en el catálogo.`)
                 break
             }
         }
 
-        alert(`✅ MOTO ID: ${motoEliminar} ELIMINADA CON ÉXITO!`)
-        verListadoMotos()
         vesMotosEnCatalogo = false
     }
 
