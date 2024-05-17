@@ -1,0 +1,32 @@
+[
+    {
+		"id": 1,
+		"marca": "Harley Davidson",
+		"modelo": "Softail Deluxe FLSTN",
+		"anio": 2011,
+		"condicion": "Usada",
+		"cilincrada": 103,
+		"kilometraje": 55000,
+		"precio": 29900
+	},
+    {
+		"id": 2,
+		"marca": "Harley Davidson",
+		"modelo": "Sportster Forty Eight",
+		"anio": 2013,
+		"condicion": "Usada",
+		"cilincrada": 75,
+		"kilometraje": 20000,
+		"precio": 19900
+	},
+    {
+		"id": 3,
+		"marca": "Ducati",
+		"modelo": "Multistrada V4",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilincrada": 1178,
+		"kilometraje": 0,
+		"precio": 40900
+	}
+]
