@@ -7,7 +7,8 @@
 		"condicion": "Usada",
 		"cilincrada": 103,
 		"kilometraje": 55000,
-		"precio": 29900
+		"precio": 29900,
+		"imagen": "img_softail_deluxe_flstn.jpg"
 	},
     {
 		"id": 2,
