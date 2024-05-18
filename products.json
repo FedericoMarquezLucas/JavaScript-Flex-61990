@@ -58,5 +58,17 @@
 		"kilometraje": 34990,
 		"precio": 0,
 		"imagen": "img_zx10r.png"
+	},
+    {
+		"id": 6,
+		"marca": "Husqvarna",
+		"modelo": "Svartpilen 701",
+		"anio": 2020,
+		"condicion": "Usada",
+		"cilindrada": 692,
+		"cilindradaMedida": "cc",
+		"kilometraje": 10900,
+		"precio": 0,
+		"imagen": "img_svartpilen_701.jpeg"
 	}
 ]
