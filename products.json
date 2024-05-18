@@ -28,6 +28,7 @@
 		"condicion": "Nueva",
 		"cilincrada": 1178,
 		"kilometraje": 0,
-		"precio": 40900
+		"precio": 40900,
+		"imagen": "img_multistrada_v4.png"
 	}
 ]
