@@ -34,5 +34,17 @@
 		"kilometraje": 0,
 		"precio": 40900,
 		"imagen": "img_multistrada_v4.png"
+	},
+    {
+		"id": 4,
+		"marca": "KTM",
+		"modelo": "1190 Adventure R",
+		"anio": 2015,
+		"condicion": "Usada",
+		"cilindrada": 1190,
+		"cilindradaMedida": "cc",
+		"kilometraje": 25000,
+		"precio": 16000,
+		"imagen": "img_1190_adventure_r.jpeg"
 	}
 ]
