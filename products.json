@@ -70,5 +70,17 @@
 		"kilometraje": 2500,
 		"precio": 10900,
 		"imagen": "img_svartpilen_701.jpeg"
+	},
+    {
+		"id": 7,
+		"marca": "BMW",
+		"modelo": "M 1000R",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 999,
+		"cilindradaMedida": "cc",
+		"kilometraje": 0,
+		"precio": 79990,
+		"imagen": "img_m1000r.jpeg"
 	}
 ]
