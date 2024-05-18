@@ -7,6 +7,7 @@
 		"condicion": "Usada",
 		"cilindrada": 103,
 		"cilindradaMedida": "ci",
+		"potencia": 72,
 		"kilometraje": 55000,
 		"precio": 29900,
 		"imagen": "img_softail_deluxe_flstn.jpg"
@@ -19,6 +20,7 @@
 		"condicion": "Usada",
 		"cilindrada": 1200,
 		"cilindradaMedida": "cc",
+		"potencia": 66,
 		"kilometraje": 20000,
 		"precio": 19900,
 		"imagen": "img_sportster_forty_eight.png"
@@ -31,6 +33,7 @@
 		"condicion": "Nueva",
 		"cilindrada": 1158,
 		"cilindradaMedida": "cc",
+		"potencia": 170,
 		"kilometraje": 0,
 		"precio": 40900,
 		"imagen": "img_multistrada_v4.png"
@@ -43,6 +46,7 @@
 		"condicion": "Usada",
 		"cilindrada": 1190,
 		"cilindradaMedida": "cc",
+		"potencia": 150,
 		"kilometraje": 25000,
 		"precio": 16000,
 		"imagen": "img_1190_adventure_r.jpeg"
@@ -55,6 +59,7 @@
 		"condicion": "Nueva",
 		"cilindrada": 998,
 		"cilindradaMedida": "cc",
+		"potencia": 200,
 		"kilometraje": 0,
 		"precio": 34990,
 		"imagen": "img_zx10r.png"
@@ -67,6 +72,7 @@
 		"condicion": "Usada",
 		"cilindrada": 692,
 		"cilindradaMedida": "cc",
+		"potencia": 75,
 		"kilometraje": 2500,
 		"precio": 10900,
 		"imagen": "img_svartpilen_701.jpeg"
@@ -79,6 +85,7 @@
 		"condicion": "Nueva",
 		"cilindrada": 999,
 		"cilindradaMedida": "cc",
+		"potencia":  210,
 		"kilometraje": 0,
 		"precio": 79990,
 		"imagen": "img_m1000r.jpeg"
@@ -91,6 +98,7 @@
 		"condicion": "Nueva",
 		"cilindrada": 890,
 		"cilindradaMedida": "cc",
+		"potencia": 120,
 		"kilometraje": 0,
 		"precio": 18900,
 		"imagen": "img_mt09.avif"
@@ -103,6 +111,7 @@
 		"condicion": "Nueva",
 		"cilindrada": 1200,
 		"cilindradaMedida": "cc",
+		"potencia": 90,
 		"kilometraje": 0,
 		"precio": 38900,
 		"imagen": "img_scrambler1200x.avif"
