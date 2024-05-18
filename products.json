@@ -94,5 +94,17 @@
 		"kilometraje": 0,
 		"precio": 18900,
 		"imagen": "img_mt09.avif"
+	},
+    {
+		"id": 9,
+		"marca": "Triumph",
+		"modelo": "Scrambler 1200 X",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 1200,
+		"cilindradaMedida": "cc",
+		"kilometraje": 0,
+		"precio": 38900,
+		"imagen": "img_scrambler1200x.avif"
 	}
 ]
