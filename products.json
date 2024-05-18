@@ -10,7 +10,8 @@
 		"potencia": 72,
 		"kilometraje": 55000,
 		"precio": 29900,
-		"imagen": "img_softail_deluxe_flstn.jpg"
+		"imagen": "img_softail_deluxe_flstn.jpg",
+		"logo": "logo_harley_davidson.jpeg"
 	},
     {
 		"id": 2,
@@ -23,7 +24,8 @@
 		"potencia": 66,
 		"kilometraje": 20000,
 		"precio": 19900,
-		"imagen": "img_sportster_forty_eight.png"
+		"imagen": "img_sportster_forty_eight.png",
+		"logo": "logo_harley_davidson.jpeg"
 	},
     {
 		"id": 3,
@@ -36,7 +38,8 @@
 		"potencia": 170,
 		"kilometraje": 0,
 		"precio": 40900,
-		"imagen": "img_multistrada_v4.png"
+		"imagen": "img_multistrada_v4.png",
+		"logo": "logo_ducati.png"
 	},
     {
 		"id": 4,
@@ -49,7 +52,8 @@
 		"potencia": 150,
 		"kilometraje": 25000,
 		"precio": 16000,
-		"imagen": "img_1190_adventure_r.jpeg"
+		"imagen": "img_1190_adventure_r.jpeg",
+		"logo": "logo_ktm.png"
 	},
     {
 		"id": 5,
@@ -62,7 +66,8 @@
 		"potencia": 200,
 		"kilometraje": 0,
 		"precio": 34990,
-		"imagen": "img_zx10r.png"
+		"imagen": "img_zx10r.png",
+		"logo": "logo_kawasaki.svg"
 	},
     {
 		"id": 6,
@@ -75,7 +80,8 @@
 		"potencia": 75,
 		"kilometraje": 2500,
 		"precio": 10900,
-		"imagen": "img_svartpilen_701.jpeg"
+		"imagen": "img_svartpilen_701.jpeg",
+		"logo": "logo_husqvarna.png"
 	},
     {
 		"id": 7,
@@ -88,7 +94,8 @@
 		"potencia":  210,
 		"kilometraje": 0,
 		"precio": 79990,
-		"imagen": "img_m1000r.jpeg"
+		"imagen": "img_m1000r.jpeg",
+		"logo": "logo_bmw.png"
 	},
     {
 		"id": 8,
@@ -101,7 +108,8 @@
 		"potencia": 120,
 		"kilometraje": 0,
 		"precio": 18900,
-		"imagen": "img_mt09.avif"
+		"imagen": "img_mt09.avif",
+		"logo": "logo_yamaha.png"
 	},
     {
 		"id": 9,
@@ -114,6 +122,7 @@
 		"potencia": 90,
 		"kilometraje": 0,
 		"precio": 38900,
-		"imagen": "img_scrambler1200x.avif"
+		"imagen": "img_scrambler1200x.avif",
+		"logo": "logo_triumph.svg"
 	}
 ]
