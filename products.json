@@ -9,7 +9,10 @@
 		"cilindradaMedida": "ci",
 		"kilometraje": 55000,
 		"precio": 29900,
-		"imagen": "img_softail_deluxe_flstn.jpg"
+		"imagen": [
+			"img_softail_deluxe_flstn.jpg",
+			"img_sportster_forty_eight.png"
+		]
 	},
     {
 		"id": 2,
