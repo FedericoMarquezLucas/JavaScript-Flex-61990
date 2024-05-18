@@ -82,5 +82,17 @@
 		"kilometraje": 0,
 		"precio": 79990,
 		"imagen": "img_m1000r.jpeg"
+	},
+    {
+		"id": 8,
+		"marca": "Yamaha",
+		"modelo": "MT-09",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 890,
+		"cilindradaMedida": "cc",
+		"kilometraje": 0,
+		"precio": 18900,
+		"imagen": "img_mt09.avif"
 	}
 ]
