@@ -55,8 +55,8 @@
 		"condicion": "Nueva",
 		"cilindrada": 998,
 		"cilindradaMedida": "cc",
-		"kilometraje": 34990,
-		"precio": 0,
+		"kilometraje": 0,
+		"precio": 34990,
 		"imagen": "img_zx10r.png"
 	},
     {
@@ -67,8 +67,8 @@
 		"condicion": "Usada",
 		"cilindrada": 692,
 		"cilindradaMedida": "cc",
-		"kilometraje": 10900,
-		"precio": 0,
+		"kilometraje": 2500,
+		"precio": 10900,
 		"imagen": "img_svartpilen_701.jpeg"
 	}
 ]
