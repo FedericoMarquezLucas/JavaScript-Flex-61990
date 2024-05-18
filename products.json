@@ -5,8 +5,8 @@
 		"modelo": "Softail Deluxe FLSTN",
 		"anio": 2011,
 		"condicion": "Usada",
-		"cilincrada": 103,
-		"cilincradaMedida": "ci",
+		"cilindrada": 103,
+		"cilindradaMedida": "ci",
 		"kilometraje": 55000,
 		"precio": 29900,
 		"imagen": "img_softail_deluxe_flstn.jpg"
@@ -17,8 +17,8 @@
 		"modelo": "Sportster Forty Eight",
 		"anio": 2013,
 		"condicion": "Usada",
-		"cilincrada": 1200,
-		"cilincradaMedida": "cc",
+		"cilindrada": 1200,
+		"cilindradaMedida": "cc",
 		"kilometraje": 20000,
 		"precio": 19900,
 		"imagen": "img_sportster_forty_eight.png"
@@ -29,8 +29,8 @@
 		"modelo": "Multistrada V4",
 		"anio": 2024,
 		"condicion": "Nueva",
-		"cilincrada": 1158,
-		"cilincradaMedida": "cc",
+		"cilindrada": 1158,
+		"cilindradaMedida": "cc",
 		"kilometraje": 0,
 		"precio": 40900,
 		"imagen": "img_multistrada_v4.png"
