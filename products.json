@@ -18,7 +18,8 @@
 		"condicion": "Usada",
 		"cilincrada": 75,
 		"kilometraje": 20000,
-		"precio": 19900
+		"precio": 19900,
+		"imagen": "img_sportster_forty_eight.png"
 	},
     {
 		"id": 3,
