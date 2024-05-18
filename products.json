@@ -46,5 +46,17 @@
 		"kilometraje": 25000,
 		"precio": 16000,
 		"imagen": "img_1190_adventure_r.jpeg"
+	},
+    {
+		"id": 5,
+		"marca": "Kawasaki",
+		"modelo": "ZX-10R",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 998,
+		"cilindradaMedida": "cc",
+		"kilometraje": 34990,
+		"precio": 0,
+		"imagen": "img_zx10r.jpeg"
 	}
 ]
