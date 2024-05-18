@@ -11,7 +11,7 @@
 		"kilometraje": 55000,
 		"precio": 29900,
 		"imagen": "img_softail_deluxe_flstn.jpg",
-		"logo": "logo_harley_davidson.jpeg"
+		"logo": "logo_harley_davidson.svg"
 	},
     {
 		"id": 2,
@@ -25,7 +25,7 @@
 		"kilometraje": 20000,
 		"precio": 19900,
 		"imagen": "img_sportster_forty_eight.png",
-		"logo": "logo_harley_davidson.jpeg"
+		"logo": "logo_harley_davidson.svg"
 	},
     {
 		"id": 3,
