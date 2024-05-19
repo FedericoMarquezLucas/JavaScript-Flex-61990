@@ -152,5 +152,19 @@
 		"precio": 39900,
 		"imagen": "img_sportster_s.jpeg",
 		"logo": "logo_harley_davidson.svg"
+	},
+    {
+		"id": 12,
+		"marca": "Ducati",
+		"modelo": "Hypermotard 950 SP",
+		"anio": 2018,
+		"condicion": "Usada",
+		"cilindrada": 950,
+		"cilindradaMedida": "cc",
+		"potencia": 115,
+		"kilometraje": 0,
+		"precio": 14900,
+		"imagen": "img_hypermotard_950_sp.jpeg",
+		"logo": "logo_ducati.png"
 	}
 ]
