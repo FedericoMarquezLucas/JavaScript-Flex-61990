@@ -138,5 +138,19 @@
 		"precio": 69900,
 		"imagen": "img_road_glide_cvo.webp",
 		"logo": "logo_harley_davidson.svg"
+	},
+    {
+		"id": 9,
+		"marca": "Harley Davidson",
+		"modelo": "Sportster S",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 76,
+		"cilindradaMedida": "ci",
+		"potencia": 120,
+		"kilometraje": 0,
+		"precio": 39900,
+		"imagen": "img_sportster_s.jpeg",
+		"logo": "logo_harley_davidson.svg"
 	}
 ]
