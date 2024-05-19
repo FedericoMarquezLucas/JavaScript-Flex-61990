@@ -162,9 +162,23 @@
 		"cilindrada": 950,
 		"cilindradaMedida": "cc",
 		"potencia": 115,
-		"kilometraje": 0,
+		"kilometraje": 5850,
 		"precio": 14900,
 		"imagen": "img_hypermotard_950_sp.jpeg",
+		"logo": "logo_ducati.png"
+	},
+    {
+		"id": 13,
+		"marca": "Ducati",
+		"modelo": "Scrambler 1100 Tribute",
+		"anio": 2018,
+		"condicion": "Usada",
+		"cilindrada": 1100,
+		"cilindradaMedida": "cc",
+		"potencia": 85,
+		"kilometraje": 10000,
+		"precio": 18900,
+		"imagen": "img_scrambler_1100_tribute.jpeg",
 		"logo": "logo_ducati.png"
 	}
 ]
