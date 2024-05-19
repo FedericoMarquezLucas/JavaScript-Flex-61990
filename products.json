@@ -126,7 +126,7 @@
 		"logo": "logo_triumph.svg"
 	},
     {
-		"id": 9,
+		"id": 10,
 		"marca": "Harley Davidson",
 		"modelo": "Road Glide CVO",
 		"anio": 2020,
@@ -140,7 +140,7 @@
 		"logo": "logo_harley_davidson.svg"
 	},
     {
-		"id": 9,
+		"id": 11,
 		"marca": "Harley Davidson",
 		"modelo": "Sportster S",
 		"anio": 2024,
