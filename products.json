@@ -194,5 +194,19 @@
 		"precio": 49900,
 		"imagen": "img_chief_classic.jpeg",
 		"logo": "logo_indian.svg"
+	},
+    {
+		"id": 15,
+		"marca": "Yamaha",
+		"modelo": "YZ125",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 125,
+		"cilindradaMedida": "cc",
+		"potencia": 35,
+		"kilometraje": 0,
+		"precio": 10850,
+		"imagen": "img_yz125.webp",
+		"logo": "logo_yamaha.png"
 	}
 ]
