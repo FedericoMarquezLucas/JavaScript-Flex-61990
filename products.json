@@ -124,5 +124,19 @@
 		"precio": 38900,
 		"imagen": "img_scrambler1200x.avif",
 		"logo": "logo_triumph.svg"
+	},
+    {
+		"id": 9,
+		"marca": "Harley Davidson",
+		"modelo": "Road Glide CVO",
+		"anio": 2020,
+		"condicion": "Nueva",
+		"cilindrada": 117,
+		"cilindradaMedida": "ci",
+		"potencia": 80,
+		"kilometraje": 0,
+		"precio": 69900,
+		"imagen": "img_road_glide_cvo.webp",
+		"logo": "logo_harley_davidson.svg"
 	}
 ]
