@@ -264,5 +264,19 @@
 		"precio": 20900,
 		"imagen": "img_xsr900.avif",
 		"logo": "logo_yamaha.png"
+	},
+    {
+		"id": 20,
+		"marca": "Yamaha",
+		"modelo": "Jog",
+		"anio": 1990,
+		"condicion": "Usada",
+		"cilindrada": 45,
+		"cilindradaMedida": "cc",
+		"potencia": 4.5,
+		"kilometraje": 25000,
+		"precio": 1090,
+		"imagen": "img_jog.webp",
+		"logo": "logo_yamaha.png"
 	}
 ]
