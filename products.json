@@ -320,5 +320,19 @@
 		"precio": 27900,
 		"imagen": "img_desertx.webp",
 		"logo": "logo_ducati.png"
+	},
+	{
+		"id": 25,
+		"marca": "Ducati",
+		"modelo": "XDiavel",
+		"anio": 2018,
+		"condicion": "Usada",
+		"cilindrada": 1262,
+		"cilindradaMedida": "cc",
+		"potencia": 150,
+		"kilometraje": 25000,
+		"precio": 25900,
+		"imagen": "img_xdiavel.png",
+		"logo": "logo_ducati.png"
 	}
 ]
