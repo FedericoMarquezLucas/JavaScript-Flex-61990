@@ -334,5 +334,19 @@
 		"precio": 25900,
 		"imagen": "img_xdiavel.png",
 		"logo": "logo_ducati.png"
+	},
+	{
+		"id": 26,
+		"marca": "Harley Davidson",
+		"modelo": "Fat Boy",
+		"anio": 2003,
+		"condicion": "Usada",
+		"cilindrada": 1450,
+		"cilindradaMedida": "cc",
+		"potencia": 65,
+		"kilometraje": 55000,
+		"precio": 20900,
+		"imagen": "img_fat_boy.jpeg",
+		"logo": "logo_harley_davidson.svg"
 	}
 ]
