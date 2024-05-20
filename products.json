@@ -390,5 +390,33 @@
 		"precio": 29900,
 		"imagen": "img_s1000_rr.avif",
 		"logo": "logo_bmw.png"
+	},
+	{
+		"id": 30,
+		"marca": "BMW",
+		"modelo": "CE 04",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 0,
+		"cilindradaMedida": "-",
+		"potencia": 20,
+		"kilometraje": 0,
+		"precio": 19900,
+		"imagen": "img_ce_04.webp",
+		"logo": "logo_bmw.png"
+	},
+	{
+		"id": 31,
+		"marca": "Husqvarna",
+		"modelo": "FC 450",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 450,
+		"cilindradaMedida": "cc",
+		"potencia": 60,
+		"kilometraje": 0,
+		"precio": 17900,
+		"imagen": "img_fc_450.png",
+		"logo": "logo_husqvarna.png"
 	}
 ]
