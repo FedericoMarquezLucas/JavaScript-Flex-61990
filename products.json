@@ -208,5 +208,33 @@
 		"precio": 10850,
 		"imagen": "img_yz125.webp",
 		"logo": "logo_yamaha.png"
+	},
+    {
+		"id": 16,
+		"marca": "Husqvarna",
+		"modelo": "Norden 901",
+		"anio": 2022,
+		"condicion": "Usada",
+		"cilindrada": 901,
+		"cilindradaMedida": "cc",
+		"potencia": 105,
+		"kilometraje": 5000,
+		"precio": 15990,
+		"imagen": "img_norden_901.jpeg",
+		"logo": "logo_husqvarna.png"
+	},
+    {
+		"id": 17,
+		"marca": "Husqvarna",
+		"modelo": "Enduro 701",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 701,
+		"cilindradaMedida": "cc",
+		"potencia": 75,
+		"kilometraje": 0,
+		"precio": 10990,
+		"imagen": "img_enduro_701.webp",
+		"logo": "logo_husqvarna.png"
 	}
 ]
