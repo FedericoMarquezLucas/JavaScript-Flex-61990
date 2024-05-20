@@ -474,5 +474,19 @@
 		"precio": 10900,
 		"imagen": "img_zx6r.jpeg",
 		"logo": "logo_kawasaki.svg"
+	},
+	{
+		"id": 36,
+		"marca": "KTM",
+		"modelo": "1200 Super Adventure R",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 1290,
+		"cilindradaMedida": "cc",
+		"potencia": 160,
+		"kilometraje": 0,
+		"precio": 40900,
+		"imagen": "img_1290_super_adventure_r.jpeg",
+		"logo": "logo_ktm.png"
 	}
 ]
