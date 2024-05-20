@@ -460,5 +460,19 @@
 		"precio": 12900,
 		"imagen": "img_kx450.png",
 		"logo": "logo_kawasaki.svg"
+	},
+	{
+		"id": 35,
+		"marca": "Kawasaki",
+		"modelo": "ZX6-R",
+		"anio": 2010,
+		"condicion": "Usada",
+		"cilindrada": 600,
+		"cilindradaMedida": "cc",
+		"potencia": 130,
+		"kilometraje": 1500,
+		"precio": 10900,
+		"imagen": "img_zx6r.jpeg",
+		"logo": "logo_kawasaki.svg"
 	}
 ]
