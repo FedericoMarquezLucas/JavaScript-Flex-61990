@@ -478,7 +478,7 @@
 	{
 		"id": 36,
 		"marca": "KTM",
-		"modelo": "1200 Super Adventure R",
+		"modelo": "1290 Super Adventure R",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 1290,
@@ -487,6 +487,20 @@
 		"kilometraje": 0,
 		"precio": 40900,
 		"imagen": "img_1290_super_adventure_r.jpeg",
+		"logo": "logo_ktm.png"
+	},
+	{
+		"id": 37,
+		"marca": "KTM",
+		"modelo": "1290 Super Duke R",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 1290,
+		"cilindradaMedida": "cc",
+		"potencia": 180,
+		"kilometraje": 0,
+		"precio": 30900,
+		"imagen": "img_1290_super_duke_r.png",
 		"logo": "logo_ktm.png"
 	}
 ]
