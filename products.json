@@ -418,5 +418,19 @@
 		"precio": 17900,
 		"imagen": "img_fc_450.png",
 		"logo": "logo_husqvarna.png"
+	},
+	{
+		"id": 32,
+		"marca": "Husqvarna",
+		"modelo": "Vitpilen 701",
+		"anio": 2018,
+		"condicion": "Usada",
+		"cilindrada": 692,
+		"cilindradaMedida": "cc",
+		"potencia": 75,
+		"kilometraje": 15000,
+		"precio": 12900,
+		"imagen": "img_vitpilen_701.jpeg",
+		"logo": "logo_husqvarna.png"
 	}
 ]
