@@ -432,5 +432,33 @@
 		"precio": 12900,
 		"imagen": "img_vitpilen_701.jpeg",
 		"logo": "logo_husqvarna.png"
+	},
+	{
+		"id": 33,
+		"marca": "Kawasaki",
+		"modelo": "Z900 RS",
+		"anio": 2020,
+		"condicion": "Usada",
+		"cilindrada": 900,
+		"cilindradaMedida": "cc",
+		"potencia": 110,
+		"kilometraje": 12500,
+		"precio": 18900,
+		"imagen": "img_z900_rs.png",
+		"logo": "logo_kawasaki.svg"
+	},
+	{
+		"id": 34,
+		"marca": "Kawasaki",
+		"modelo": "KX450",
+		"anio": 2022,
+		"condicion": "Usada",
+		"cilindrada": 450,
+		"cilindradaMedida": "cc",
+		"potencia": 55,
+		"kilometraje": 1500,
+		"precio": 12900,
+		"imagen": "img_kx450.png",
+		"logo": "logo_kawasaki.svg"
 	}
 ]
