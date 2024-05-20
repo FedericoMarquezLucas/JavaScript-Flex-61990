@@ -236,5 +236,19 @@
 		"precio": 10990,
 		"imagen": "img_enduro_701.webp",
 		"logo": "logo_husqvarna.png"
+	},
+    {
+		"id": 18,
+		"marca": "Husqvarna",
+		"modelo": "Viptilen 401",
+		"anio": 2018,
+		"condicion": "Usada",
+		"cilindrada": 401,
+		"cilindradaMedida": "cc",
+		"potencia": 45,
+		"kilometraje": 8500,
+		"precio": 6900,
+		"imagen": "img_viptilen_401.avif",
+		"logo": "logo_husqvarna.png"
 	}
 ]
