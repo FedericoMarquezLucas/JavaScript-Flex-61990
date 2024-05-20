@@ -502,5 +502,19 @@
 		"precio": 30900,
 		"imagen": "img_1290_super_duke_r.png",
 		"logo": "logo_ktm.png"
+	},
+	{
+		"id": 38,
+		"marca": "Indian",
+		"modelo": "Challenger Elite",
+		"anio": 2022,
+		"condicion": "Nueva",
+		"cilindrada": 108,
+		"cilindradaMedida": "ci",
+		"potencia": 120,
+		"kilometraje": 0,
+		"precio": 50900,
+		"imagen": "img_challenger_elite.png",
+		"logo": "logo_ktm.png"
 	}
 ]
