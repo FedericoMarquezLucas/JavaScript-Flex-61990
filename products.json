@@ -306,5 +306,19 @@
 		"precio": 49900,
 		"imagen": "img_panigale_v4.webp",
 		"logo": "logo_ducati.png"
+	},
+    {
+		"id": 24,
+		"marca": "Ducati",
+		"modelo": "DesertX",
+		"anio": 2022,
+		"condicion": "Usada",
+		"cilindrada": 937,
+		"cilindradaMedida": "cc",
+		"potencia": 110,
+		"kilometraje": 10000,
+		"precio": 27900,
+		"imagen": "img_desertx.webp",
+		"logo": "logo_ducati.png"
 	}
 ]
