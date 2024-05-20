@@ -278,5 +278,19 @@
 		"precio": 1090,
 		"imagen": "img_jog.webp",
 		"logo": "logo_yamaha.png"
+	},
+    {
+		"id": 22,
+		"marca": "Harley Davidson",
+		"modelo": "Tri Glide Ultra",
+		"anio": 2024,
+		"condicion": "Nuevo",
+		"cilindrada": 114,
+		"cilindradaMedida": "ci",
+		"potencia": 90,
+		"kilometraje": 0,
+		"precio": 59900,
+		"imagen": "img_jog.webp",
+		"logo": "logo_harley_davidson.svg"
 	}
 ]
