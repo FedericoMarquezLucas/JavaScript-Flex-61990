@@ -250,5 +250,19 @@
 		"precio": 6900,
 		"imagen": "img_viptilen_401.avif",
 		"logo": "logo_husqvarna.png"
+	},
+    {
+		"id": 19,
+		"marca": "Yamaha",
+		"modelo": "XSR900",
+		"anio": 2020,
+		"condicion": "Usada",
+		"cilindrada": 900,
+		"cilindradaMedida": "cc",
+		"potencia": 115,
+		"kilometraje": 500,
+		"precio": 20900,
+		"imagen": "img_xsr900.avif",
+		"logo": "logo_yamaha.png"
 	}
 ]
