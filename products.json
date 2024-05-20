@@ -515,6 +515,20 @@
 		"kilometraje": 0,
 		"precio": 50900,
 		"imagen": "img_challenger_elite.png",
-		"logo": "logo_ktm.png"
+		"logo": "logo_indian.svg"
+	},
+	{
+		"id": 39,
+		"marca": "Indian",
+		"modelo": "FTR Rally",
+		"anio": 2022,
+		"condicion": "Nueva",
+		"cilindrada": 75,
+		"cilindradaMedida": "ci",
+		"potencia": 120,
+		"kilometraje": 0,
+		"precio": 35900,
+		"imagen": "img_ftr_rally.jpeg",
+		"logo": "logo_indian.svg"
 	}
 ]
