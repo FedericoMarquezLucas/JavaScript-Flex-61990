@@ -348,5 +348,19 @@
 		"precio": 20900,
 		"imagen": "img_fat_boy.jpeg",
 		"logo": "logo_harley_davidson.svg"
+	},
+	{
+		"id": 27,
+		"marca": "Harley Davidson",
+		"modelo": "Pan America",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 1250,
+		"cilindradaMedida": "cc",
+		"potencia": 150,
+		"kilometraje": 0,
+		"precio": 32900,
+		"imagen": "img_pan_america.png",
+		"logo": "logo_harley_davidson.svg"
 	}
 ]
