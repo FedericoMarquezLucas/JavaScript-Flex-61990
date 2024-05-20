@@ -362,5 +362,33 @@
 		"precio": 32900,
 		"imagen": "img_pan_america.png",
 		"logo": "logo_harley_davidson.svg"
+	},
+	{
+		"id": 28,
+		"marca": "BMW",
+		"modelo": "R 1200 GS Adventure",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 1200,
+		"cilindradaMedida": "cc",
+		"potencia": 125,
+		"kilometraje": 0,
+		"precio": 49900,
+		"imagen": "img_r1200_gs_adventure.jpeg",
+		"logo": "logo_bmw.png"
+	},
+	{
+		"id": 29,
+		"marca": "BMW",
+		"modelo": "S1000 RR",
+		"anio": 2020,
+		"condicion": "Usada",
+		"cilindrada": 1000,
+		"cilindradaMedida": "cc",
+		"potencia": 205,
+		"kilometraje": 15000,
+		"precio": 29900,
+		"imagen": "img_s1000_rr.avif",
+		"logo": "logo_bmw.png"
 	}
 ]
