@@ -292,5 +292,19 @@
 		"precio": 59900,
 		"imagen": "img_tri_glide_ultra.webp",
 		"logo": "logo_harley_davidson.svg"
+	},
+    {
+		"id": 23,
+		"marca": "Ducati",
+		"modelo": "Panigale V4",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 1100,
+		"cilindradaMedida": "cc",
+		"potencia": 210,
+		"kilometraje": 0,
+		"precio": 49900,
+		"imagen": "img_panigale_v4.webp",
+		"logo": "logo_ducati.png"
 	}
 ]
