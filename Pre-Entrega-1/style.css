@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 5%;
+    box-sizing: border-box;
+    background: #A770EF; 
+    background: -webkit-linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF);
+    background: linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF);
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Titillium Web', 'Arial', 'Helvetica', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 500;
+    line-height: 2.75rem;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+span {
+    font-family: 'Titillium Web', 'Arial', 'Helvetica', sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+}
