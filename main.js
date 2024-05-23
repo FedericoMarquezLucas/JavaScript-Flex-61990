@@ -1199,7 +1199,7 @@ const triggerModal = productoId => {
         <div x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
             <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
                 <div x-cloak @click="modelOpen = false" x-show="modelOpen" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 transition-opacity bg-gray-700 bg-opacity-80" aria-hidden="true"></div>
-                <div x-cloak x-show="modelOpen" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="inline-block w-full max-w-lg my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
+                <div x-cloak x-show="modelOpen" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="inline-block w-full max-w-xl my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
                     <div class="flex items-center justify-between space-x-4 bg-gray-100 p-8">
                         <div class="flex items-center gap-2">
                             <img src="./img/logo-img/${productoDetalleModal.logo}" class="w-auto h-[32.5px]">
@@ -1220,35 +1220,45 @@ const triggerModal = productoId => {
                             <img src="./img/product-img/${productoDetalleModal.imagen}" alt="" class="object-cover object-center">
                             ${nuevaBadge}
                         </div>
-                        <div class="pt-8">
-                            <ul>
-                                <li class="text-sm text-gray-700 mb-1">
-                                    <b>Marca:</b>
-                                    ${productoDetalleModal.marca}
-                                </li>
-                                <li class="text-sm text-gray-700 mb-1">
-                                    <b>Modelo:</b>
-                                    ${productoDetalleModal.modelo}
-                                </li>
-                                <li class="text-sm text-gray-700 mb-1">
-                                    <b>Año:</b>
-                                    ${productoDetalleModal.anio}
-                                </li>
-                                <li class="text-sm text-gray-700 mb-1">
-                                    <b>Cilindrada:</b>
-                                    ${productoDetalleModal.cilindrada}${productoDetalleModal.cilindradaMedida}
-                                </li>
-                                <li class="text-sm text-gray-700 mb-1">
-                                    <b>Potencia:</b>
-                                    ${productoDetalleModal.potencia}hp
-                                </li>
-                                <li class="text-sm text-gray-700">
-                                    <b>Kilometraje:</b>
-                                    ${kilometrajeFormateado}
-                                </li>
-                            </ul>
-                        </div>
+						<dl class="divide-y divide-gray-100 pt-8">
+							<div class="py-2.5 pt-0 grid grid-cols-3 sm:grid-cols-4 gap-4">
+								<dt class="text-sm font-bold leading-6 text-gray-900">Marca</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.marca}</dd>
+							</div>
+							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
+								<dt class="text-sm font-bold leading-6 text-gray-900">Modelo</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.modelo}</dd>
+							</div>
+							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
+								<dt class="text-sm font-bold leading-6 text-gray-900">Año</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.anio}</dd>
+							</div>
+							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
+								<dt class="text-sm font-bold leading-6 text-gray-900">Condición</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.condicion}</dd>
+							</div>
+							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
+								<dt class="text-sm font-bold leading-6 text-gray-900">Cilindrada</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.cilindrada}${productoDetalleModal.cilindradaMedida}</dd>
+							</div>
+							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
+								<dt class="text-sm font-bold leading-6 text-gray-900">Potencia</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.potencia}hp</dd>
+							</div>
+							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
+								<dt class="text-sm font-bold leading-6 text-gray-900">Kilometraje</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${kilometrajeFormateado}</dd>
+							</div>
+							<div class="py-2.5 pb-0 grid grid-cols-3 sm:grid-cols-4 gap-4">
+								<dt class="text-sm font-bold leading-6 text-gray-900">Precio</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">USD ${numeroFormateado(`${productoDetalleModal.precio}`)}</dd>
+							</div>
+						</dl>
                     </div>
+					<div class="pr-8 pb-8 pl-8 flex items-center flex-row-reverse">
+						<button type="button" class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ml-5" onclick="addToCart(${productoDetalleModal.id});animarCartCount()" @click="modelOpen = false">Add To Cart</button>
+						<button type="button" class="text-sm hover:underline font-semibold text-gray-900 shadow-sm sm:mt-0 sm:w-auto" @click="modelOpen = false">Cancelar</button>
+					</div>
                 </div>
             </div>
         </div>
@@ -1310,9 +1320,9 @@ const listadoProductosCart = array => {
 							<p class="text-xs text-gray-500"><b>Cantidad:</b> <span id="cart-producto-cantidad">${producto.count}</span></p>
 							<p class="text-xs text-gray-500"><b>Subtotal:</b> USD ${numeroFormateado(`${producto.precio * producto.count}`)}</p>
 						</div>
-						<div class="flex flex-col items-end gap-2.5">
+						<div class="flex flex-col items-end gap-3">
 							<div class="flex flex-row gap-1.5">
-								<button type="button" onclick="moverProducto(${producto.id}, 'arriba')" class="cursor-pointer font-medium text-indigo-600 hover:text-indigo-500">
+								<button id="botonMoverArriba" type="button" onclick="moverProducto(${producto.id}, 'arriba')" class="cursor-pointer font-medium text-indigo-600 hover:text-indigo-500">
 									<svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 										<path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z" clip-rule="evenodd" />
 									</svg>
