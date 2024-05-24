@@ -1297,7 +1297,12 @@ const listadoProductosCart = array => {
 
 	for (const producto of arraySinDuplicados) {
 		producto.kilometraje == '0' ? kilometrajeFormateado = '0km.' : kilometrajeFormateado = numeroFormateado(`${producto.precio}kms.`)
-		producto.condicion == 'Nueva' ? nuevaBadge = '<span class="absolute top-1.5 right-1.5 items-center rounded-full bg-purple-100 px-2 py-1 text-[.5rem] font-semibold text-purple-700">NUEVA</span>' : nuevaBadge = '<span class="sr-only"></span>'		
+		producto.condicion == 'Nueva' ? nuevaBadge = '<span class="absolute top-1.5 right-1.5 items-center rounded-full bg-purple-100 px-2 py-1 text-[.5rem] font-semibold text-purple-700">NUEVA</span>' : nuevaBadge = '<span class="sr-only"></span>'
+
+		const index = arraySinDuplicados.findIndex(product => product.id === producto.id)
+		let {hiddenFirst, hiddenLast} = ''
+		if (index == 0) hiddenFirst = 'hidden'
+		else if (index == arraySinDuplicados.length - 1) hiddenLast = 'hidden'
 
 		productoCart += `
 			<li class="flex py-6" id="product-${producto.id}">
@@ -1322,12 +1327,12 @@ const listadoProductosCart = array => {
 						</div>
 						<div class="flex flex-col items-end gap-3">
 							<div class="flex flex-row gap-1.5 ${hiddenButtons}">
-								<button id="botonMoverArriba" type="button" onclick="moverProducto(${producto.id}, 'arriba')" class="cursor-pointer font-medium text-indigo-600 hover:text-indigo-500">
+								<button id="botonMoverArriba" type="button" onclick="moverProducto(${producto.id}, 'arriba')" class="${hiddenFirst} cursor-pointer font-medium text-indigo-600 hover:text-indigo-500">
 									<svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 										<path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z" clip-rule="evenodd" />
 									</svg>
 								</button>
-								<button type="button" onclick="moverProducto(${producto.id}, 'abajo')" class="cursor-pointer font-medium text-indigo-600 hover:text-indigo-500">
+								<button type="button" onclick="moverProducto(${producto.id}, 'abajo')" class="${hiddenLast} cursor-pointer font-medium text-indigo-600 hover:text-indigo-500">
 									<svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 										<path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-.53 14.03a.75.75 0 0 0 1.06 0l3-3a.75.75 0 1 0-1.06-1.06l-1.72 1.72V8.25a.75.75 0 0 0-1.5 0v5.69l-1.72-1.72a.75.75 0 0 0-1.06 1.06l3 3Z" clip-rule="evenodd" />
 									</svg>
