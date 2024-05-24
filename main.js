@@ -819,6 +819,7 @@ SECTIONHEADING.innerHTML += `
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
                         </svg>
                     </button>
+					</button>
                     <button type="button" id="display-grid-button" class="relative -ml-px inline-flex items-center rounded-r-md bg-gray-200 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 focus:z-10">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125Z" />
@@ -897,36 +898,6 @@ SECTIONHEADING.innerHTML += `
                         </div>
 						<!-- END : FILTRO 'MARCA' -->
 
-						<!-- START : FILTRO 'CONDICION' -->
-                        <div class="relative inline-block text-left" id="labelFiltroCondicion" x-data="{ open: false }">
-                            <div>
-                                <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                                    Condición
-                                    <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <div x-show="open" x-on:click.away="open = false" class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                                <div class="p-5" role="none">
-                                    <fieldset>
-                                        <legend class="sr-only">Condición</legend>
-                                        <div class="space-y-2">
-                                            <div class="flex items-center">
-                                                <input id="Nueva" value="Nueva" name="filtro-condicion" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Nueva" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Nueva</label>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <input id="Usada" value="Usada" name="filtro-condicion" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Usada" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Usada</label>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </div>
-						<!-- END : FILTRO 'CONDICION' -->
-
 						<!-- START : FILTRO 'ESTILO' -->
                         <div class="relative inline-block text-left" id="labelFiltroEstilo" x-data="{ open: false }">
                             <div>
@@ -972,6 +943,106 @@ SECTIONHEADING.innerHTML += `
                             </div>
                         </div>
 						<!-- END : FILTRO 'ESTILO' -->
+
+						<!-- START : FILTRO 'AÑO' -->
+                        <div class="relative inline-block text-left" id="labelFiltroAnio" x-data="{ open: false }">
+                            <div>
+                                <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                    Año
+                                    <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div x-show="open" x-on:click.away="open = false" class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                                <div class="p-5" role="none">
+                                    <fieldset>
+                                        <legend class="sr-only">Año</legend>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center">
+                                                <input id="2024" value="2024" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="2024" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2024</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="2023" value="2023" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="2023" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2023</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="2022" value="2022" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="2022" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2022</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="2020" value="2020" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="2020" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2020</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="2019" value="2019" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="2019" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2019</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="2018" value="2018" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="2018" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2018</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="2015" value="2015" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="2015" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2015</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="2013" value="2013" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="2013" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2013</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="2011" value="2011" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="2011" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2011</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="2010" value="2010" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="2010" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2010</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="2003" value="2003" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="2003" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2003</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="1990" value="1990" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="1990" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">1990</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+						<!-- END : FILTRO 'AÑO' -->
+
+						<!-- START : FILTRO 'CONDICION' -->
+                        <div class="relative inline-block text-left" id="labelFiltroCondicion" x-data="{ open: false }">
+                            <div>
+                                <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                    Condición
+                                    <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div x-show="open" x-on:click.away="open = false" class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                                <div class="p-5" role="none">
+                                    <fieldset>
+                                        <legend class="sr-only">Condición</legend>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center">
+                                                <input id="Nueva" value="Nueva" name="filtro-condicion" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="Nueva" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Nueva</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="Usada" value="Usada" name="filtro-condicion" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="Usada" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Usada</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+						<!-- END : FILTRO 'CONDICION' -->
 
                     </div>
 
@@ -1158,11 +1229,13 @@ const filtrarPorMarca = marca => {
 	const arrayFiltradoPorMarca = []
     // const arrayFiltradoPorMarca = JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marca)
 
-	if (condicionFiltradaActiva) {
-		if (condicionFiltradaActiva && estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
-		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
-	} else if (estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
-    else PRODUCTOS.filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
+	if (estiloFiltradoActivo) {
+		if (estiloFiltradoActivo && anioFiltradoActivo && condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.anio == anioFiltradoActivo).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
+		else if (estiloFiltradoActivo && anioFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.anio == anioFiltradoActivo).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
+		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
+	} else if (anioFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.anio == anioFiltradoActivo).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
+	else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
+	else PRODUCTOS.filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
 
     cargaGrillaDeProductos(arrayFiltradoPorMarca, true)
     // localStorage.setItem('PRODUCTOS', JSON.stringify(PRODUCTOS))
@@ -1201,44 +1274,16 @@ arrayRadioButtonsMarca.forEach(button => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// FILTRO POR 'CONDICIÓN'.
-const filtrarPorCondicion = condicion => {
-    const arrayFiltradoPorCondicion = []
-    
-    if (marcaFiltradaActiva) {
-		if (marcaFiltradaActiva && estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
-		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
-	} else if (estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
-    else PRODUCTOS.filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
-
-    cargaGrillaDeProductos(arrayFiltradoPorCondicion, true)
-}
-
-let condicionFiltradaActiva = ''
-const radioButtonsCondicion = document.querySelectorAll('input[name="filtro-condicion"]')
-arrayRadioButtonsCondicion = Array.from(radioButtonsCondicion)
-arrayRadioButtonsCondicion.forEach(button => {
-    button.addEventListener('change', () => {
-        if (button.checked) {
-            filtrarPorCondicion(button.value)
-            condicionFiltradaActiva = button.value
-            toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
-            toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
-            toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
-        }
-    })
-})
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
 // FILTRO POR 'ESTILO'.
 const filtrarPorEstilo = estilo => {
     const arrayFiltradoPorEstilo = []
 
     if (marcaFiltradaActiva) {
-		if (marcaFiltradaActiva && condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
+		if (marcaFiltradaActiva && anioFiltradoActivo && condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.anio == anioFiltradoActivo).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
+		else if (marcaFiltradaActiva && condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
 		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
-	} else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
+	} else if (anioFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.anio == anioFiltradoActivo).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
+	else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
     else PRODUCTOS.filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
 
     cargaGrillaDeProductos(arrayFiltradoPorEstilo, true)
@@ -1252,6 +1297,70 @@ arrayRadioButtonsEstilo.forEach(button => {
         if (button.checked) {
             filtrarPorEstilo(button.value)
 			estiloFiltradoActivo = button.value
+            toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
+            toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
+            toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
+        }
+    })
+})
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// FILTRO POR 'AÑO'.
+const filtrarPorAnio = anio => {
+    const arrayFiltradoPorCondicion = []
+    
+    if (marcaFiltradaActiva) {
+		if (marcaFiltradaActiva && estiloFiltradoActivo && condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+		else if (marcaFiltradaActiva && estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+	} else if (estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+	else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+    else PRODUCTOS.filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+
+    cargaGrillaDeProductos(arrayFiltradoPorCondicion, true)
+}
+
+let anioFiltradoActivo = ''
+const radioButtonsAnio = document.querySelectorAll('input[name="filtro-anio"]')
+arrayRadioButtonsAnio = Array.from(radioButtonsAnio)
+arrayRadioButtonsAnio.forEach(button => {
+    button.addEventListener('change', () => {
+        if (button.checked) {
+            filtrarPorAnio(button.value)
+            anioFiltradoActivo = button.value
+            toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
+            toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
+            toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
+        }
+    })
+})
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// FILTRO POR 'CONDICIÓN'.
+const filtrarPorCondicion = condicion => {
+    const arrayFiltradoPorCondicion = []
+    
+    if (marcaFiltradaActiva) {
+		if (marcaFiltradaActiva && estiloFiltradoActivo && anioFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.anio == anioFiltradoActivo).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+		else if (marcaFiltradaActiva && estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+	} else if (estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+	else if (anioFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.anio == anioFiltradoActivo).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+    else PRODUCTOS.filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+
+    cargaGrillaDeProductos(arrayFiltradoPorCondicion, true)
+}
+
+let condicionFiltradaActiva = ''
+const radioButtonsCondicion = document.querySelectorAll('input[name="filtro-condicion"]')
+arrayRadioButtonsCondicion = Array.from(radioButtonsCondicion)
+arrayRadioButtonsCondicion.forEach(button => {
+    button.addEventListener('change', () => {
+        if (button.checked) {
+            filtrarPorCondicion(button.value)
+            condicionFiltradaActiva = button.value
             toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
             toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
             toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
