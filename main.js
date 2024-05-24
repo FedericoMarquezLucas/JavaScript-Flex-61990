@@ -838,6 +838,8 @@ SECTIONHEADING.innerHTML += `
                     <!-- DROPDOWN FILTERS -->
                     <div class="flex items-center space-x-2">
                         <h3 class="text-xs text-gray-700 font-bold">Filtrar:</h3>
+
+						<!-- START : FILTRO 'MARCA' -->
                         <div class="relative inline-block text-left" id="labelFiltroMarca" x-data="{ open: false }">
                             <div>
                                 <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
@@ -893,6 +895,9 @@ SECTIONHEADING.innerHTML += `
                                 </div>
                             </div>
                         </div>
+						<!-- END : FILTRO 'MARCA' -->
+
+						<!-- START : FILTRO 'CONDICION' -->
                         <div class="relative inline-block text-left" id="labelFiltroCondicion" x-data="{ open: false }">
                             <div>
                                 <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
@@ -920,6 +925,54 @@ SECTIONHEADING.innerHTML += `
                                 </div>
                             </div>
                         </div>
+						<!-- END : FILTRO 'CONDICION' -->
+
+						<!-- START : FILTRO 'ESTILO' -->
+                        <div class="relative inline-block text-left" id="labelFiltroEstilo" x-data="{ open: false }">
+                            <div>
+                                <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                    Estilo
+                                    <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div x-show="open" x-on:click.away="open = false" class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                                <div class="p-5" role="none">
+                                    <fieldset>
+                                        <legend class="sr-only">Condición</legend>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center">
+                                                <input id="Cross" value="Cross" name="filtro-estilo" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="Cross" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Cross</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="Cruiser" value="Cruiser" name="filtro-estilo" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="Cruiser" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Cruiser</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="Enduro" value="Enduro" name="filtro-estilo" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="Enduro" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Enduro</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="Scooter" value="Scooter" name="filtro-estilo" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="Scooter" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Scooter</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="Sport" value="Sport" name="filtro-estilo" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="Sport" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Sport</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="Street" value="Street" name="filtro-estilo" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="Street" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Street</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+						<!-- END : FILTRO 'ESTILO' -->
+
                     </div>
 
                     <!-- SORTING BUTTONS -->
@@ -1100,14 +1153,21 @@ cargaGrillaDeProductos(PRODUCTOS, false)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// ARRAY FILTRADO POR MARCA.
+// FILTRO POR 'MARCA'.
 const filtrarPorMarca = marca => {
-    const arrayFiltradoPorMarca = JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marca)
-    cargaGrillaDeProductos(arrayFiltradoPorMarca, false)
-    localStorage.setItem('PRODUCTOS', JSON.stringify(PRODUCTOS))
+	const arrayFiltradoPorMarca = []
+    // const arrayFiltradoPorMarca = JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marca)
+
+	if (condicionFiltradaActiva) {
+		if (condicionFiltradaActiva && estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
+		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
+	} else if (estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
+    else PRODUCTOS.filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
+
+    cargaGrillaDeProductos(arrayFiltradoPorMarca, true)
+    // localStorage.setItem('PRODUCTOS', JSON.stringify(PRODUCTOS))
 }
 
-// FILTRO POR MARCA CADA VEZ QUE SELECCIONAN UN FILTRO DISPONIBLE.
 let marcaFiltradaActiva = ''
 const radioButtonsMarca = document.querySelectorAll('input[name="filtro-marca"]')
 arrayRadioButtonsMarca = Array.from(radioButtonsMarca)
@@ -1125,38 +1185,73 @@ arrayRadioButtonsMarca.forEach(button => {
 })
 
 // MUESTRO LA CANTIDAD DE RESULTADOS POR MARCA EN CADA OPCIÓN DEL FILTRO.
-productosReducidosPorMarca = JSON.parse(localStorage.getItem('PRODUCTOS'))
+// productosReducidosPorMarca = JSON.parse(localStorage.getItem('PRODUCTOS'))
 
-const agrupadoPorMarca = productosReducidosPorMarca.reduce((acc, item) => {
-    acc[item.marca] = (acc[item.marca] || 0) + 1
-    return acc
-}, {})
+// const agrupadoPorMarca = productosReducidosPorMarca.reduce((acc, item) => {
+//     acc[item.marca] = (acc[item.marca] || 0) + 1
+//     return acc
+// }, {})
 
-const labelsMarca = document.querySelectorAll('#labelFiltroMarca label')
-labelsMarca.forEach(label => {
-    const marca = label.getAttribute('for')
-    const contador = agrupadoPorMarca[marca] || 0
-    label.textContent += ` (${contador})`
-})
+// const labelsMarca = document.querySelectorAll('#labelFiltroMarca label')
+// labelsMarca.forEach(label => {
+//     const marca = label.getAttribute('for')
+//     const contador = agrupadoPorMarca[marca] || 0
+//     label.textContent += ` (${contador})`
+// })
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// FILTRO POR CONDICIÓN EL ARRAY RECIBIDO LUEGO DE FILTRARLO POR MARCA ACTIVA.
+// FILTRO POR 'CONDICIÓN'.
 const filtrarPorCondicion = condicion => {
     const arrayFiltradoPorCondicion = []
     
-    if (marcaFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+    if (marcaFiltradaActiva) {
+		if (marcaFiltradaActiva && estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+	} else if (estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
     else PRODUCTOS.filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
 
     cargaGrillaDeProductos(arrayFiltradoPorCondicion, true)
 }
 
+let condicionFiltradaActiva = ''
 const radioButtonsCondicion = document.querySelectorAll('input[name="filtro-condicion"]')
 arrayRadioButtonsCondicion = Array.from(radioButtonsCondicion)
 arrayRadioButtonsCondicion.forEach(button => {
     button.addEventListener('change', () => {
         if (button.checked) {
             filtrarPorCondicion(button.value)
+            condicionFiltradaActiva = button.value
+            toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
+            toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
+            toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
+        }
+    })
+})
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// FILTRO POR 'ESTILO'.
+const filtrarPorEstilo = estilo => {
+    const arrayFiltradoPorEstilo = []
+
+    if (marcaFiltradaActiva) {
+		if (marcaFiltradaActiva && condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
+		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
+	} else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
+    else PRODUCTOS.filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
+
+    cargaGrillaDeProductos(arrayFiltradoPorEstilo, true)
+}
+
+let estiloFiltradoActivo = ''
+const radioButtonsEstilo = document.querySelectorAll('input[name="filtro-estilo"]')
+arrayRadioButtonsEstilo = Array.from(radioButtonsEstilo)
+arrayRadioButtonsEstilo.forEach(button => {
+    button.addEventListener('change', () => {
+        if (button.checked) {
+            filtrarPorEstilo(button.value)
+			estiloFiltradoActivo = button.value
             toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
             toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
             toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
