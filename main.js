@@ -6,6 +6,7 @@ const PRODUCTOS =
 		"id": 1,
 		"marca": "Harley Davidson",
 		"modelo": "Softail Deluxe FLSTN",
+		"estilo": "Cruiser",
 		"anio": 2011,
 		"condicion": "Usada",
 		"cilindrada": 103,
@@ -20,6 +21,7 @@ const PRODUCTOS =
 		"id": 2,
 		"marca": "Harley Davidson",
 		"modelo": "Sportster Forty Eight",
+		"estilo": "Cruiser",
 		"anio": 2013,
 		"condicion": "Usada",
 		"cilindrada": 1200,
@@ -34,6 +36,7 @@ const PRODUCTOS =
 		"id": 3,
 		"marca": "Ducati",
 		"modelo": "Multistrada V4",
+		"estilo": "Enduro",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 1158,
@@ -48,6 +51,7 @@ const PRODUCTOS =
 		"id": 4,
 		"marca": "KTM",
 		"modelo": "1190 Adventure R",
+		"estilo": "Enduro",
 		"anio": 2015,
 		"condicion": "Usada",
 		"cilindrada": 1190,
@@ -62,6 +66,7 @@ const PRODUCTOS =
 		"id": 5,
 		"marca": "Kawasaki",
 		"modelo": "ZX-10R",
+		"estilo": "Sport",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 998,
@@ -76,6 +81,7 @@ const PRODUCTOS =
 		"id": 6,
 		"marca": "Husqvarna",
 		"modelo": "Svartpilen 701",
+		"estilo": "Street",
 		"anio": 2020,
 		"condicion": "Usada",
 		"cilindrada": 692,
@@ -90,6 +96,7 @@ const PRODUCTOS =
 		"id": 7,
 		"marca": "BMW",
 		"modelo": "M 1000R",
+		"estilo": "Sport",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 999,
@@ -104,6 +111,7 @@ const PRODUCTOS =
 		"id": 8,
 		"marca": "Yamaha",
 		"modelo": "MT-09",
+		"estilo": "Street",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 890,
@@ -118,6 +126,7 @@ const PRODUCTOS =
 		"id": 9,
 		"marca": "Triumph",
 		"modelo": "Scrambler 1200 X",
+		"estilo": "Enduro",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 1200,
@@ -132,6 +141,7 @@ const PRODUCTOS =
 		"id": 10,
 		"marca": "Harley Davidson",
 		"modelo": "Road Glide CVO",
+		"estilo": "Cruiser",
 		"anio": 2020,
 		"condicion": "Nueva",
 		"cilindrada": 117,
@@ -146,6 +156,7 @@ const PRODUCTOS =
 		"id": 11,
 		"marca": "Harley Davidson",
 		"modelo": "Sportster S",
+		"estilo": "Street",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 76,
@@ -160,6 +171,7 @@ const PRODUCTOS =
 		"id": 12,
 		"marca": "Ducati",
 		"modelo": "Hypermotard 950 SP",
+		"estilo": "Enduro",
 		"anio": 2018,
 		"condicion": "Usada",
 		"cilindrada": 950,
@@ -174,6 +186,7 @@ const PRODUCTOS =
 		"id": 13,
 		"marca": "Ducati",
 		"modelo": "Scrambler 1100 Tribute",
+		"estilo": "Street",
 		"anio": 2018,
 		"condicion": "Usada",
 		"cilindrada": 1100,
@@ -188,6 +201,7 @@ const PRODUCTOS =
 		"id": 14,
 		"marca": "Indian",
 		"modelo": "Chief Classic",
+		"estilo": "Cruiser",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 110,
@@ -202,6 +216,7 @@ const PRODUCTOS =
 		"id": 15,
 		"marca": "Yamaha",
 		"modelo": "YZ125",
+		"estilo": "Cross",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 125,
@@ -216,6 +231,7 @@ const PRODUCTOS =
 		"id": 16,
 		"marca": "Husqvarna",
 		"modelo": "Norden 901",
+		"estilo": "Enduro",
 		"anio": 2022,
 		"condicion": "Usada",
 		"cilindrada": 901,
@@ -230,6 +246,7 @@ const PRODUCTOS =
 		"id": 17,
 		"marca": "Husqvarna",
 		"modelo": "Enduro 701",
+		"estilo": "Enduro",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 701,
@@ -244,6 +261,7 @@ const PRODUCTOS =
 		"id": 18,
 		"marca": "Husqvarna",
 		"modelo": "Viptilen 401",
+		"estilo": "Street",
 		"anio": 2018,
 		"condicion": "Usada",
 		"cilindrada": 401,
@@ -258,6 +276,7 @@ const PRODUCTOS =
 		"id": 19,
 		"marca": "Yamaha",
 		"modelo": "XSR900",
+		"estilo": "Street",
 		"anio": 2020,
 		"condicion": "Usada",
 		"cilindrada": 900,
@@ -272,6 +291,7 @@ const PRODUCTOS =
 		"id": 20,
 		"marca": "Yamaha",
 		"modelo": "Jog",
+		"estilo": "Scooter",
 		"anio": 1990,
 		"condicion": "Usada",
 		"cilindrada": 45,
@@ -286,6 +306,7 @@ const PRODUCTOS =
 		"id": 22,
 		"marca": "Harley Davidson",
 		"modelo": "Tri Glide Ultra",
+		"estilo": "Cruiser",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 114,
@@ -300,6 +321,7 @@ const PRODUCTOS =
 		"id": 23,
 		"marca": "Ducati",
 		"modelo": "Panigale V4",
+		"estilo": "Sport",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 1100,
@@ -314,6 +336,7 @@ const PRODUCTOS =
 		"id": 24,
 		"marca": "Ducati",
 		"modelo": "DesertX",
+		"estilo": "Enduro",
 		"anio": 2022,
 		"condicion": "Usada",
 		"cilindrada": 937,
@@ -328,6 +351,7 @@ const PRODUCTOS =
 		"id": 25,
 		"marca": "Ducati",
 		"modelo": "XDiavel",
+		"estilo": "Street",
 		"anio": 2018,
 		"condicion": "Usada",
 		"cilindrada": 1262,
@@ -342,6 +366,7 @@ const PRODUCTOS =
 		"id": 26,
 		"marca": "Harley Davidson",
 		"modelo": "Fat Boy",
+		"estilo": "Cruiser",
 		"anio": 2003,
 		"condicion": "Usada",
 		"cilindrada": 1450,
@@ -356,6 +381,7 @@ const PRODUCTOS =
 		"id": 27,
 		"marca": "Harley Davidson",
 		"modelo": "Pan America",
+		"estilo": "Enduro",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 1250,
@@ -370,6 +396,7 @@ const PRODUCTOS =
 		"id": 28,
 		"marca": "BMW",
 		"modelo": "R 1200 GS Adventure",
+		"estilo": "Enduro",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 1200,
@@ -384,6 +411,7 @@ const PRODUCTOS =
 		"id": 29,
 		"marca": "BMW",
 		"modelo": "S1000 RR",
+		"estilo": "Sport",
 		"anio": 2020,
 		"condicion": "Usada",
 		"cilindrada": 1000,
@@ -398,6 +426,7 @@ const PRODUCTOS =
 		"id": 30,
 		"marca": "BMW",
 		"modelo": "CE 04",
+		"estilo": "Scooter",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 0,
@@ -412,6 +441,7 @@ const PRODUCTOS =
 		"id": 31,
 		"marca": "Husqvarna",
 		"modelo": "FC 450",
+		"estilo": "Cross",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 450,
@@ -426,6 +456,7 @@ const PRODUCTOS =
 		"id": 32,
 		"marca": "Husqvarna",
 		"modelo": "Vitpilen 701",
+		"estilo": "Street",
 		"anio": 2018,
 		"condicion": "Usada",
 		"cilindrada": 692,
@@ -440,6 +471,7 @@ const PRODUCTOS =
 		"id": 33,
 		"marca": "Kawasaki",
 		"modelo": "Z900 RS",
+		"estilo": "Street",
 		"anio": 2020,
 		"condicion": "Usada",
 		"cilindrada": 900,
@@ -454,6 +486,7 @@ const PRODUCTOS =
 		"id": 34,
 		"marca": "Kawasaki",
 		"modelo": "KX450",
+		"estilo": "Cross",
 		"anio": 2022,
 		"condicion": "Usada",
 		"cilindrada": 450,
@@ -468,6 +501,7 @@ const PRODUCTOS =
 		"id": 35,
 		"marca": "Kawasaki",
 		"modelo": "ZX6-R",
+		"estilo": "Sport",
 		"anio": 2010,
 		"condicion": "Usada",
 		"cilindrada": 600,
@@ -482,6 +516,7 @@ const PRODUCTOS =
 		"id": 36,
 		"marca": "KTM",
 		"modelo": "1290 Super Adventure R",
+		"estilo": "Enduro",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 1290,
@@ -496,6 +531,7 @@ const PRODUCTOS =
 		"id": 37,
 		"marca": "KTM",
 		"modelo": "1290 Super Duke R",
+		"estilo": "Street",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 1290,
@@ -510,6 +546,7 @@ const PRODUCTOS =
 		"id": 38,
 		"marca": "Indian",
 		"modelo": "Challenger Elite",
+		"estilo": "Cruiser",
 		"anio": 2022,
 		"condicion": "Nueva",
 		"cilindrada": 108,
@@ -524,6 +561,7 @@ const PRODUCTOS =
 		"id": 39,
 		"marca": "Indian",
 		"modelo": "FTR Rally",
+		"estilo": "Street",
 		"anio": 2022,
 		"condicion": "Nueva",
 		"cilindrada": 75,
@@ -538,6 +576,7 @@ const PRODUCTOS =
 		"id": 40,
 		"marca": "Triumph",
 		"modelo": "Rocket 3 GT",
+		"estilo": "Street",
 		"anio": 2022,
 		"condicion": "Usada",
 		"cilindrada": 2500,
@@ -552,6 +591,7 @@ const PRODUCTOS =
 		"id": 41,
 		"marca": "Triumph",
 		"modelo": "Tiger 1200 Rally Pro",
+		"estilo": "Enduro",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 1200,
@@ -566,6 +606,7 @@ const PRODUCTOS =
 		"id": 42,
 		"marca": "Triumph",
 		"modelo": "Thruxton RS",
+		"estilo": "Street",
 		"anio": 2020,
 		"condicion": "Usada",
 		"cilindrada": 1200,
@@ -580,6 +621,7 @@ const PRODUCTOS =
 		"id": 43,
 		"marca": "Ducati",
 		"modelo": "Monster 1100 EVO",
+		"estilo": "Street",
 		"anio": 2020,
 		"condicion": "Usada",
 		"cilindrada": 1100,
@@ -594,6 +636,7 @@ const PRODUCTOS =
 		"id": 44,
 		"marca": "Indian",
 		"modelo": "Scout Bobber",
+		"estilo": "Cruiser",
 		"anio": 2020,
 		"condicion": "Usada",
 		"cilindrada": 70,
@@ -608,6 +651,7 @@ const PRODUCTOS =
 		"id": 45,
 		"marca": "KTM",
 		"modelo": "125 SX",
+		"estilo": "Cross",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 125,
@@ -622,6 +666,7 @@ const PRODUCTOS =
 		"id": 46,
 		"marca": "KTM",
 		"modelo": "RC 200",
+		"estilo": "Sport",
 		"anio": 2024,
 		"condicion": "Nueva",
 		"cilindrada": 200,
@@ -636,6 +681,7 @@ const PRODUCTOS =
 		"id": 47,
 		"marca": "Triumph",
 		"modelo": "Bonneville T120",
+		"estilo": "Street",
 		"anio": 2019,
 		"condicion": "Usada",
 		"cilindrada": 1200,
@@ -650,6 +696,7 @@ const PRODUCTOS =
 		"id": 48,
 		"marca": "Harley Davidson",
 		"modelo": "Road King Classic",
+		"estilo": "Cruiser",
 		"anio": 2015,
 		"condicion": "Usada",
 		"cilindrada": 103,
@@ -664,6 +711,7 @@ const PRODUCTOS =
 		"id": 49,
 		"marca": "Harley Davidson",
 		"modelo": "Sportster Seventy Two",
+		"estilo": "Cruiser",
 		"anio": 2018,
 		"condicion": "Usada",
 		"cilindrada": 1200,
@@ -1162,11 +1210,7 @@ document.getElementById('ordenarReciente').addEventListener('click', () => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
-    - GENERO LISTADO INICIAL SIN FILTROS APLICADOS.
-    - REMUEVO/RESETEADO ESTADOS INICIALES A ELEMENTOS RELACIONADOS CON LOS FILTROS.
-*/
-
+// GENERO LISTADO INICIAL SIN FILTROS APLICADOS.
 document.getElementById('borrarFiltros').addEventListener('click', () => listadoProductos())
 
 const listadoProductos = () => {
@@ -1184,11 +1228,7 @@ const listadoProductos = () => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
-    - GENERO EL MODAL CONTENT A PARTIR DEL ID RECIBIDO EN LA FUNCIÓN.
-    - TRAIGO EL ARRAY DE PRODUCTOS ALMACENADOS EN LOCALSTORAGE COMO STRING.
-*/
-
+// GENERO EL MODAL CONTENT A PARTIR DEL ID RECIBIDO EN LA FUNCIÓN.
 const triggerModal = productoId => {
     const productoDetalleModal = PRODUCTOS.find(producto => producto.id === productoId)
     productoDetalleModal.kilometraje == '0' ? kilometrajeFormateado = '0km.' : kilometrajeFormateado = numeroFormateado(`${productoDetalleModal.precio}kms.`)
@@ -1228,6 +1268,10 @@ const triggerModal = productoId => {
 							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
 								<dt class="text-sm font-bold leading-6 text-gray-900">Modelo</dt>
 								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.modelo}</dd>
+							</div>
+							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
+								<dt class="text-sm font-bold leading-6 text-gray-900">Estilo</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.estilo}</dd>
 							</div>
 							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
 								<dt class="text-sm font-bold leading-6 text-gray-900">Año</dt>
