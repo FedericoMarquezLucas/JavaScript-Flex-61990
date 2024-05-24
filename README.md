@@ -1,18 +1,29 @@
-# Pre-Entrega #1 | JavaScript Flex 61990 | CODERHOUSE
+# Pre-Entrega #2 | JavaScript Flex 61990 | CODERHOUSE
 
 ### - Federico Márquez Lucas -
 
 ## Descripción
-Para esta primera entrega, se construye un simulador que permite la carga de productos y atributos relacionados a los mismo; luego a ser usados potencialmente en un eCommerce.
-El producto al que está orientado es una **Moto**, y los atributos relacionados usados en esta aplicación interactiva fueron los siguientes: *marca*, *modelo*, *año*, *condición*, *cilindrada*, *kilometraje*, *precio*.
+Para esta segunda entrega, se genera un eCommerce básico que permite simular un proceso de búsqueda, listado y agregado de productos al carro.
 
-Para poder mostrar todos los contenidos vistar en clases, se generar **cuatro acciones** que interactúan con el usuario de varias formas utilizando diferentes recursos.
-Las interacciones son las siguientes:
-- Agregar
-- Editar
-- Eliminar
-- Listar
+De manera de poder mostrar las herramientas vistas en clase, el eCommerce interactúa con el usuario de las siguientes formas:
+- Listado de Productos.
+- Filtrado de Productos.
+- Ordenado de Productos.
+- Detalle de Productos.
+- Agregado de Productos al Carrito.
+- Remover Productos del Carrito.
 
-El simulador fue construído tomando como base lo visto en las primeras cuatro clases, junto con las condiciones y requerimientos estipulados en la consigna subida a la plataforma - [JavaScript Flex Pre-Entrega 1](https://docs.google.com/presentation/d/1O2x6rbzwaFE2m7vQoPt7ORGjVQHEZqDLHseIT0qSKVc/edit#slide=id.p1) .
+Para desarrollar las funcionalidades detalladas, se hizo uso de las siguientes herramientas:
+- **variables**
+- **objetos**
+- **arrays**
+- **métodos**
+- **funciones**
+- **funciones del orden superior**
+- **localStorage**
+- **condicionales**
+- **ciclos**
 
-Previsualización del simulador subido a **GitHub Pages** en [este link](https://federicomarquezlucas.github.io/JavaScript-Flex-61990/) .
+El simulador fue construído tomando como base los conocimientos vistos en las primeras cuatro clases, sumado y complementado con **Funciones del Orden Superior** y **DOM**, junto con las condiciones y requerimientos estipulados en la consigna subida a la plataforma - [JavaScript Flex Pre-Entrega 2](https://docs.google.com/presentation/d/1Z0cqec99CVmRW605xbFUZ6jg4JkzbhNn-8t6f7h2XUQ/edit#slide=id.p2) .
+
+Previsualización del eCommerce subido a **GitHub Pages** en [este link](https://federicomarquezlucas.github.io/JavaScript-Flex-61990/) .
