@@ -24,6 +24,6 @@ Para desarrollar las funcionalidades detalladas, se hizo uso de las siguientes h
 - **condicionales**
 - **ciclos**
 
-El simulador fue construído tomando como base los conocimientos vistos en las primeras cuatro clases, sumado y complementado con **Funciones del Orden Superior** y **DOM**, junto con las condiciones y requerimientos estipulados en la consigna subida a la plataforma - [JavaScript Flex Pre-Entrega 2](https://docs.google.com/presentation/d/1Z0cqec99CVmRW605xbFUZ6jg4JkzbhNn-8t6f7h2XUQ/edit#slide=id.p2) .
+El simulador de eCommerce fue construído tomando como base los conocimientos vistos en las primeras cuatro clases, complementado con **Funciones del Orden Superior** y **DOM**, enmarcándose dentro de las condiciones y requerimientos estipulados en la consigna subida a la plataforma - [JavaScript Flex Pre-Entrega 2](https://docs.google.com/presentation/d/1Z0cqec99CVmRW605xbFUZ6jg4JkzbhNn-8t6f7h2XUQ/edit#slide=id.p2) .
 
 Previsualización del eCommerce subido a **GitHub Pages** en [este link](https://federicomarquezlucas.github.io/JavaScript-Flex-61990/) .
