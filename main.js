@@ -741,7 +741,7 @@ HEADER.innerHTML += `
 		
 		<!-- START : SHOPPING CART SLIDE-OVER -->
 		<div x-data="{ openSlideOver: false }">
-			<button x-on:click="openSlideOver = true" class="relative">
+			<button x-on:click="openSlideOver = true" class="relative" title="Carrito">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
 					<path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />
 				</svg>
@@ -814,13 +814,13 @@ SECTIONHEADING.innerHTML += `
 
                 <!-- START : DISPLAY SELECTOR -->
                 <span class="isolate hidden lg:inline-flex rounded-md shadow-sm">
-                    <button type="button" id="display-table-button" class="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">
+                    <button type="button" id="display-table-button" class="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10" title="Display Tabla">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
                         </svg>
                     </button>
 					</button>
-                    <button type="button" id="display-grid-button" class="relative -ml-px inline-flex items-center rounded-r-md bg-gray-200 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 focus:z-10">
+                    <button type="button" id="display-grid-button" class="relative -ml-px inline-flex items-center rounded-r-md bg-gray-200 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 focus:z-10" title="Display Grilla">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125Z" />
                         </svg>
@@ -1049,19 +1049,19 @@ SECTIONHEADING.innerHTML += `
                     <!-- SORTING BUTTONS -->
                     <div class="flex items-center space-x-2">
                         <h3 class="text-xs text-gray-700 font-bold">Ordenar:</h3>
-                        <button type="button" id="ordenarPrecioAsc" class="inline-flex items-center gap-x-1.5 rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                        <button type="button" id="ordenarPrecioAsc" class="inline-flex items-center gap-x-1.5 rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" title="Precio Ascendente">
 							Precio
 							<svg class="-mr-0.5 h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 								<path fill-rule="evenodd" d="M2.25 4.5A.75.75 0 0 1 3 3.75h14.25a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75Zm0 4.5A.75.75 0 0 1 3 8.25h9.75a.75.75 0 0 1 0 1.5H3A.75.75 0 0 1 2.25 9Zm15-.75A.75.75 0 0 1 18 9v10.19l2.47-2.47a.75.75 0 1 1 1.06 1.06l-3.75 3.75a.75.75 0 0 1-1.06 0l-3.75-3.75a.75.75 0 1 1 1.06-1.06l2.47 2.47V9a.75.75 0 0 1 .75-.75Zm-15 5.25a.75.75 0 0 1 .75-.75h9.75a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
 							</svg>
 						</button>
-                        <button type="button" id="ordenarPrecioDes" class="inline-flex items-center gap-x-1.5 rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                        <button type="button" id="ordenarPrecioDes" class="inline-flex items-center gap-x-1.5 rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" title="Precio Descendente">
 							Precio
 							<svg class="-mr-0.5 h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 								<path fill-rule="evenodd" d="M2.25 4.5A.75.75 0 0 1 3 3.75h14.25a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75Zm14.47 3.97a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 1 1-1.06 1.06L18 10.81V21a.75.75 0 0 1-1.5 0V10.81l-2.47 2.47a.75.75 0 1 1-1.06-1.06l3.75-3.75ZM2.25 9A.75.75 0 0 1 3 8.25h9.75a.75.75 0 0 1 0 1.5H3A.75.75 0 0 1 2.25 9Zm0 4.5a.75.75 0 0 1 .75-.75h5.25a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
 							</svg>						  
 						</button>
-                        <button type="button" id="ordenarReciente" class="inline-flex items-center gap-x-1 rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                        <button type="button" id="ordenarReciente" class="inline-flex items-center gap-x-1 rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" title="Recientes">
 							Recientes
 							<svg class="-mr-0.5 h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
@@ -1073,7 +1073,7 @@ SECTIONHEADING.innerHTML += `
 
                 <!-- CLEAR FILTERS BUTTON -->
                 <div class="flex items-start">
-                    <button type="button" id="borrarFiltros" class="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Borrar Filtros</button>
+                    <button type="button" id="borrarFiltros" class="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" title="Borrar Filtros">Borrar Filtros</button>
                 </div>
             </div>
         </div>
@@ -1156,16 +1156,9 @@ function toggleSortButtonClasses (buttonId, removeClasses, addClasses) {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function toggleRadioButtonsMarca () {
-    const radioButtonsMarca = document.querySelectorAll('input[name="filtro-marca"]')
-    arrayRadioButtonsMarca = Array.from(radioButtonsMarca)
-    arrayRadioButtonsMarca.forEach(button => button.checked = false)
-}
-
-function toggleRadioButtonsCondicion () {
-    const radioButtonsCondicion = document.querySelectorAll('input[name="filtro-condicion"]')
-    arrayRadioButtonsCondicion = Array.from(radioButtonsCondicion)
-    arrayRadioButtonsCondicion.forEach(button => button.checked = false)
+function toggleRadioButtons (name) {
+    const radioButtons = document.querySelectorAll(`input[name="${name}"]`)
+    radioButtons.forEach(button => button.checked = false)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1207,7 +1200,7 @@ const cargaGrillaDeProductos = (array, restoreStorage) => {
 					<p class="text-lg font-semibold text-gray-900">
 						USD ${numeroFormateado(`${producto.precio}`)}
 					</p>
-					<button type="button" onclick="addToCart(${producto.id});animarCartCount()" class="rounded-full bg-indigo-600 px-2.5 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+					<button type="button" onclick="addToCart(${producto.id});animarCartCount()" class="rounded-full bg-indigo-600 px-2.5 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" title="Add To Cart">
 						Add To Cart
 					</button>
 				</div>
@@ -1418,8 +1411,10 @@ document.getElementById('ordenarReciente').addEventListener('click', () => {
 document.getElementById('borrarFiltros').addEventListener('click', () => listadoProductos())
 
 const listadoProductos = () => {
-    toggleRadioButtonsMarca()
-    toggleRadioButtonsCondicion()
+	toggleRadioButtons('filtro-marca');
+	toggleRadioButtons('filtro-estilo');
+	toggleRadioButtons('filtro-anio');
+	toggleRadioButtons('filtro-condicion');
 
     toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
     toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
@@ -1504,8 +1499,8 @@ const triggerModal = productoId => {
 						</dl>
                     </div>
 					<div class="pr-8 pb-8 pl-8 flex items-center flex-row-reverse">
-						<button type="button" class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ml-5" onclick="addToCart(${productoDetalleModal.id});animarCartCount()" @click="modelOpen = false">Add To Cart</button>
-						<button type="button" class="text-sm hover:underline font-semibold text-gray-900 shadow-sm sm:mt-0 sm:w-auto" @click="modelOpen = false">Cancelar</button>
+						<button type="button" class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ml-5" onclick="addToCart(${productoDetalleModal.id});animarCartCount()" @click="modelOpen = false" title="Add To Cart">Add To Cart</button>
+						<button type="button" class="text-sm hover:underline font-semibold text-gray-900 shadow-sm sm:mt-0 sm:w-auto" @click="modelOpen = false" title="Cancelar">Cancelar</button>
 					</div>
                 </div>
             </div>
@@ -1575,18 +1570,18 @@ const listadoProductosCart = array => {
 						</div>
 						<div class="flex flex-col items-end gap-3">
 							<div class="flex flex-row gap-1.5 ${hiddenButtons}">
-								<button id="botonMoverArriba" type="button" onclick="moverProducto(${producto.id}, 'arriba')" class="${hiddenFirst} cursor-pointer font-medium text-indigo-600 hover:text-indigo-500">
+								<button id="botonMoverArriba" type="button" onclick="moverProducto(${producto.id}, 'arriba')" class="${hiddenFirst} cursor-pointer font-medium text-indigo-600 hover:text-indigo-500" title="Mover Arriba">
 									<svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 										<path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z" clip-rule="evenodd" />
 									</svg>
 								</button>
-								<button type="button" onclick="moverProducto(${producto.id}, 'abajo')" class="${hiddenLast} cursor-pointer font-medium text-indigo-600 hover:text-indigo-500">
+								<button type="button" onclick="moverProducto(${producto.id}, 'abajo')" class="${hiddenLast} cursor-pointer font-medium text-indigo-600 hover:text-indigo-500" title="Mover Abajo">
 									<svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 										<path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-.53 14.03a.75.75 0 0 0 1.06 0l3-3a.75.75 0 1 0-1.06-1.06l-1.72 1.72V8.25a.75.75 0 0 0-1.5 0v5.69l-1.72-1.72a.75.75 0 0 0-1.06 1.06l3 3Z" clip-rule="evenodd" />
 									</svg>
 								</button>
 							</div>
-							<button type="button" onclick="eliminarProductosCart(${producto.id})" class="font-medium text-indigo-600 hover:text-indigo-500">Eliminar</button>
+							<button type="button" onclick="eliminarProductosCart(${producto.id})" class="font-medium text-indigo-600 hover:text-indigo-500" title="Eliminar">Eliminar</button>
 						</div>
 					</div>
 				</div>
