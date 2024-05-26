@@ -1110,10 +1110,29 @@ FOOTER.innerHTML += `
     </div>
 `
 
+// 'ADD TO CART' ALERT.
+const ADDTOCARTALERT = document.createElement('div')
+ADDTOCARTALERT.setAttribute('id', 'addToCartAlert');
+ADDTOCARTALERT.className += 'hidden rounded-md bg-green-100 border border-green-200 p-4 fixed bottom-[15px] left-[50%] transform translate-x-[-50%]'
+ADDTOCARTALERT.innerHTML += `
+	<div class="flex">
+		<div class="flex-shrink-0">
+			<svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+				<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+			</svg>
+		</div>
+		<div class="flex flex-row gap-1.5 ml-3">
+			<p class="text-sm font-medium text-green-800"><b id="alertDetalleMoto"></b></p>
+			<p class="text-sm font-medium text-green-800">agregada al Carrito</p>
+		</div>
+	</div>
+`
+
 main.append(HEADER)
 main.append(SECTIONHEADING)
 main.append(PRODUCTLISTING)
 main.append(FOOTER)
+main.append(ADDTOCARTALERT)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1609,6 +1628,23 @@ const moverProducto = (productoId, direccion) => {
 // ACTUALIZO CART COUNT.
 const shoppingCartCount = array => document.querySelector('#shoppingCartCount').innerText = array.length
 
+// 'ADD TO CART' ALERT.
+const alertaProductoAgregado = (marca, modelo) => {
+	document.querySelector('#alertDetalleMoto').innerHTML = `${marca} ${modelo}`
+	document.querySelector('#addToCartAlert').classList.add('block')
+	document.querySelector('#addToCartAlert').classList.remove('hidden')
+
+	const alertPosition = [ { bottom: '-50px' }, { bottom: '15px' } ]
+	const alertTiming = { duration: 250 }
+	const addToCartAlert = document.querySelector("#addToCartAlert")
+	addToCartAlert.animate(alertPosition, alertTiming)
+
+	setTimeout(() => {
+		document.querySelector('#addToCartAlert').classList.add('hidden')
+		document.querySelector('#addToCartAlert').classList.remove('block')
+	}, '4500')
+}
+
 if (!JSON.parse(localStorage.getItem('arrayCarrito'))) localStorage.setItem('arrayCarrito', JSON.stringify([]));
 listadoProductosCart(JSON.parse(localStorage.getItem('arrayCarrito')))
 shoppingCartCount(JSON.parse(localStorage.getItem('arrayCarrito')))
@@ -1620,6 +1656,9 @@ const addToCart = productoId => {
 	localStorage.setItem('arrayCarrito', JSON.stringify(productoAgregado))
 	listadoProductosCart(JSON.parse(localStorage.getItem('arrayCarrito')))
 	shoppingCartCount(JSON.parse(localStorage.getItem('arrayCarrito')))
+	let productoAlerta = {}
+	productoAlerta = PRODUCTOS.find(producto => producto.id === productoId)
+	alertaProductoAgregado(`${productoAlerta.marca}`, `${productoAlerta.modelo}`)
 }
 
 // FUNCIÓN REMOVE FROM CART.
@@ -1641,9 +1680,9 @@ const limpiarCarrito = () => {
 
 // ANIMACIÓN CART COUNT.
 const animarCartCount = () => {
-	const countScaling = [ { transform: "scale(1)" }, { transform: "scale(1.75)" } ]
+	const countScaling = [ { transform: 'scale(1)' }, { transform: 'scale(1.75)' } ]
 	const countTiming = { duration: 250, iterations: 1 }
-	const cartCount = document.querySelector("#shoppingCartCount")
+	const cartCount = document.querySelector('#shoppingCartCount')
 	cartCount.animate(countScaling, countTiming)
 }
 
