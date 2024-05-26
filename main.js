@@ -1111,19 +1111,15 @@ FOOTER.innerHTML += `
 `
 
 // 'ADD TO CART' ALERT.
-const ADDTOCARTALERT = document.createElement('div')
-ADDTOCARTALERT.setAttribute('id', 'addToCartAlert');
-ADDTOCARTALERT.className += 'hidden rounded-md bg-green-100 border border-green-200 p-4 fixed bottom-[15px] left-[50%] transform translate-x-[-50%]'
-ADDTOCARTALERT.innerHTML += `
+const CARTALERT = document.createElement('div')
+CARTALERT.setAttribute('id', 'cartAlert');
+CARTALERT.className += 'hidden rounded-md border p-4 fixed bottom-[15px] left-[50%] transform translate-x-[-50%] z-50'
+CARTALERT.innerHTML += `
 	<div class="flex">
-		<div class="flex-shrink-0">
-			<svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-				<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-			</svg>
-		</div>
-		<div class="flex flex-row gap-1.5 ml-3">
-			<p class="text-sm font-medium text-green-800"><b id="alertDetalleMoto"></b></p>
-			<p class="text-sm font-medium text-green-800">agregada al Carrito</p>
+		<div class="flex-shrink-0" id="alertIconContainer"></div>
+		<div class="flex flex-row gap-1.5 ml-3 text-sm font-medium">
+			<p><b id="alertDetalleMoto"></b></p>
+			<p>agregada al Carrito</p>
 		</div>
 	</div>
 `
@@ -1132,7 +1128,7 @@ main.append(HEADER)
 main.append(SECTIONHEADING)
 main.append(PRODUCTLISTING)
 main.append(FOOTER)
-main.append(ADDTOCARTALERT)
+main.append(CARTALERT)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1628,21 +1624,32 @@ const moverProducto = (productoId, direccion) => {
 // ACTUALIZO CART COUNT.
 const shoppingCartCount = array => document.querySelector('#shoppingCartCount').innerText = array.length
 
-// 'ADD TO CART' ALERT.
-const alertaProductoAgregado = (marca, modelo) => {
+// ADD TO CART ALERT.
+const alertaProductoCarrito = (marca, modelo, action) => {
 	document.querySelector('#alertDetalleMoto').innerHTML = `${marca} ${modelo}`
-	document.querySelector('#addToCartAlert').classList.add('block')
-	document.querySelector('#addToCartAlert').classList.remove('hidden')
+	document.querySelector('#cartAlert').classList.remove('hidden')
+
+	const addActionClasses = ['bg-green-100', 'border-green-200', 'text-green-800']
+	const removeActionClasses = ['bg-yellow-100', 'border-yellow-200', 'text-yellow-700']
+
+	if (action == 'add') {
+		document.querySelector('#cartAlert').classList.add(...addActionClasses)
+		document.querySelector('#cartAlert').classList.remove(...removeActionClasses)
+		document.querySelector('#alertIconContainer').innerHTML	= `<svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>`
+	} else if (action == 'remove') {
+		document.querySelector('#cartAlert').classList.add(...removeActionClasses)
+		document.querySelector('#cartAlert').classList.remove(...addActionClasses)
+		document.querySelector('#alertIconContainer').innerHTML	= `<svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>`
+	}
 
 	const alertPosition = [ { bottom: '-50px' }, { bottom: '15px' } ]
 	const alertTiming = { duration: 250 }
-	const addToCartAlert = document.querySelector("#addToCartAlert")
-	addToCartAlert.animate(alertPosition, alertTiming)
+	const cartAlert = document.querySelector("#cartAlert")
+	cartAlert.animate(alertPosition, alertTiming)
 
 	setTimeout(() => {
-		document.querySelector('#addToCartAlert').classList.add('hidden')
-		document.querySelector('#addToCartAlert').classList.remove('block')
-	}, '4500')
+		document.querySelector('#cartAlert').classList.add('hidden')
+	}, '2500')
 }
 
 if (!JSON.parse(localStorage.getItem('arrayCarrito'))) localStorage.setItem('arrayCarrito', JSON.stringify([]));
@@ -1658,7 +1665,7 @@ const addToCart = productoId => {
 	shoppingCartCount(JSON.parse(localStorage.getItem('arrayCarrito')))
 	let productoAlerta = {}
 	productoAlerta = PRODUCTOS.find(producto => producto.id === productoId)
-	alertaProductoAgregado(`${productoAlerta.marca}`, `${productoAlerta.modelo}`)
+	alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'add')
 }
 
 // FUNCIÓN REMOVE FROM CART.
@@ -1668,6 +1675,9 @@ const eliminarProductosCart = productoId => {
 	// listadoProductosCart(arraySinProductoEliminado)
 	listadoProductosCart(JSON.parse(localStorage.getItem('arrayCarrito')))
 	shoppingCartCount(JSON.parse(localStorage.getItem('arrayCarrito')))
+	let productoAlerta = {}
+	productoAlerta = PRODUCTOS.find(producto => producto.id === productoId)
+	alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'remove')
 }
 
 // LIMPIAR TODO EL CARRITO.
