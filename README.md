@@ -12,6 +12,9 @@ De manera de poder mostrar las herramientas vistas en clase, el eCommerce intera
 - Detalle de Productos.
 - Agregado de Productos al Carrito.
 - Remover Productos del Carrito.
+- Agregado de Productos a Wishlist.
+- Remover Productos de Wishlist.
+- Pasaje de Productos de Wishlist al Carrito.
 
 Para desarrollar las funcionalidades detalladas, se hizo uso de las siguientes herramientas:
 - **variables**
