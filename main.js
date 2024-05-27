@@ -738,6 +738,34 @@ HEADER.innerHTML += `
                 <span class="text-sm md:text-lg text-gray-900 font-semibold">Federico Márquez Lucas</span>
             </a>
         </div>
+
+		<!-- START : WISHLIST -->
+		<div class="relative mr-3.5" x-data="{ openWishlist: false }">
+			<div class="flex items-center">
+				<button x-on:click="openWishlist = true" class="cursor-pointer">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" id="wishlistIcon">
+						<path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+					</svg>
+				</button>
+			</div>
+
+			<div class="absolute right-0 z-10 mt-[27.5px] flex w-screen max-w-max" x-show="openWishlist" x-on:click.away="openWishlist = false">
+				<div class="w-screen max-w-md flex-auto overflow-hidden rounded-xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+					<div id="listado-productos-wishlist" class="p-4"></div>
+					<div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+						<a href="#" class="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100">
+							<svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+								<path fill-rule="evenodd" d="M2 10a8 8 0 1116 0 8 8 0 01-16 0zm6.39-2.908a.75.75 0 01.766.027l3.5 2.25a.75.75 0 010 1.262l-3.5 2.25A.75.75 0 018 12.25v-4.5a.75.75 0 01.39-.658z" clip-rule="evenodd" />
+							</svg> Watch demo </a>
+						<a href="#" class="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100">
+							<svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+								<path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z" clip-rule="evenodd" />
+							</svg> Contact sales </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END : WISHLIST -->
 		
 		<!-- START : SHOPPING CART SLIDE-OVER -->
 		<div x-data="{ openSlideOver: false }">
@@ -1215,9 +1243,10 @@ const cargaGrillaDeProductos = (array, restoreStorage) => {
 					<p class="text-lg font-semibold text-gray-900">
 						USD ${numeroFormateado(`${producto.precio}`)}
 					</p>
-					<button type="button" onclick="addToCart(${producto.id});animarCartCount()" class="rounded-full bg-indigo-600 px-2.5 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" title="Add To Cart">
-						Add To Cart
-					</button>
+					<div class="flex items-center gap-3.5">
+						<button type="button" onclick="addToWishlist(${producto.id});animarWishlistIcon()" class="text-xs hover:underline font-semibold text-gray-500 shadow-sm sm:mt-0 sm:w-auto" title="Add to Wishlist">Add to Wishlist</button>
+						<button type="button" onclick="addToCart(${producto.id});animarCartCount()" class="rounded-full bg-indigo-600 px-2.5 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" title="Add To Cart">Add To Cart</button>
+					</div>
 				</div>
             </div>
         `
@@ -1515,7 +1544,7 @@ const triggerModal = productoId => {
                     </div>
 					<div class="pr-8 pb-8 pl-8 flex items-center flex-row-reverse">
 						<button type="button" class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ml-5" onclick="addToCart(${productoDetalleModal.id});animarCartCount()" @click="modelOpen = false" title="Add To Cart">Add To Cart</button>
-						<button type="button" class="text-sm hover:underline font-semibold text-gray-900 shadow-sm sm:mt-0 sm:w-auto" @click="modelOpen = false" title="Cancelar">Cancelar</button>
+						<button type="button" class="text-sm hover:underline font-semibold text-gray-900 shadow-sm sm:mt-0 sm:w-auto" onclick="addToWishlist(${productoDetalleModal.id});animarWishlistIcon()" @click="modelOpen = false" title="Add to Wishlist">Add to Wishlist</button>
 					</div>
                 </div>
             </div>
@@ -1630,18 +1659,27 @@ const alertaProductoCarrito = (marca, modelo, action) => {
 	document.querySelector('#cartAlert').classList.remove('hidden')
 
 	const addActionClasses = ['bg-green-100', 'border-green-200', 'text-green-800']
+	const existsActionClasses = ['bg-blue-100', 'border-blue-200', 'text-blue-700']
 	const removeActionClasses = ['bg-yellow-100', 'border-yellow-200', 'text-yellow-700']
 
-	if (action == 'add') {
+	if (action == 'add' || action == 'addWishlist' || action == 'movedToCart') {
 		document.querySelector('#cartAlert').classList.add(...addActionClasses)
 		document.querySelector('#cartAlert').classList.remove(...removeActionClasses)
 		document.querySelector('#alertIconContainer').innerHTML	= `<svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>`
-		document.querySelector('#alertAccionMoto').innerHTML = `agregada al Carrito`
-	} else if (action == 'remove') {
+		if (action == 'add') document.querySelector('#alertAccionMoto').innerHTML = `agregada al Carrito`
+		else if (action == 'addWishlist') document.querySelector('#alertAccionMoto').innerHTML = `agregada a Wishlist`
+		else document.querySelector('#alertAccionMoto').innerHTML = `movida al Carrito`
+	} else if (action == 'remove' || action == 'removeWishlist') {
 		document.querySelector('#cartAlert').classList.add(...removeActionClasses)
 		document.querySelector('#cartAlert').classList.remove(...addActionClasses)
 		document.querySelector('#alertIconContainer').innerHTML	= `<svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>`
-		document.querySelector('#alertAccionMoto').innerHTML = `eliminada del Carrito`
+		if (action == 'remove') document.querySelector('#alertAccionMoto').innerHTML = `eliminada del Carrito`
+		else document.querySelector('#alertAccionMoto').innerHTML = `eliminada de Wishlist`
+	} else if (action == 'existWishlist') {
+		document.querySelector('#cartAlert').classList.add(...existsActionClasses)
+		document.querySelector('#cartAlert').classList.remove(...addActionClasses,...removeActionClasses)
+		document.querySelector('#alertIconContainer').innerHTML	= `<svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"></path></svg>`
+		document.querySelector('#alertAccionMoto').innerHTML = `ya existe en la Wishlist`
 	}
 
 	const alertPosition = [ { bottom: '-50px' }, { bottom: '15px' } ]
@@ -1692,10 +1730,103 @@ const limpiarCarrito = () => {
 
 // ANIMACIÓN CART COUNT.
 const animarCartCount = () => {
-	const countScaling = [ { transform: 'scale(1)' }, { transform: 'scale(1.75)' } ]
+	const countScaling = [ { transform: 'scale(1)' }, { transform: 'scale(1.75)' }, { transform: 'scale(1)' } ]
 	const countTiming = { duration: 250, iterations: 1 }
 	const cartCount = document.querySelector('#shoppingCartCount')
 	cartCount.animate(countScaling, countTiming)
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// LISTADO DE PRODUCTOS EN WISHLIST.
+const listadoProductosWishlist = array => {
+	let listadoProductosWishlist = document.querySelector('#listado-productos-wishlist')
+	let productoWishlist = ''
+
+	for (const producto of array) {
+		producto.kilometraje == '0' ? kilometrajeFormateado = '0km.' : kilometrajeFormateado = numeroFormateado(`${producto.precio}kms.`)
+		producto.condicion == 'Nueva' ? nuevaBadge = '<span class="absolute top-1.5 right-1.5 items-center rounded-full bg-purple-100 px-2 py-1 text-[.5rem] font-semibold text-purple-700">NUEVA</span>' : nuevaBadge = '<span class="sr-only"></span>'
+
+		productoWishlist += `
+			<div class="relative flex items-center justify-between rounded-lg p-4 hover:bg-gray-100">
+				<div class="flex flex-row items-center gap-x-5">
+					<div class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+						<div class="relative w-14 h-14 flex flex-shrink-0 items-center justify-center p-1 overflow-hidden rounded-md border border-gray-200 bg-white hover:bg-white">
+							<img src="./img/product-img/${producto.imagen}" alt="${producto.marca} ${producto.modelo}" class="object-fit object-center">
+						</div>
+					</div>
+					<div><p class="flex flex-col text-xs text-gray-700">
+							${producto.marca}
+							<b>${producto.modelo}</b>
+						</p>
+					</div>
+				</div>
+				<div class="flex flex-col gap-1.5">
+					<button type="button" onclick="eliminarProductosWishlist(${producto.id})" class="font-medium text-xs text-indigo-600 hover:text-indigo-500 hover:underline" title="Eliminar">Eliminar</button>
+					<button type="button" onclick="moverProductoDeWishlistAlCart(${producto.id})" class="font-medium text-xs text-indigo-600 hover:text-indigo-500 hover:underline" title="Mover al Cart">Mover al Cart</button>
+				</div>
+			</div>
+		`
+	}
+
+	array.length > 0 ? listadoProductosWishlist.innerHTML = productoWishlist : listadoProductosWishlist.innerHTML = `<div class="text-xs text-center text-gray-500 font-semibold">NO HAY PRODUCTOS EN SU WISHLIST</div>`
+}
+
+
+if (!JSON.parse(localStorage.getItem('arrayWishlist'))) localStorage.setItem('arrayWishlist', JSON.stringify([]));
+listadoProductosWishlist(JSON.parse(localStorage.getItem('arrayWishlist')))
+
+// FUNCIÓN ADD TO WISHLIST.
+const addToWishlist = productoId => {
+	const productoAgregado = JSON.parse(localStorage.getItem('arrayWishlist'))
+
+	let productoAlerta = {}
+	productoAlerta = PRODUCTOS.find(producto => producto.id === productoId)
+
+	if (JSON.parse(localStorage.getItem('arrayWishlist')).find(producto => producto.id === productoId)) {
+		alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'existWishlist')
+	} else {
+		productoAgregado.push(PRODUCTOS.find(producto => producto.id === productoId))
+		localStorage.setItem('arrayWishlist', JSON.stringify(productoAgregado))
+		listadoProductosWishlist(JSON.parse(localStorage.getItem('arrayWishlist')))
+		alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'addWishlist')
+	}
+}
+
+// FUNCIÓN REMOVE FROM WISHLIST.
+const eliminarProductosWishlist = productoId => {
+	const arrayWishlistSinProductoEliminado = JSON.parse(localStorage.getItem('arrayWishlist')).filter(producto => producto.id != productoId )
+	localStorage.setItem('arrayWishlist', JSON.stringify(arrayWishlistSinProductoEliminado))
+	listadoProductosWishlist(JSON.parse(localStorage.getItem('arrayWishlist')))
+	let productoAlerta = {}
+	productoAlerta = PRODUCTOS.find(producto => producto.id === productoId)
+	alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'removeWishlist')
+}
+
+// FUNCIÓN MOVER PRODUCTO DE WISHLIST AL CART.
+const moverProductoDeWishlistAlCart = productoId => {
+	let productoMoverWishlist = {}
+	productoMoverWishlist = PRODUCTOS.find(producto => producto.id === productoId)	
+	const arrayCart = JSON.parse(localStorage.getItem('arrayCarrito'))
+	arrayCart.push(productoMoverWishlist)
+	localStorage.setItem('arrayCarrito', JSON.stringify(arrayCart))
+	listadoProductosCart(JSON.parse(localStorage.getItem('arrayCarrito')))
+	shoppingCartCount(JSON.parse(localStorage.getItem('arrayCarrito')))
+	let productoAlerta = {}
+	productoAlerta = PRODUCTOS.find(producto => producto.id === productoId)
+	alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'movedToCart')
+	animarCartCount()
+	const arrayWishlistSinProductoMovidoAlCart = JSON.parse(localStorage.getItem('arrayWishlist')).filter(producto => producto.id != productoId )
+	localStorage.setItem('arrayWishlist', JSON.stringify(arrayWishlistSinProductoMovidoAlCart))
+	listadoProductosWishlist(JSON.parse(localStorage.getItem('arrayWishlist')))
+}
+
+// ANIMACIÓN WISHLIST ICON.
+const animarWishlistIcon = () => {
+	const iconScaling = [ { transform: 'scale(1)' }, { transform: 'scale(1.5)' }, { transform: 'scale(1)' } ]
+	const scalingTiming = { duration: 350, iterations: 1 }
+	const wishlistIcon = document.querySelector('#wishlistIcon')
+	wishlistIcon.animate(iconScaling, scalingTiming)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
