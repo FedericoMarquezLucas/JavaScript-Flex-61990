@@ -1233,7 +1233,7 @@ const cargaGrillaDeProductos = (array, restoreStorage) => {
 						USD ${numeroFormateado(`${producto.precio}`)}
 					</p>
 					<div class="flex items-center gap-3.5">
-						<button type="button" onclick="addToWishlist(${producto.id});animarWishlistIcon()" class="text-xs hover:underline font-semibold text-gray-500 shadow-sm sm:mt-0 sm:w-auto" title="Add to Wishlist">Add to Wishlist</button>
+						<button type="button" onclick="addToWishlist(${producto.id});animarWishlistIcon()" class="text-xs hover:underline font-semibold text-gray-500 sm:mt-0 sm:w-auto" title="Add to Wishlist">Add to Wishlist</button>
 						<button type="button" onclick="addToCart(${producto.id});animarCartCount()" class="rounded-full bg-indigo-600 px-2.5 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" title="Add To Cart">Add To Cart</button>
 					</div>
 				</div>
