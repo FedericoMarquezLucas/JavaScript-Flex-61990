@@ -770,7 +770,7 @@ HEADER.innerHTML += `
 				<div class="fixed inset-0 overflow-hidden">
 					<div class="absolute inset-0 overflow-hidden">
 						<div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-							<div x-show="openSlideOver" x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="pointer-events-auto w-screen max-w-md sm:max-w-lg" x-description="Slide-over panel, show/hide based on slide-over state.">
+							<div x-show="openSlideOver" x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="pointer-events-auto w-screen max-w-md" x-description="Slide-over panel, show/hide based on slide-over state.">
 								<div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
 									<div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
 										<div class="flex items-start justify-between">
@@ -1533,7 +1533,7 @@ const triggerModal = productoId => {
                     </div>
 					<div class="pr-8 pb-8 pl-8 flex items-center flex-row-reverse">
 						<button type="button" class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ml-5" onclick="addToCart(${productoDetalleModal.id});animarCartCount()" @click="modelOpen = false" title="Add To Cart">Add To Cart</button>
-						<button type="button" class="text-sm hover:underline font-semibold text-gray-900 shadow-sm sm:mt-0 sm:w-auto" onclick="addToWishlist(${productoDetalleModal.id});animarWishlistIcon()" @click="modelOpen = false" title="Add to Wishlist">Add to Wishlist</button>
+						<button type="button" class="text-sm hover:underline font-semibold text-gray-500 sm:mt-0 sm:w-auto" onclick="addToWishlist(${productoDetalleModal.id});animarWishlistIcon()" @click="modelOpen = false" title="Add to Wishlist">Add to Wishlist</button>
 					</div>
                 </div>
             </div>
