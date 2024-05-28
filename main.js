@@ -1,728 +1,12 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const PRODUCTOS =
-[
-    {
-		"id": 1,
-		"marca": "Harley Davidson",
-		"modelo": "Softail Deluxe FLSTN",
-		"estilo": "Cruiser",
-		"anio": 2011,
-		"condicion": "Usada",
-		"cilindrada": 103,
-		"cilindradaMedida": "ci",
-		"potencia": 72,
-		"kilometraje": 55000,
-		"precio": 29900,
-		"imagen": "img_softail_deluxe_flstn.jpg",
-		"logo": "logo_harley_davidson.svg"
-	},
-    {
-		"id": 2,
-		"marca": "Harley Davidson",
-		"modelo": "Sportster Forty Eight",
-		"estilo": "Cruiser",
-		"anio": 2013,
-		"condicion": "Usada",
-		"cilindrada": 1200,
-		"cilindradaMedida": "cc",
-		"potencia": 66,
-		"kilometraje": 20000,
-		"precio": 19900,
-		"imagen": "img_sportster_forty_eight.png",
-		"logo": "logo_harley_davidson.svg"
-	},
-    {
-		"id": 3,
-		"marca": "Ducati",
-		"modelo": "Multistrada V4",
-		"estilo": "Enduro",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 1158,
-		"cilindradaMedida": "cc",
-		"potencia": 170,
-		"kilometraje": 0,
-		"precio": 40900,
-		"imagen": "img_multistrada_v4.png",
-		"logo": "logo_ducati.png"
-	},
-    {
-		"id": 4,
-		"marca": "KTM",
-		"modelo": "1190 Adventure R",
-		"estilo": "Enduro",
-		"anio": 2015,
-		"condicion": "Usada",
-		"cilindrada": 1190,
-		"cilindradaMedida": "cc",
-		"potencia": 150,
-		"kilometraje": 25000,
-		"precio": 16000,
-		"imagen": "img_1190_adventure_r.jpeg",
-		"logo": "logo_ktm.png"
-	},
-    {
-		"id": 5,
-		"marca": "Kawasaki",
-		"modelo": "ZX-10R",
-		"estilo": "Sport",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 998,
-		"cilindradaMedida": "cc",
-		"potencia": 200,
-		"kilometraje": 0,
-		"precio": 34990,
-		"imagen": "img_zx10r.png",
-		"logo": "logo_kawasaki.svg"
-	},
-    {
-		"id": 6,
-		"marca": "Husqvarna",
-		"modelo": "Svartpilen 701",
-		"estilo": "Street",
-		"anio": 2020,
-		"condicion": "Usada",
-		"cilindrada": 692,
-		"cilindradaMedida": "cc",
-		"potencia": 75,
-		"kilometraje": 2500,
-		"precio": 10900,
-		"imagen": "img_svartpilen_701.jpeg",
-		"logo": "logo_husqvarna.png"
-	},
-    {
-		"id": 7,
-		"marca": "BMW",
-		"modelo": "M 1000R",
-		"estilo": "Sport",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 999,
-		"cilindradaMedida": "cc",
-		"potencia":  210,
-		"kilometraje": 0,
-		"precio": 79990,
-		"imagen": "img_m1000r.jpeg",
-		"logo": "logo_bmw.png"
-	},
-    {
-		"id": 8,
-		"marca": "Yamaha",
-		"modelo": "MT-09",
-		"estilo": "Street",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 890,
-		"cilindradaMedida": "cc",
-		"potencia": 120,
-		"kilometraje": 0,
-		"precio": 18900,
-		"imagen": "img_mt09.avif",
-		"logo": "logo_yamaha.png"
-	},
-    {
-		"id": 9,
-		"marca": "Triumph",
-		"modelo": "Scrambler 1200 X",
-		"estilo": "Enduro",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 1200,
-		"cilindradaMedida": "cc",
-		"potencia": 90,
-		"kilometraje": 0,
-		"precio": 38900,
-		"imagen": "img_scrambler1200x.avif",
-		"logo": "logo_triumph.svg"
-	},
-    {
-		"id": 10,
-		"marca": "Harley Davidson",
-		"modelo": "Road Glide CVO",
-		"estilo": "Cruiser",
-		"anio": 2020,
-		"condicion": "Nueva",
-		"cilindrada": 117,
-		"cilindradaMedida": "ci",
-		"potencia": 80,
-		"kilometraje": 0,
-		"precio": 69900,
-		"imagen": "img_road_glide_cvo.webp",
-		"logo": "logo_harley_davidson.svg"
-	},
-    {
-		"id": 11,
-		"marca": "Harley Davidson",
-		"modelo": "Sportster S",
-		"estilo": "Street",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 76,
-		"cilindradaMedida": "ci",
-		"potencia": 120,
-		"kilometraje": 0,
-		"precio": 39900,
-		"imagen": "img_sportster_s.jpeg",
-		"logo": "logo_harley_davidson.svg"
-	},
-    {
-		"id": 12,
-		"marca": "Ducati",
-		"modelo": "Hypermotard 950 SP",
-		"estilo": "Enduro",
-		"anio": 2018,
-		"condicion": "Usada",
-		"cilindrada": 950,
-		"cilindradaMedida": "cc",
-		"potencia": 115,
-		"kilometraje": 5850,
-		"precio": 14900,
-		"imagen": "img_hypermotard_950_sp.jpeg",
-		"logo": "logo_ducati.png"
-	},
-    {
-		"id": 13,
-		"marca": "Ducati",
-		"modelo": "Scrambler 1100 Tribute",
-		"estilo": "Street",
-		"anio": 2018,
-		"condicion": "Usada",
-		"cilindrada": 1100,
-		"cilindradaMedida": "cc",
-		"potencia": 85,
-		"kilometraje": 10000,
-		"precio": 18900,
-		"imagen": "img_scrambler_1100_tribute.jpeg",
-		"logo": "logo_ducati.png"
-	},
-    {
-		"id": 14,
-		"marca": "Indian",
-		"modelo": "Chief Classic",
-		"estilo": "Cruiser",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 110,
-		"cilindradaMedida": "ci",
-		"potencia": 80,
-		"kilometraje": 0,
-		"precio": 49900,
-		"imagen": "img_chief_classic.jpeg",
-		"logo": "logo_indian.svg"
-	},
-    {
-		"id": 15,
-		"marca": "Yamaha",
-		"modelo": "YZ125",
-		"estilo": "Cross",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 125,
-		"cilindradaMedida": "cc",
-		"potencia": 35,
-		"kilometraje": 0,
-		"precio": 10850,
-		"imagen": "img_yz125.webp",
-		"logo": "logo_yamaha.png"
-	},
-    {
-		"id": 16,
-		"marca": "Husqvarna",
-		"modelo": "Norden 901",
-		"estilo": "Enduro",
-		"anio": 2022,
-		"condicion": "Usada",
-		"cilindrada": 901,
-		"cilindradaMedida": "cc",
-		"potencia": 105,
-		"kilometraje": 5000,
-		"precio": 15990,
-		"imagen": "img_norden_901.jpeg",
-		"logo": "logo_husqvarna.png"
-	},
-    {
-		"id": 17,
-		"marca": "Husqvarna",
-		"modelo": "Enduro 701",
-		"estilo": "Enduro",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 701,
-		"cilindradaMedida": "cc",
-		"potencia": 75,
-		"kilometraje": 0,
-		"precio": 10990,
-		"imagen": "img_enduro_701.webp",
-		"logo": "logo_husqvarna.png"
-	},
-    {
-		"id": 18,
-		"marca": "Husqvarna",
-		"modelo": "Viptilen 401",
-		"estilo": "Street",
-		"anio": 2018,
-		"condicion": "Usada",
-		"cilindrada": 401,
-		"cilindradaMedida": "cc",
-		"potencia": 45,
-		"kilometraje": 8500,
-		"precio": 6900,
-		"imagen": "img_viptilen_401.avif",
-		"logo": "logo_husqvarna.png"
-	},
-    {
-		"id": 19,
-		"marca": "Yamaha",
-		"modelo": "XSR900",
-		"estilo": "Street",
-		"anio": 2020,
-		"condicion": "Usada",
-		"cilindrada": 900,
-		"cilindradaMedida": "cc",
-		"potencia": 115,
-		"kilometraje": 500,
-		"precio": 20900,
-		"imagen": "img_xsr900.avif",
-		"logo": "logo_yamaha.png"
-	},
-    {
-		"id": 20,
-		"marca": "Yamaha",
-		"modelo": "Jog",
-		"estilo": "Scooter",
-		"anio": 1990,
-		"condicion": "Usada",
-		"cilindrada": 45,
-		"cilindradaMedida": "cc",
-		"potencia": 4.5,
-		"kilometraje": 25000,
-		"precio": 1090,
-		"imagen": "img_jog.webp",
-		"logo": "logo_yamaha.png"
-	},
-    {
-		"id": 22,
-		"marca": "Harley Davidson",
-		"modelo": "Tri Glide Ultra",
-		"estilo": "Cruiser",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 114,
-		"cilindradaMedida": "ci",
-		"potencia": 90,
-		"kilometraje": 0,
-		"precio": 59900,
-		"imagen": "img_tri_glide_ultra.webp",
-		"logo": "logo_harley_davidson.svg"
-	},
-    {
-		"id": 23,
-		"marca": "Ducati",
-		"modelo": "Panigale V4",
-		"estilo": "Sport",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 1100,
-		"cilindradaMedida": "cc",
-		"potencia": 210,
-		"kilometraje": 0,
-		"precio": 49900,
-		"imagen": "img_panigale_v4.webp",
-		"logo": "logo_ducati.png"
-	},
-    {
-		"id": 24,
-		"marca": "Ducati",
-		"modelo": "DesertX",
-		"estilo": "Enduro",
-		"anio": 2022,
-		"condicion": "Usada",
-		"cilindrada": 937,
-		"cilindradaMedida": "cc",
-		"potencia": 110,
-		"kilometraje": 10000,
-		"precio": 27900,
-		"imagen": "img_desertx.webp",
-		"logo": "logo_ducati.png"
-	},
-	{
-		"id": 25,
-		"marca": "Ducati",
-		"modelo": "XDiavel",
-		"estilo": "Street",
-		"anio": 2018,
-		"condicion": "Usada",
-		"cilindrada": 1262,
-		"cilindradaMedida": "cc",
-		"potencia": 150,
-		"kilometraje": 25000,
-		"precio": 25900,
-		"imagen": "img_xdiavel.png",
-		"logo": "logo_ducati.png"
-	},
-	{
-		"id": 26,
-		"marca": "Harley Davidson",
-		"modelo": "Fat Boy",
-		"estilo": "Cruiser",
-		"anio": 2003,
-		"condicion": "Usada",
-		"cilindrada": 1450,
-		"cilindradaMedida": "cc",
-		"potencia": 65,
-		"kilometraje": 55000,
-		"precio": 20900,
-		"imagen": "img_fat_boy.jpeg",
-		"logo": "logo_harley_davidson.svg"
-	},
-	{
-		"id": 27,
-		"marca": "Harley Davidson",
-		"modelo": "Pan America",
-		"estilo": "Enduro",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 1250,
-		"cilindradaMedida": "cc",
-		"potencia": 150,
-		"kilometraje": 0,
-		"precio": 32900,
-		"imagen": "img_pan_america.png",
-		"logo": "logo_harley_davidson.svg"
-	},
-	{
-		"id": 28,
-		"marca": "BMW",
-		"modelo": "R 1200 GS Adventure",
-		"estilo": "Enduro",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 1200,
-		"cilindradaMedida": "cc",
-		"potencia": 125,
-		"kilometraje": 0,
-		"precio": 49900,
-		"imagen": "img_r1200_gs_adventure.jpeg",
-		"logo": "logo_bmw.png"
-	},
-	{
-		"id": 29,
-		"marca": "BMW",
-		"modelo": "S1000 RR",
-		"estilo": "Sport",
-		"anio": 2020,
-		"condicion": "Usada",
-		"cilindrada": 1000,
-		"cilindradaMedida": "cc",
-		"potencia": 205,
-		"kilometraje": 15000,
-		"precio": 29900,
-		"imagen": "img_s1000_rr.avif",
-		"logo": "logo_bmw.png"
-	},
-	{
-		"id": 30,
-		"marca": "BMW",
-		"modelo": "CE 04",
-		"estilo": "Scooter",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 0,
-		"cilindradaMedida": "-",
-		"potencia": 20,
-		"kilometraje": 0,
-		"precio": 19900,
-		"imagen": "img_ce_04.webp",
-		"logo": "logo_bmw.png"
-	},
-	{
-		"id": 31,
-		"marca": "Husqvarna",
-		"modelo": "FC 450",
-		"estilo": "Cross",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 450,
-		"cilindradaMedida": "cc",
-		"potencia": 60,
-		"kilometraje": 0,
-		"precio": 17900,
-		"imagen": "img_fc_450.png",
-		"logo": "logo_husqvarna.png"
-	},
-	{
-		"id": 32,
-		"marca": "Husqvarna",
-		"modelo": "Vitpilen 701",
-		"estilo": "Street",
-		"anio": 2018,
-		"condicion": "Usada",
-		"cilindrada": 692,
-		"cilindradaMedida": "cc",
-		"potencia": 75,
-		"kilometraje": 15000,
-		"precio": 12900,
-		"imagen": "img_vitpilen_701.jpeg",
-		"logo": "logo_husqvarna.png"
-	},
-	{
-		"id": 33,
-		"marca": "Kawasaki",
-		"modelo": "Z900 RS",
-		"estilo": "Street",
-		"anio": 2020,
-		"condicion": "Usada",
-		"cilindrada": 900,
-		"cilindradaMedida": "cc",
-		"potencia": 110,
-		"kilometraje": 12500,
-		"precio": 18900,
-		"imagen": "img_z900_rs.png",
-		"logo": "logo_kawasaki.svg"
-	},
-	{
-		"id": 34,
-		"marca": "Kawasaki",
-		"modelo": "KX450",
-		"estilo": "Cross",
-		"anio": 2022,
-		"condicion": "Usada",
-		"cilindrada": 450,
-		"cilindradaMedida": "cc",
-		"potencia": 55,
-		"kilometraje": 1500,
-		"precio": 12900,
-		"imagen": "img_kx450.png",
-		"logo": "logo_kawasaki.svg"
-	},
-	{
-		"id": 35,
-		"marca": "Kawasaki",
-		"modelo": "ZX6-R",
-		"estilo": "Sport",
-		"anio": 2010,
-		"condicion": "Usada",
-		"cilindrada": 600,
-		"cilindradaMedida": "cc",
-		"potencia": 130,
-		"kilometraje": 1500,
-		"precio": 10900,
-		"imagen": "img_zx6r.jpeg",
-		"logo": "logo_kawasaki.svg"
-	},
-	{
-		"id": 36,
-		"marca": "KTM",
-		"modelo": "1290 Super Adventure R",
-		"estilo": "Enduro",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 1290,
-		"cilindradaMedida": "cc",
-		"potencia": 160,
-		"kilometraje": 0,
-		"precio": 40900,
-		"imagen": "img_1290_super_adventure_r.jpeg",
-		"logo": "logo_ktm.png"
-	},
-	{
-		"id": 37,
-		"marca": "KTM",
-		"modelo": "1290 Super Duke R",
-		"estilo": "Street",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 1290,
-		"cilindradaMedida": "cc",
-		"potencia": 180,
-		"kilometraje": 0,
-		"precio": 30900,
-		"imagen": "img_1290_super_duke_r.png",
-		"logo": "logo_ktm.png"
-	},
-	{
-		"id": 38,
-		"marca": "Indian",
-		"modelo": "Challenger Elite",
-		"estilo": "Cruiser",
-		"anio": 2022,
-		"condicion": "Nueva",
-		"cilindrada": 108,
-		"cilindradaMedida": "ci",
-		"potencia": 120,
-		"kilometraje": 0,
-		"precio": 50900,
-		"imagen": "img_challenger_elite.png",
-		"logo": "logo_indian.svg"
-	},
-	{
-		"id": 39,
-		"marca": "Indian",
-		"modelo": "FTR Rally",
-		"estilo": "Street",
-		"anio": 2022,
-		"condicion": "Nueva",
-		"cilindrada": 75,
-		"cilindradaMedida": "ci",
-		"potencia": 120,
-		"kilometraje": 0,
-		"precio": 35900,
-		"imagen": "img_ftr_rally.jpeg",
-		"logo": "logo_indian.svg"
-	},
-	{
-		"id": 40,
-		"marca": "Triumph",
-		"modelo": "Rocket 3 GT",
-		"estilo": "Street",
-		"anio": 2022,
-		"condicion": "Usada",
-		"cilindrada": 2500,
-		"cilindradaMedida": "cc",
-		"potencia": 165,
-		"kilometraje": 16500,
-		"precio": 35900,
-		"imagen": "img_rocket_3_gt.png",
-		"logo": "logo_triumph.svg"
-	},
-	{
-		"id": 41,
-		"marca": "Triumph",
-		"modelo": "Tiger 1200 Rally Pro",
-		"estilo": "Enduro",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 1200,
-		"cilindradaMedida": "cc",
-		"potencia": 105,
-		"kilometraje": 0,
-		"precio": 29900,
-		"imagen": "img_tiger_1200_rally_pro.avif",
-		"logo": "logo_triumph.svg"
-	},
-	{
-		"id": 42,
-		"marca": "Triumph",
-		"modelo": "Thruxton RS",
-		"estilo": "Street",
-		"anio": 2020,
-		"condicion": "Usada",
-		"cilindrada": 1200,
-		"cilindradaMedida": "cc",
-		"potencia": 100,
-		"kilometraje": 900,
-		"precio": 29900,
-		"imagen": "img_thruxton_rs.avif",
-		"logo": "logo_triumph.svg"
-	},
-	{
-		"id": 43,
-		"marca": "Ducati",
-		"modelo": "Monster 1100 EVO",
-		"estilo": "Street",
-		"anio": 2020,
-		"condicion": "Usada",
-		"cilindrada": 1100,
-		"cilindradaMedida": "cc",
-		"potencia": 100,
-		"kilometraje": 40000,
-		"precio": 12900,
-		"imagen": "img_monster_1100_evo.webp",
-		"logo": "logo_ducati.png"
-	},
-	{
-		"id": 44,
-		"marca": "Indian",
-		"modelo": "Scout Bobber",
-		"estilo": "Cruiser",
-		"anio": 2020,
-		"condicion": "Usada",
-		"cilindrada": 70,
-		"cilindradaMedida": "ci",
-		"potencia": 100,
-		"kilometraje": 8000,
-		"precio": 22900,
-		"imagen": "img_scout.jpeg",
-		"logo": "logo_indian.svg"
-	},
-	{
-		"id": 45,
-		"marca": "KTM",
-		"modelo": "125 SX",
-		"estilo": "Cross",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 125,
-		"cilindradaMedida": "cc",
-		"potencia": 30,
-		"kilometraje": 0,
-		"precio": 10900,
-		"imagen": "img_sx_125.png",
-		"logo": "logo_ktm.png"
-	},
-	{
-		"id": 46,
-		"marca": "KTM",
-		"modelo": "RC 200",
-		"estilo": "Sport",
-		"anio": 2024,
-		"condicion": "Nueva",
-		"cilindrada": 200,
-		"cilindradaMedida": "cc",
-		"potencia": 25,
-		"kilometraje": 0,
-		"precio": 6900,
-		"imagen": "img_rc_200.png",
-		"logo": "logo_ktm.png"
-	},
-	{
-		"id": 47,
-		"marca": "Triumph",
-		"modelo": "Bonneville T120",
-		"estilo": "Street",
-		"anio": 2019,
-		"condicion": "Usada",
-		"cilindrada": 1200,
-		"cilindradaMedida": "cc",
-		"potencia": 80,
-		"kilometraje": 8500,
-		"precio": 26900,
-		"imagen": "img_bonneville_t120.webp",
-		"logo": "logo_triumph.svg"
-	},
-	{
-		"id": 48,
-		"marca": "Harley Davidson",
-		"modelo": "Road King Classic",
-		"estilo": "Cruiser",
-		"anio": 2015,
-		"condicion": "Usada",
-		"cilindrada": 103,
-		"cilindradaMedida": "ci",
-		"potencia": 72,
-		"kilometraje": 50000,
-		"precio": 34900,
-		"imagen": "img_road_king_classic.jpeg",
-		"logo": "logo_harley_davidson.svg"
-	},
-	{
-		"id": 49,
-		"marca": "Harley Davidson",
-		"modelo": "Sportster Seventy Two",
-		"estilo": "Cruiser",
-		"anio": 2018,
-		"condicion": "Usada",
-		"cilindrada": 1200,
-		"cilindradaMedida": "cc",
-		"potencia": 55,
-		"kilometraje": 7500,
-		"precio": 20900,
-		"imagen": "img_sportster_seventy_two.jpeg",
-		"logo": "logo_harley_davidson.svg"
-	}
-]
+try {
+    fetch('https://federicomarquezlucas.github.io/JavaScript-Flex-61990/products.json')
+    .then(respuesta => respuesta.json())
+    .then(productos => localStorage.setItem('PRODUCTOS', JSON.stringify(productos)))
+} catch (error) {
+    console.log(error)
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1153,8 +437,8 @@ const numeroFormateado = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// SWITCH DISPLAY LISTADO DE PRODUCTOS ( GRID / TABLE ).
-// ACTIVE / INACTIVE STATE DE CADA BOTÓN.
+// SWITCH DISPLAY LISTADO DE PRODUCTOS ( GRID/TABLE ).
+// ACTIVE/INACTIVE STATE DE CADA BOTÓN.
 
 const buttonInactiveClasses = ['bg-white', 'hover:bg-gray-50']
 const buttonActiveClasses = ['bg-gray-200', 'hover:bg-gray-200']
@@ -1233,7 +517,7 @@ const cargaGrillaDeProductos = (array, restoreStorage) => {
 						USD ${numeroFormateado(`${producto.precio}`)}
 					</p>
 					<div class="flex items-center gap-3.5">
-						<button type="button" onclick="addToWishlist(${producto.id});animarWishlistIcon()" class="text-xs hover:underline font-semibold text-gray-500 sm:mt-0 sm:w-auto" title="Add to Wishlist">Add to Wishlist</button>
+						<button type="button" onclick="addToWishlist(${producto.id})" class="text-xs hover:underline font-semibold text-gray-500 sm:mt-0 sm:w-auto" title="Add to Wishlist">Add to Wishlist</button>
 						<button type="button" onclick="addToCart(${producto.id});animarCartCount()" class="rounded-full bg-indigo-600 px-2.5 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" title="Add To Cart">Add To Cart</button>
 					</div>
 				</div>
@@ -1243,10 +527,11 @@ const cargaGrillaDeProductos = (array, restoreStorage) => {
 
     array.length > 0 ? contenedor.innerHTML = listadoProductos : contenedor.innerHTML = `<h3 class="text-xs text-center	font-semibold text-red-500 col-span-3">- NO EXISTEN COINCIDENCIAS -</h3>`
 
-    restoreStorage ? localStorage.setItem('PRODUCTOS', JSON.stringify(PRODUCTOS)) : localStorage.setItem('PRODUCTOS', JSON.stringify(array))
+    // restoreStorage ? localStorage.setItem('PRODUCTOS', JSON.stringify(PRODUCTOS)) : localStorage.setItem('PRODUCTOS', JSON.stringify(array))
 }
 
-cargaGrillaDeProductos(PRODUCTOS, false)
+// cargaGrillaDeProductos(PRODUCTOS, false)
+cargaGrillaDeProductos(JSON.parse(localStorage.getItem('PRODUCTOS')), false)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1261,7 +546,7 @@ const filtrarPorMarca = marca => {
 		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
 	} else if (anioFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.anio == anioFiltradoActivo).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
 	else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
-	else PRODUCTOS.filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
+	else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
 
     cargaGrillaDeProductos(arrayFiltradoPorMarca, true)
     // localStorage.setItem('PRODUCTOS', JSON.stringify(PRODUCTOS))
@@ -1310,7 +595,7 @@ const filtrarPorEstilo = estilo => {
 		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
 	} else if (anioFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.anio == anioFiltradoActivo).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
 	else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
-    else PRODUCTOS.filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
+    else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
 
     cargaGrillaDeProductos(arrayFiltradoPorEstilo, true)
 }
@@ -1342,7 +627,7 @@ const filtrarPorAnio = anio => {
 		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
 	} else if (estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
 	else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
-    else PRODUCTOS.filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+    else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
 
     cargaGrillaDeProductos(arrayFiltradoPorCondicion, true)
 }
@@ -1374,7 +659,7 @@ const filtrarPorCondicion = condicion => {
 		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
 	} else if (estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
 	else if (anioFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.anio == anioFiltradoActivo).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
-    else PRODUCTOS.filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+    else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
 
     cargaGrillaDeProductos(arrayFiltradoPorCondicion, true)
 }
@@ -1406,7 +691,7 @@ const sortListadoProductos = sort => {
     const arrayProductosOrdenados = []
     
     if (marcaFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).forEach(producto => arrayProductosOrdenados.push(producto))
-    else PRODUCTOS.forEach(producto => arrayProductosOrdenados.push(producto))
+    else JSON.parse(localStorage.getItem('PRODUCTOS')).forEach(producto => arrayProductosOrdenados.push(producto))
 
     if (sort == 'precioAsc') arrayProductosOrdenados.sort((param1, param2) => param1.precio - param2.precio)
     else if (sort == 'precioDes') arrayProductosOrdenados.sort((param1, param2) => param2.precio - param1.precio)
@@ -1462,7 +747,7 @@ const listadoProductos = () => {
 
 // GENERO EL MODAL CONTENT A PARTIR DEL ID RECIBIDO EN LA FUNCIÓN.
 const triggerModal = productoId => {
-    const productoDetalleModal = PRODUCTOS.find(producto => producto.id === productoId)
+    const productoDetalleModal = JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId)
     productoDetalleModal.kilometraje == '0' ? kilometrajeFormateado = '0km.' : kilometrajeFormateado = numeroFormateado(`${productoDetalleModal.precio}kms.`)
     productoDetalleModal.condicion == 'Nueva' ? nuevaBadge = '<span class="absolute top-0 right-0 items-center rounded-full bg-purple-100 px-2.5 py-1.5 text-xs font-semibold text-purple-700">NUEVA</span>' : nuevaBadge = '<span class="sr-only"></span>'
 
@@ -1688,12 +973,12 @@ shoppingCartCount(JSON.parse(localStorage.getItem('arrayCarrito')))
 // FUNCIÓN ADD TO CART.
 const addToCart = productoId => {
 	const productoAgregado = JSON.parse(localStorage.getItem('arrayCarrito'))
-	productoAgregado.push(PRODUCTOS.find(producto => producto.id === productoId))
+	productoAgregado.push(JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId))
 	localStorage.setItem('arrayCarrito', JSON.stringify(productoAgregado))
 	listadoProductosCart(JSON.parse(localStorage.getItem('arrayCarrito')))
 	shoppingCartCount(JSON.parse(localStorage.getItem('arrayCarrito')))
 	let productoAlerta = {}
-	productoAlerta = PRODUCTOS.find(producto => producto.id === productoId)
+	productoAlerta = JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId)
 	alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'add')
 }
 
@@ -1705,7 +990,7 @@ const eliminarProductosCart = productoId => {
 	listadoProductosCart(JSON.parse(localStorage.getItem('arrayCarrito')))
 	shoppingCartCount(JSON.parse(localStorage.getItem('arrayCarrito')))
 	let productoAlerta = {}
-	productoAlerta = PRODUCTOS.find(producto => producto.id === productoId)
+	productoAlerta = JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId)
 	alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'remove')
 }
 
@@ -1770,15 +1055,16 @@ const addToWishlist = productoId => {
 	const productoAgregado = JSON.parse(localStorage.getItem('arrayWishlist'))
 
 	let productoAlerta = {}
-	productoAlerta = PRODUCTOS.find(producto => producto.id === productoId)
+	productoAlerta = JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId)
 
 	if (JSON.parse(localStorage.getItem('arrayWishlist')).find(producto => producto.id === productoId)) {
 		alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'existWishlist')
 	} else {
-		productoAgregado.push(PRODUCTOS.find(producto => producto.id === productoId))
+		productoAgregado.push(JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId))
 		localStorage.setItem('arrayWishlist', JSON.stringify(productoAgregado))
 		listadoProductosWishlist(JSON.parse(localStorage.getItem('arrayWishlist')))
 		alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'addWishlist')
+		animarWishlistIcon()
 	}
 }
 
@@ -1788,23 +1074,23 @@ const eliminarProductosWishlist = productoId => {
 	localStorage.setItem('arrayWishlist', JSON.stringify(arrayWishlistSinProductoEliminado))
 	listadoProductosWishlist(JSON.parse(localStorage.getItem('arrayWishlist')))
 	let productoAlerta = {}
-	productoAlerta = PRODUCTOS.find(producto => producto.id === productoId)
+	productoAlerta = JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId)
 	alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'removeWishlist')
 }
 
 // FUNCIÓN MOVER PRODUCTO DE WISHLIST AL CART.
 const moverProductoDeWishlistAlCart = productoId => {
 	let productoMoverWishlist = {}
-	productoMoverWishlist = PRODUCTOS.find(producto => producto.id === productoId)	
+	productoMoverWishlist = JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId)	
 	const arrayCart = JSON.parse(localStorage.getItem('arrayCarrito'))
 	arrayCart.push(productoMoverWishlist)
 	localStorage.setItem('arrayCarrito', JSON.stringify(arrayCart))
 	listadoProductosCart(JSON.parse(localStorage.getItem('arrayCarrito')))
 	shoppingCartCount(JSON.parse(localStorage.getItem('arrayCarrito')))
-	let productoAlerta = {}
-	productoAlerta = PRODUCTOS.find(producto => producto.id === productoId)
-	alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'movedToCart')
 	animarCartCount()
+	let productoAlerta = {}
+	productoAlerta = JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId)
+	alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'movedToCart')
 	const arrayWishlistSinProductoMovidoAlCart = JSON.parse(localStorage.getItem('arrayWishlist')).filter(producto => producto.id != productoId )
 	localStorage.setItem('arrayWishlist', JSON.stringify(arrayWishlistSinProductoMovidoAlCart))
 	listadoProductosWishlist(JSON.parse(localStorage.getItem('arrayWishlist')))
