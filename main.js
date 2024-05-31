@@ -1,16 +1,28 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-try {
-    fetch('https://federicomarquezlucas.github.io/JavaScript-Flex-61990/products.json')
-    .then(respuesta => respuesta.json())
-    .then(productos => localStorage.setItem('PRODUCTOS', JSON.stringify(productos)))
-} catch (error) {
-    console.log(error)
+// try {
+//     fetch('https://federicomarquezlucas.github.io/JavaScript-Flex-61990/products.json')
+//     .then(respuesta => respuesta.json())
+//     .then(productos => localStorage.setItem('PRODUCTOS', JSON.stringify(productos)))
+// } catch (error) {
+//     console.log(error)
+// }
+
+const fetchProductosJSON = async () => {
+    try {
+        const respuesta = await fetch('https://federicomarquezlucas.github.io/JavaScript-Flex-61990/products.json')
+        const productos = await respuesta.json()
+        return productos
+    } catch (error) {
+        console.log(error)
+    }
 }
+
+fetchProductosJSON().then(productos => localStorage.setItem('PRODUCTOS', JSON.stringify(productos)))
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const main = document.getElementById('main')
+const MAIN = document.getElementById('main')
 
 // HEADER.
 const HEADER = document.createElement('header')
@@ -22,78 +34,80 @@ HEADER.innerHTML += `
                 <span class="text-sm md:text-lg text-gray-900 font-semibold">Federico Márquez Lucas</span>
             </a>
         </div>
+        <div class="flex flex-row items-center gap-x-3.5">
 
-		<!-- START : WISHLIST -->
-		<div class="relative mr-3.5" x-data="{ openWishlist: false }">
-			<div class="flex items-center">
-				<button x-on:click="openWishlist = true" class="cursor-pointer">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" id="wishlistIcon">
-						<path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
-					</svg>
-				</button>
-			</div>
-			<div class="absolute right-0 z-10 mt-[27.5px] flex w-screen max-w-max" x-show="openWishlist" x-on:click.away="openWishlist = false">
-				<div class="w-screen max-w-md flex-auto overflow-hidden rounded-xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
-					<div id="listado-productos-wishlist" class="p-4"></div>
-				</div>
-			</div>
-		</div>
-		<!-- END : WISHLIST -->
-		
-		<!-- START : SHOPPING CART SLIDE-OVER -->
-		<div x-data="{ openSlideOver: false }">
-			<button x-on:click="openSlideOver = true" class="relative" title="Carrito">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-					<path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />
-				</svg>
-				<span id="shoppingCartCount" class="absolute top-[-67.5%] right-[-67.5%] flex items-center justify-center rounded-full border w-6 h-6 bg-purple-100 text-xs text-purple-700 font-semibold"></span>
-			</button>
-			<div @keydown.window.escape="openSlideOver = false" x-show="openSlideOver" class="relative z-10" aria-labelledby="slide-over-title" x-ref="dialog" aria-modal="true">
-				<div x-show="openSlideOver" x-transition:enter="ease-in-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-500" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-description="Background backdrop, show/hide based on slide-over state." class="fixed inset-0 bg-gray-700 bg-opacity-80 transition-opacity"></div>
-				<!-- <div x-show="openSlideOver" @click.away="openSlideOver = false" x-transition:enter="ease-in-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-500" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-description="Background backdrop, show/hide based on slide-over state." class="fixed inset-0 bg-gray-700 bg-opacity-80 transition-opacity"></div> -->
-				<div class="fixed inset-0 overflow-hidden">
-					<div class="absolute inset-0 overflow-hidden">
-						<div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-							<div x-show="openSlideOver" x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="pointer-events-auto w-screen max-w-md" x-description="Slide-over panel, show/hide based on slide-over state.">
-								<div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-									<div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-										<div class="flex items-start justify-between">
-											<h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Carrito de Compras</h2>
-											<div class="ml-3 flex h-7 items-center">
-												<button type="button" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500" @click="openSlideOver = false">
-													<span class="absolute -inset-0.5"></span>
-													<span class="sr-only">Close panel</span>
-													<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-														<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-													</svg>
-												</button>
-											</div>
-										</div>
-										<div class="mt-8">
-											<div class="flow-root">
-												<ul role="list" class="-my-6 divide-y divide-gray-200" id="listado-productos-shopping-cart"></ul>
-											</div>
-										</div>
-									</div>
-									<div class="border-t border-gray-200 px-4 py-6 sm:px-6">
-										<div class="flex justify-between text-base font-medium text-gray-900">
-											<p>Total</p>
-											<p class="font-bold text-gray-900" id="shopping-cart-total"></p>
-										</div>
-										<div class="mt-3 flex items-center justify-between text-center text-sm text-gray-500">
-											<button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="openSlideOver = false" id="botonLimpiarCarrito">Limpiar Carrito</button>
-											<button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="openSlideOver = false"> Continuar Comprando <span aria-hidden="true"> →</span></button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- END : SHOPPING CART SLIDE-OVER -->
+            <!-- START : WISHLIST -->
+            <div class="relative" x-data="{ openWishlist: false }">
+                <div class="flex items-center">
+                    <button x-on:click="openWishlist = true" class="cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" id="wishlistIcon">
+                            <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="absolute right-0 z-10 mt-[27.5px] flex w-screen max-w-max" x-show="openWishlist" x-on:click.away="openWishlist = false">
+                    <div class="w-screen max-w-md flex-auto overflow-hidden rounded-xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+                        <div id="listado-productos-wishlist" class="p-4"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- END : WISHLIST -->
 
+            <!-- START : SHOPPING CART SLIDE-OVER -->
+            <div x-data="{ openSlideOver: false }">
+                <button x-on:click="openSlideOver = true" class="relative" title="Carrito">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />
+                    </svg>
+                    <span id="shoppingCartCount" class="absolute top-[-67.5%] right-[-67.5%] flex items-center justify-center rounded-full border w-6 h-6 bg-purple-100 text-xs text-purple-700 font-semibold"></span>
+                </button>
+                <div @keydown.window.escape="openSlideOver = false" x-show="openSlideOver" class="relative z-10" aria-labelledby="slide-over-title" x-ref="dialog" aria-modal="true">
+                    <div x-show="openSlideOver" x-transition:enter="ease-in-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-500" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-description="Background backdrop, show/hide based on slide-over state." class="fixed inset-0 bg-gray-700 bg-opacity-80 transition-opacity"></div>
+                    <!-- <div x-show="openSlideOver" @click.away="openSlideOver = false" x-transition:enter="ease-in-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-500" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-description="Background backdrop, show/hide based on slide-over state." class="fixed inset-0 bg-gray-700 bg-opacity-80 transition-opacity"></div> -->
+                    <div class="fixed inset-0 overflow-hidden">
+                        <div class="absolute inset-0 overflow-hidden">
+                            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                                <div x-show="openSlideOver" x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="pointer-events-auto w-screen max-w-md" x-description="Slide-over panel, show/hide based on slide-over state.">
+                                    <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                                        <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                                            <div class="flex items-start justify-between">
+                                                <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Carrito de Compras</h2>
+                                                <div class="ml-3 flex h-7 items-center">
+                                                    <button type="button" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500" @click="openSlideOver = false">
+                                                        <span class="absolute -inset-0.5"></span>
+                                                        <span class="sr-only">Close panel</span>
+                                                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="mt-8">
+                                                <div class="flow-root">
+                                                    <ul role="list" class="-my-6 divide-y divide-gray-200" id="listado-productos-shopping-cart"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                                            <div class="flex justify-between text-base font-medium text-gray-900">
+                                                <p>Total</p>
+                                                <p class="font-bold text-gray-900" id="shopping-cart-total"></p>
+                                            </div>
+                                            <div class="mt-3 flex items-center justify-between text-center text-sm text-gray-500">
+                                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="openSlideOver = false" id="botonLimpiarCarrito">Limpiar Carrito</button>
+                                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="openSlideOver = false"> Continuar Comprando <span aria-hidden="true"> →</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END : SHOPPING CART SLIDE-OVER -->
+
+        </div>
     </nav>
 `
 
@@ -399,7 +413,7 @@ PRODUCTLISTING.innerHTML += `
 const FOOTER = document.createElement('footer')
 FOOTER.className += 'bg-white rounded-lg shadow m-4 dark:bg-gray-900'
 FOOTER.innerHTML += `
-    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between lg:px-8">
         <span class="text-sm text-gray-500 dark:text-white sm:text-center dark:text-gray-400">
             Federico Márquez Lucas | Entregable #2 - JavaScript Flex | 61990
         </span>
@@ -425,11 +439,11 @@ CARTALERT.innerHTML += `
 	</div>
 `
 
-main.append(HEADER)
-main.append(SECTIONHEADING)
-main.append(PRODUCTLISTING)
-main.append(FOOTER)
-main.append(CARTALERT)
+MAIN.append(HEADER)
+MAIN.append(SECTIONHEADING)
+MAIN.append(PRODUCTLISTING)
+MAIN.append(FOOTER)
+MAIN.append(CARTALERT)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -530,7 +544,6 @@ const cargaGrillaDeProductos = (array, restoreStorage) => {
     // restoreStorage ? localStorage.setItem('PRODUCTOS', JSON.stringify(PRODUCTOS)) : localStorage.setItem('PRODUCTOS', JSON.stringify(array))
 }
 
-// cargaGrillaDeProductos(PRODUCTOS, false)
 cargaGrillaDeProductos(JSON.parse(localStorage.getItem('PRODUCTOS')), false)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -871,20 +884,23 @@ const listadoProductosCart = array => {
 					<img src="./img/product-img/${producto.imagen}" alt="${producto.marca} ${producto.modelo}" class="object-fit object-center">
 					${nuevaBadge}
 				</div>
-				<div class="pb-1.5 ml-4 flex flex-1 flex-col">
+				<div class="pb-1.5 ml-3.5 flex flex-1 flex-col">
 					<div>
 						<div class="flex justify-between">
-							<h3 class="flex flex-col text-sm text-gray-700">
+							<h3 class="flex flex-col text-xs text-gray-700">
 								${producto.marca}
 								<b>${producto.modelo}</b>
 							</h3>
-							<p class="ml-4 text-sm text-gray-700 font-semibold">USD ${numeroFormateado(`${producto.precio}`)}</p>
+							<p class="text-sm text-gray-700 font-bold tracking-tighter">USD ${numeroFormateado(`${producto.precio}`)}</p>
 						</div>
 					</div>
 					<div class="flex flex-1 items-end justify-between text-sm">
 						<div class="flex flex-col">
-							<p class="text-xs text-gray-500"><b>Cantidad:</b> <span id="cart-producto-cantidad">${producto.count}</span></p>
-							<p class="text-xs text-gray-500"><b>Subtotal:</b> USD ${numeroFormateado(`${producto.precio * producto.count}`)}</p>
+							<p class="text-[.65rem] text-gray-500 leading-normal">
+                                <b>Cantidad:</b> <span id="cart-producto-cantidad">${producto.count}</span>
+                                </br>
+                                <b>Subtotal:</b> USD ${numeroFormateado(`${producto.precio * producto.count}`)}
+                            </p>
 						</div>
 						<div class="flex flex-col items-end gap-3">
 							<div class="flex flex-row gap-1.5 ${hiddenButtons}">
@@ -899,7 +915,10 @@ const listadoProductosCart = array => {
 									</svg>
 								</button>
 							</div>
-							<button type="button" onclick="eliminarProductosCart(${producto.id})" class="font-medium text-indigo-600 hover:text-indigo-500" title="Eliminar">Eliminar</button>
+							<div class="flex flex-col gap-1 items-end">
+                                <button type="button" onclick="eliminarProductosCart(${producto.id})" class="font-medium text-xs text-indigo-600 hover:text-indigo-500" title="Eliminar">Eliminar</button>
+                                <button type="button" onclick="moverProductoDeCartAWishlist(${producto.id})" class="font-medium text-xs text-indigo-600 hover:text-indigo-500" title="Mover a Wishlist">Mover a Wishlist</button>
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -936,13 +955,14 @@ const alertaProductoCarrito = (marca, modelo, action) => {
 	const existsActionClasses = ['bg-blue-100', 'border-blue-200', 'text-blue-700']
 	const removeActionClasses = ['bg-yellow-100', 'border-yellow-200', 'text-yellow-700']
 
-	if (action == 'add' || action == 'addWishlist' || action == 'movedToCart') {
+	if (action == 'add' || action == 'addWishlist' || action == 'movedToCart' || action == 'movedToWishlist') {
 		document.querySelector('#cartAlert').classList.add(...addActionClasses)
 		document.querySelector('#cartAlert').classList.remove(...existsActionClasses,...removeActionClasses)
 		document.querySelector('#alertIconContainer').innerHTML	= `<svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>`
 		if (action == 'add') document.querySelector('#alertAccionMoto').innerHTML = `agregada al Carrito`
 		else if (action == 'addWishlist') document.querySelector('#alertAccionMoto').innerHTML = `agregada a Wishlist`
-		else document.querySelector('#alertAccionMoto').innerHTML = `movida al Carrito`
+		else if (action == 'movedToCart') document.querySelector('#alertAccionMoto').innerHTML = `movida al Carrito`
+		else document.querySelector('#alertAccionMoto').innerHTML = `movida a Wishlist`
 	} else if (action == 'remove' || action == 'removeWishlist') {
 		document.querySelector('#cartAlert').classList.add(...removeActionClasses)
 		document.querySelector('#cartAlert').classList.remove(...addActionClasses,...existsActionClasses)
@@ -1081,7 +1101,7 @@ const eliminarProductosWishlist = productoId => {
 // FUNCIÓN MOVER PRODUCTO DE WISHLIST AL CART.
 const moverProductoDeWishlistAlCart = productoId => {
 	let productoMoverWishlist = {}
-	productoMoverWishlist = JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId)	
+	productoMoverWishlist = JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId)
 	const arrayCart = JSON.parse(localStorage.getItem('arrayCarrito'))
 	arrayCart.push(productoMoverWishlist)
 	localStorage.setItem('arrayCarrito', JSON.stringify(arrayCart))
@@ -1102,6 +1122,25 @@ const animarWishlistIcon = () => {
 	const scalingTiming = { duration: 350, iterations: 1 }
 	const wishlistIcon = document.querySelector('#wishlistIcon')
 	wishlistIcon.animate(iconScaling, scalingTiming)
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// FUNCIÓN MOVER PRODUCTO DEL CART A WISHLIST.
+const moverProductoDeCartAWishlist = productoId => {
+	let productoMoverCart = {}
+	productoMoverCart = JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId)
+	const arrayWishlist = JSON.parse(localStorage.getItem('arrayWishlist'))
+	arrayWishlist.push(productoMoverCart)
+	localStorage.setItem('arrayWishlist', JSON.stringify(arrayWishlist))
+    listadoProductosWishlist(JSON.parse(localStorage.getItem('arrayWishlist')))
+	let productoAlerta = {}
+	productoAlerta = JSON.parse(localStorage.getItem('PRODUCTOS')).find(producto => producto.id === productoId)
+	alertaProductoCarrito(`${productoAlerta.marca}`, `${productoAlerta.modelo}`, 'movedToWishlist')
+	const arrayCartSinProductoMovidoAWishlist = JSON.parse(localStorage.getItem('arrayCarrito')).filter(producto => producto.id != productoId )
+	localStorage.setItem('arrayCarrito', JSON.stringify(arrayCartSinProductoMovidoAWishlist))
+	listadoProductosCart(JSON.parse(localStorage.getItem('arrayCarrito')))
+    shoppingCartCount(JSON.parse(localStorage.getItem('arrayCarrito')))
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
