@@ -36,6 +36,8 @@ HEADER.innerHTML += `
         </div>
         <div class="flex flex-row items-center gap-x-3.5">
 
+            <input type="text" name="search" id="searchInput" class="hidden sm:block w-full rounded-md border-0 py-1.5 italic text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Buscar">
+
             <!-- START : WISHLIST -->
             <div class="relative" x-data="{ openWishlist: false }">
                 <div class="flex items-center">
@@ -148,7 +150,7 @@ SECTIONHEADING.innerHTML += `
 
         <!-- START : PRODUCTS FILTERS -->
         <div class="mt-7 pt-7 border-t">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-y-5">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-y-5" id="productFiltersBar">
                 <div class="flex flex-col sm:flex-row gap-y-5 sm:items-center justify-between md:space-x-8">
 
                     <!-- DROPDOWN FILTERS -->
@@ -1142,5 +1144,25 @@ const moverProductoDeCartAWishlist = productoId => {
 	listadoProductosCart(JSON.parse(localStorage.getItem('arrayCarrito')))
     shoppingCartCount(JSON.parse(localStorage.getItem('arrayCarrito')))
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// BÚSQUEDA DE PRODUCTOS (MARCA O MODELO).
+const filterByName = (e) => {
+    const arraySearch = []
+    const searchTerm = e.target.value.toLowerCase();
+    const productFiltersBar = document.querySelector('#productFiltersBar')
+
+    JSON.parse(localStorage.getItem('PRODUCTOS')).forEach(producto => {
+        if (producto.marca.toLowerCase().includes(searchTerm) || producto.modelo.toLowerCase().includes(searchTerm)) {
+            arraySearch.push(producto)
+            cargaGrillaDeProductos(arraySearch, false)
+        }
+    })
+
+    !e.target.value.length ? productFiltersBar.classList.remove('hidden') : productFiltersBar.classList.add('hidden')
+}
+
+document.getElementById('searchInput').addEventListener('input', filterByName)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
