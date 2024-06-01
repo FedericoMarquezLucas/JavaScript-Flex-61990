@@ -793,5 +793,50 @@
 		"precio": 26900,
 		"imagen": "img_cbr1000rr.avif",
 		"logo": "logo_honda.svg"
+	},
+	{
+		"id": 55,
+		"marca": "Harley Davidson",
+		"modelo": "Street Glide CVO",
+		"estilo": "Cruiser",
+		"anio": 2020,
+		"condicion": "Nueva",
+		"cilindrada": 117,
+		"cilindradaMedida": "ci",
+		"potencia": 115,
+		"kilometraje": 0,
+		"precio": 68900,
+		"imagen": "img_cvo_street_glide.png",
+		"logo": "logo_harley_davidson.svg"
+	},
+	{
+		"id": 56,
+		"marca": "Harley Davidson",
+		"modelo": "Sportster 883 Iron",
+		"estilo": "Street",
+		"anio": 2015,
+		"condicion": "Usada",
+		"cilindrada": 883,
+		"cilindradaMedida": "cc",
+		"potencia": 65,
+		"kilometraje": 42500,
+		"precio": 14900,
+		"imagen": "img_sportster_iron_883.jpeg",
+		"logo": "logo_harley_davidson.svg"
+	},
+	{
+		"id": 57,
+		"marca": "Harley Davidson",
+		"modelo": "Electra Glide Ultra Classic",
+		"estilo": "Cruiser",
+		"anio": 2018,
+		"condicion": "Usada",
+		"cilindrada": 107,
+		"cilindradaMedida": "ci",
+		"potencia": 85,
+		"kilometraje": 20500,
+		"precio": 34900,
+		"imagen": "img_ultra_classic.png",
+		"logo": "logo_harley_davidson.svg"
 	}
 ]
