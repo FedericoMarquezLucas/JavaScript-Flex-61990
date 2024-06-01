@@ -778,5 +778,20 @@
 		"precio": 7500,
 		"imagen": "img_cbx750.webp",
 		"logo": "logo_honda.svg"
+	},
+	{
+		"id": 54,
+		"marca": "Honda",
+		"modelo": "CBR1000RR",
+		"estilo": "Sport",
+		"anio": 2020,
+		"condicion": "Nueva",
+		"cilindrada": 1000,
+		"cilindradaMedida": "cc",
+		"potencia": 215,
+		"kilometraje": 0,
+		"precio": 26900,
+		"imagen": "img_cbr1000rr.avif",
+		"logo": "logo_honda.svg"
 	}
 ]
