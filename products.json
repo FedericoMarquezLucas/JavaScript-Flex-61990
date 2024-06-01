@@ -718,5 +718,20 @@
 		"precio": 20900,
 		"imagen": "img_sportster_seventy_two.jpeg",
 		"logo": "logo_harley_davidson.svg"
+	},
+	{
+		"id": 50,
+		"marca": "Honda",
+		"modelo": "CRF 1000 Africa Twin",
+		"estilo": "Enduro",
+		"anio": 2020,
+		"condicion": "Usada",
+		"cilindrada": 1000,
+		"cilindradaMedida": "cc",
+		"potencia": 100,
+		"kilometraje": 7500,
+		"precio": 26900,
+		"imagen": "img_crf1000_africa_twin.jpeg",
+		"logo": "logo_honda.svg"
 	}
 ]
