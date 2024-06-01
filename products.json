@@ -838,5 +838,20 @@
 		"precio": 34900,
 		"imagen": "img_ultra_classic.png",
 		"logo": "logo_harley_davidson.svg"
+	},
+	{
+		"id": 58,
+		"marca": "Harley Davidson",
+		"modelo": "Sportster XL1200R Roadster",
+		"estilo": "Street",
+		"anio": 2016,
+		"condicion": "Usada",
+		"cilindrada": 1200,
+		"cilindradaMedida": "cc",
+		"potencia": 75,
+		"kilometraje": 25000,
+		"precio": 18900,
+		"imagen": "img_xl1200_sportster_roadster.jpeg",
+		"logo": "logo_harley_davidson.svg"
 	}
 ]
