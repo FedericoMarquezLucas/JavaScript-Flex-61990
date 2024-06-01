@@ -36,7 +36,7 @@ HEADER.innerHTML += `
         </div>
         <div class="flex flex-row items-center gap-x-3.5">
 
-            <input type="search" name="search" id="searchInput" class="hidden sm:block w-full rounded-md border-0 py-1.5 italic text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Buscar">
+            <input type="search" name="search" id="searchInput" class="hidden sm:block w-full min-w-[250px] rounded-md border-0 py-1.5 italic text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Buscar">
 
             <!-- START : WISHLIST -->
             <div class="relative" x-data="{ openWishlist: false }">
@@ -47,7 +47,7 @@ HEADER.innerHTML += `
                         </svg>
                     </button>
                 </div>
-                <div class="absolute right-0 z-10 mt-[27.5px] flex w-screen max-w-max" x-show="openWishlist" x-on:click.away="openWishlist = false">
+                <div class="absolute top-[55px] right-0 z-10 flex w-screen max-w-max" x-show="openWishlist" x-on:click.away="openWishlist = false">
                     <div class="w-screen max-w-md flex-auto overflow-hidden rounded-xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
                         <div id="listado-productos-wishlist" class="p-4"></div>
                     </div>
@@ -95,7 +95,8 @@ HEADER.innerHTML += `
                                                 <p>Total</p>
                                                 <p class="font-bold text-gray-900" id="shopping-cart-total"></p>
                                             </div>
-                                            <div class="mt-3 flex items-center justify-between text-center text-sm text-gray-500">
+                                            <button id="finalizarCompraBoton" title="Finalizar Compra" class="mt-6 flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Finalizar Compra</button>
+                                            <div class="mt-4 flex items-center justify-between text-center text-sm text-gray-500">
                                                 <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="openSlideOver = false" id="botonLimpiarCarrito">Limpiar Carrito</button>
                                                 <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="openSlideOver = false"> Continuar Comprando <span aria-hidden="true"> →</span></button>
                                             </div>
@@ -115,7 +116,7 @@ HEADER.innerHTML += `
 
 // SECTION HEADING.
 const SECTIONHEADING = document.createElement('div')
-SECTIONHEADING.className += 'bg-white pt-[80px]'
+SECTIONHEADING.className += 'bg-white pt-[85px]'
 SECTIONHEADING.innerHTML += `
     <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-14 lg:px-8">
         <div class="md:flex md:items-center md:justify-between">
@@ -429,10 +430,10 @@ FOOTER.innerHTML += `
 
 // 'ADD TO CART' ALERT.
 const CARTALERT = document.createElement('div')
-CARTALERT.setAttribute('id', 'cartAlert');
+CARTALERT.setAttribute('id', 'cartAlert')
 CARTALERT.className += 'hidden rounded-md border p-4 fixed bottom-[15px] left-[50%] transform translate-x-[-50%] z-50'
 CARTALERT.innerHTML += `
-	<div class="flex">
+	<div class="flex items-center">
 		<div class="flex-shrink-0" id="alertIconContainer"></div>
 		<div class="flex flex-row gap-1.5 ml-3 text-sm font-medium">
 			<p><b id="alertDetalleMoto"></b></p>
@@ -869,8 +870,12 @@ const listadoProductosCart = array => {
 	let listadoProductosCart = document.querySelector('#listado-productos-shopping-cart')
 	let productoCart = ''
 	let hiddenButtons = ''
+    
 	if (arraySinDuplicados.length < 2) hiddenButtons = 'hidden'
 	document.querySelector('#shopping-cart-total').innerText = `USD ${numeroFormateado(JSON.parse(localStorage.getItem('arrayCarrito')).reduce((n, {precio}) => n + precio, 0))}`
+
+    const finalizarCompraBoton = document.querySelector('#finalizarCompraBoton')
+    !arraySinDuplicados.length ? finalizarCompraBoton.classList.add('hidden') : finalizarCompraBoton.classList.remove('hidden')
 
 	for (const producto of arraySinDuplicados) {
 		producto.kilometraje == '0' ? kilometrajeFormateado = '0km.' : kilometrajeFormateado = numeroFormateado(`${producto.precio}kms.`)
@@ -1165,5 +1170,57 @@ const filterByName = (e) => {
 }
 
 document.getElementById('searchInput').addEventListener('input', filterByName)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+// FINALIZAR COMPRA.
+const FINALIZARCOMPRA = document.createElement('div')
+FINALIZARCOMPRA.setAttribute('id', 'finalizarCompra')
+FINALIZARCOMPRA.className += 'relative z-50'
+FINALIZARCOMPRA.innerHTML += `
+    <div aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 transition-opacity bg-gray-700 bg-opacity-90"></div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                    <div>
+                        <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+                            <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-center sm:mt-5">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">¡Compra finalizada con éxito!</h3>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 sm:mt-6">
+                        <button type="button" onclick="location.reload();limpiarCarrito()" class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" title="Volver A Listado">Volver A Listado</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+`
+
+document.getElementById('finalizarCompraBoton').addEventListener('click', () => {
+    console.log('COMPRA FINALIZADA')
+    MAIN.innerHTML = ''
+    MAIN.append(FINALIZARCOMPRA)
+})
+
+
+
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
