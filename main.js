@@ -18,8 +18,6 @@ const fetchProductosJSON = async () => {
     }
 }
 
-fetchProductosJSON().then(productos => localStorage.setItem('PRODUCTOS', JSON.stringify(productos)))
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const MAIN = document.getElementById('main')
@@ -184,6 +182,10 @@ SECTIONHEADING.innerHTML += `
                                             <div class="flex items-center">
                                                 <input id="Harley Davidson" value="Harley Davidson" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 <label for="Harley Davidson" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Harley Davidson</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input id="Honda" value="Honda" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                <label for="Honda" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Honda</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Husqvarna" value="Husqvarna" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
@@ -547,6 +549,7 @@ const cargaGrillaDeProductos = (array, restoreStorage) => {
     // restoreStorage ? fetchProductosJSON().then(productos => localStorage.setItem('PRODUCTOS', JSON.stringify(productos))) : localStorage.setItem('PRODUCTOS', JSON.stringify(array))
 }
 
+fetchProductosJSON().then(productos => localStorage.setItem('PRODUCTOS', JSON.stringify(productos)))
 cargaGrillaDeProductos(JSON.parse(localStorage.getItem('PRODUCTOS')), false)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
