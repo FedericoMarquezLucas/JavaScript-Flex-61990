@@ -35,6 +35,6 @@ Para desarrollar las funcionalidades detalladas, se hizo uso de las siguientes h
 - **frameworks**
 - **librerías**
 
-El simulador de eCommerce fue construído aplicando los conocimientos desarrollados en el correr de las diez semanas de duración, enmarcándose dentro de las condiciones y requerimientos estipulados en la consigna subida a la plataforma - [JavaScript Flex Proyecto Final]([https://docs.google.com/presentation/d/1Z0cqec99CVmRW605xbFUZ6jg4JkzbhNn-8t6f7h2XUQ/edit#slide=id.p2](https://docs.google.com/presentation/d/1G6YBej6icFVkGUebNWEhaHCaGtBOoC1vepL-J9yoKyk/edit#slide=id.p1)) .
+El simulador de eCommerce fue construído aplicando los conocimientos desarrollados en el correr de las diez semanas de duración, enmarcándose dentro de las condiciones y requerimientos estipulados en la consigna subida a la plataforma - [JavaScript Flex Proyecto Final](https://docs.google.com/presentation/d/1G6YBej6icFVkGUebNWEhaHCaGtBOoC1vepL-J9yoKyk/edit#slide=id.p1) .
 
 Previsualización del eCommerce subido a **GitHub Pages** en [este link](https://federicomarquezlucas.github.io/JavaScript-Flex-61990/) .
