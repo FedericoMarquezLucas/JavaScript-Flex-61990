@@ -870,7 +870,7 @@ const listadoProductosCart = array => {
 	let listadoProductosCart = document.querySelector('#listado-productos-shopping-cart')
 	let productoCart = ''
 	let hiddenButtons = ''
-    
+
 	if (arraySinDuplicados.length < 2) hiddenButtons = 'hidden'
 	document.querySelector('#shopping-cart-total').innerText = `USD ${numeroFormateado(JSON.parse(localStorage.getItem('arrayCarrito')).reduce((n, {precio}) => n + precio, 0))}`
 
@@ -1173,12 +1173,6 @@ document.getElementById('searchInput').addEventListener('input', filterByName)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
-
-
 // FINALIZAR COMPRA.
 const FINALIZARCOMPRA = document.createElement('div')
 FINALIZARCOMPRA.setAttribute('id', 'finalizarCompra')
@@ -1216,11 +1210,5 @@ document.getElementById('finalizarCompraBoton').addEventListener('click', () => 
     MAIN.innerHTML = ''
     MAIN.append(FINALIZARCOMPRA)
 })
-
-
-
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
