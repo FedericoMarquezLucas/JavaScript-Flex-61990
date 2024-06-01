@@ -36,7 +36,7 @@ HEADER.innerHTML += `
         </div>
         <div class="flex flex-row items-center gap-x-3.5">
 
-            <input type="text" name="search" id="searchInput" class="hidden sm:block w-full rounded-md border-0 py-1.5 italic text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Buscar">
+            <input type="search" name="search" id="searchInput" class="hidden sm:block w-full rounded-md border-0 py-1.5 italic text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Buscar">
 
             <!-- START : WISHLIST -->
             <div class="relative" x-data="{ openWishlist: false }">
@@ -543,7 +543,7 @@ const cargaGrillaDeProductos = (array, restoreStorage) => {
 
     array.length > 0 ? contenedor.innerHTML = listadoProductos : contenedor.innerHTML = `<h3 class="text-xs text-center	font-semibold text-red-500 col-span-3">- NO EXISTEN COINCIDENCIAS -</h3>`
 
-    // restoreStorage ? localStorage.setItem('PRODUCTOS', JSON.stringify(PRODUCTOS)) : localStorage.setItem('PRODUCTOS', JSON.stringify(array))
+    // restoreStorage ? fetchProductosJSON().then(productos => localStorage.setItem('PRODUCTOS', JSON.stringify(productos))) : localStorage.setItem('PRODUCTOS', JSON.stringify(array))
 }
 
 cargaGrillaDeProductos(JSON.parse(localStorage.getItem('PRODUCTOS')), false)
@@ -741,9 +741,9 @@ document.getElementById('ordenarReciente').addEventListener('click', () => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // GENERO LISTADO INICIAL SIN FILTROS APLICADOS.
-document.getElementById('borrarFiltros').addEventListener('click', () => listadoProductos())
+document.getElementById('borrarFiltros').addEventListener('click', () => listadoProductosInicial())
 
-const listadoProductos = () => {
+const listadoProductosInicial = () => {
 	toggleRadioButtons('filtro-marca');
 	toggleRadioButtons('filtro-estilo');
 	toggleRadioButtons('filtro-anio');
@@ -753,9 +753,10 @@ const listadoProductos = () => {
     toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
     toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
 
-    localStorage.removeItem('PRODUCTOS')
-    localStorage.setItem('PRODUCTOS', JSON.stringify(PRODUCTOS))
-    cargaGrillaDeProductos(PRODUCTOS, false)
+    // localStorage.removeItem('PRODUCTOS')
+    // localStorage.setItem('PRODUCTOS', JSON.stringify(PRODUCTOS))
+    // cargaGrillaDeProductos(PRODUCTOS, false)
+    cargaGrillaDeProductos(JSON.parse(localStorage.getItem('PRODUCTOS')), false)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1160,7 +1161,7 @@ const filterByName = (e) => {
         }
     })
 
-    !e.target.value.length ? productFiltersBar.classList.remove('hidden') : productFiltersBar.classList.add('hidden')
+    !e.target.value.length ? productFiltersBar.classList.remove('pointer-events-none', 'opacity-25') : productFiltersBar.classList.add('pointer-events-none', 'opacity-25')
 }
 
 document.getElementById('searchInput').addEventListener('input', filterByName)
