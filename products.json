@@ -733,5 +733,50 @@
 		"precio": 26900,
 		"imagen": "img_crf1000_africa_twin.jpeg",
 		"logo": "logo_honda.svg"
+	},
+	{
+		"id": 51,
+		"marca": "Honda",
+		"modelo": "CRF450",
+		"estilo": "Cross",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 450,
+		"cilindradaMedida": "cc",
+		"potencia": 52.5,
+		"kilometraje": 0,
+		"precio": 16900,
+		"imagen": "img_crf450.webp",
+		"logo": "logo_honda.svg"
+	},
+	{
+		"id": 52,
+		"marca": "Honda",
+		"modelo": "CB650R",
+		"estilo": "Street",
+		"anio": 2022,
+		"condicion": "Usada",
+		"cilindrada": 650,
+		"cilindradaMedida": "cc",
+		"potencia": 80,
+		"kilometraje": 5500,
+		"precio": 17900,
+		"imagen": "img_cb650r.avif",
+		"logo": "logo_honda.svg"
+	},
+	{
+		"id": 53,
+		"marca": "Honda",
+		"modelo": "CBX750",
+		"estilo": "Street",
+		"anio": 1990,
+		"condicion": "Usada",
+		"cilindrada": 750,
+		"cilindradaMedida": "cc",
+		"potencia": 95,
+		"kilometraje": 50000,
+		"precio": 7500,
+		"imagen": "img_cbx750.webp",
+		"logo": "logo_honda.svg"
 	}
 ]
