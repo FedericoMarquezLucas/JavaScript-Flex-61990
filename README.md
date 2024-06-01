@@ -31,6 +31,7 @@ Para desarrollar las funcionalidades detalladas, se hizo uso de las siguientes h
 - **ciclos**
 - **FETCH**
 - **async** & **await**
+- **promesas**
 - **try** & **catch**
 - **frameworks**
 - **librerías**
