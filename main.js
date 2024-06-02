@@ -1,13 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// try {
-//     fetch('https://federicomarquezlucas.github.io/JavaScript-Flex-61990/products.json')
-//     .then(respuesta => respuesta.json())
-//     .then(productos => localStorage.setItem('PRODUCTOS', JSON.stringify(productos)))
-// } catch (error) {
-//     console.log(error)
-// }
-
 const fetchProductosJSON = async () => {
     try {
         const respuesta = await fetch('https://federicomarquezlucas.github.io/JavaScript-Flex-61990/products.json')
@@ -483,17 +475,21 @@ document.getElementById('display-grid-button').addEventListener('click', () => {
 const sortButtonInactiveClasses = ['bg-white', 'hover:bg-gray-50', 'font-semibold']
 const sortButtonActiveClasses = ['bg-gray-200', 'hover:bg-gray-200', 'font-bold']
 
-function toggleSortButtonClasses (buttonId, removeClasses, addClasses) {
-    const button = document.getElementById(buttonId)
-    button.classList.remove(...removeClasses)
-    button.classList.add(...addClasses)
+function toggleSortButtonClasses (buttons, removeClasses, addClasses) {
+    buttons.forEach(buttonID => {
+        const button = document.getElementById(buttonID)
+        button.classList.remove(...removeClasses)
+        button.classList.add(...addClasses)
+    })
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function toggleRadioButtons (name) {
-    const radioButtons = document.querySelectorAll(`input[name="${name}"]`)
-    radioButtons.forEach(button => button.checked = false)
+function toggleRadioButtons (names) {
+    names.forEach(name => {
+        const radioButtons = document.querySelectorAll(`input[name="${name}"]`)
+        radioButtons.forEach(button => button.checked = false)
+    })
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -579,9 +575,7 @@ arrayRadioButtonsMarca.forEach(button => {
         if (button.checked) {
             filtrarPorMarca(button.value)
             marcaFiltradaActiva = button.value
-            toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
-            toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
-            toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
+            toggleSortButtonClasses(['ordenarPrecioAsc', 'ordenarPrecioDes', 'ordenarReciente'], sortButtonActiveClasses, sortButtonInactiveClasses)
         }
     })
 })
@@ -626,9 +620,7 @@ arrayRadioButtonsEstilo.forEach(button => {
         if (button.checked) {
             filtrarPorEstilo(button.value)
 			estiloFiltradoActivo = button.value
-            toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
-            toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
-            toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
+            toggleSortButtonClasses(['ordenarPrecioAsc', 'ordenarPrecioDes', 'ordenarReciente'], sortButtonActiveClasses, sortButtonInactiveClasses)
         }
     })
 })
@@ -658,9 +650,7 @@ arrayRadioButtonsAnio.forEach(button => {
         if (button.checked) {
             filtrarPorAnio(button.value)
             anioFiltradoActivo = button.value
-            toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
-            toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
-            toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
+            toggleSortButtonClasses(['ordenarPrecioAsc', 'ordenarPrecioDes', 'ordenarReciente'], sortButtonActiveClasses, sortButtonInactiveClasses)
         }
     })
 })
@@ -690,9 +680,7 @@ arrayRadioButtonsCondicion.forEach(button => {
         if (button.checked) {
             filtrarPorCondicion(button.value)
             condicionFiltradaActiva = button.value
-            toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
-            toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
-            toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
+            toggleSortButtonClasses(['ordenarPrecioAsc', 'ordenarPrecioDes', 'ordenarReciente'], sortButtonActiveClasses, sortButtonInactiveClasses)
         }
     })
 })
@@ -753,18 +741,8 @@ document.getElementById('ordenarReciente').addEventListener('click', () => {
 document.getElementById('borrarFiltros').addEventListener('click', () => listadoProductosInicial())
 
 const listadoProductosInicial = () => {
-	toggleRadioButtons('filtro-marca');
-	toggleRadioButtons('filtro-estilo');
-	toggleRadioButtons('filtro-anio');
-	toggleRadioButtons('filtro-condicion');
-
-    toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
-    toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
-    toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
-
-    // localStorage.removeItem('PRODUCTOS')
-    // localStorage.setItem('PRODUCTOS', JSON.stringify(PRODUCTOS))
-    // cargaGrillaDeProductos(PRODUCTOS, false)
+    toggleRadioButtons(['filtro-marca', 'filtro-estilo', 'filtro-anio', 'filtro-condicion'])
+    toggleSortButtonClasses(['ordenarPrecioAsc', 'ordenarPrecioDes', 'ordenarReciente'], sortButtonActiveClasses, sortButtonInactiveClasses)
     cargaGrillaDeProductos(JSON.parse(localStorage.getItem('PRODUCTOS')), false)
 }
 
