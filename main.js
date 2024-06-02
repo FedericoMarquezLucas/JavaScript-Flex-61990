@@ -117,7 +117,7 @@ SECTIONHEADING.innerHTML += `
 
                 <span class="text-sm text-gray-700 font-normal">
                     <b id="resultados-productos"></b>
-                    <span id="resultado"></span>
+                    <span id="resultado" class="font-light"></span>
                 </span>
 
                 <!-- START : DISPLAY SELECTOR -->
@@ -401,6 +401,9 @@ PRODUCTLISTING.innerHTML += `
     <div x-data="{ modelOpen: false }">
         <div class="mx-auto max-w-7xl px-4 py-8 sm:py-16 sm:px-6 sm:pb-14 sm:pt-0 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 lg:gap-x-8" id="listado-productos"></div>
+            <div class="flex justify-center mt-16">
+                <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" id="pagination-controls" aria-label="Pagination"></nav>
+            </div>
         </div>
         <div id="modal-producto"></div>
     </div>
@@ -408,7 +411,7 @@ PRODUCTLISTING.innerHTML += `
 
 // FOOTER.
 const FOOTER = document.createElement('footer')
-FOOTER.className += 'bg-white rounded-lg shadow m-4 dark:bg-gray-900'
+FOOTER.className += 'bg-white rounded-lg shadow mx-4 mb-4 dark:bg-gray-900'
 FOOTER.innerHTML += `
     <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between lg:px-8">
         <span class="text-sm text-gray-500 dark:text-white sm:text-center dark:text-gray-400">
@@ -498,13 +501,14 @@ function toggleRadioButtons (names) {
 const displayDeResultados = array => {
     document.querySelector('#resultados-productos').innerText = array.length
     let resultado = document.querySelector('#resultado')
-    array.length > 1 ? resultado.innerText = 'Motos' : resultado.innerText = 'Moto'
+    let totalProductosJSON = JSON.parse(localStorage.getItem('PRODUCTOS')).length
+    array.length > 1 ? resultado.innerHTML = `de ${totalProductosJSON} Motos` : resultado.innerHTML = `Moto`
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // LISTADO DE PRODUCTOS.
-const cargaGrillaDeProductos = (array, restoreStorage) => {
+/* const cargaGrillaDeProductos = (array, restoreStorage) => {
     displayDeResultados(array)
     let contenedor = document.querySelector('#listado-productos')
     let listadoProductos = ''
@@ -546,7 +550,104 @@ const cargaGrillaDeProductos = (array, restoreStorage) => {
 }
 
 fetchProductosJSON().then(productos => localStorage.setItem('PRODUCTOS', JSON.stringify(productos)))
-cargaGrillaDeProductos(JSON.parse(localStorage.getItem('PRODUCTOS')), false)
+cargaGrillaDeProductos(JSON.parse(localStorage.getItem('PRODUCTOS')), false) */
+
+const productosPorPagina = 15
+let paginaActual = 1
+
+const mostrarPaginaPaginado = (array, pagina) => {
+    const inicio = (pagina - 1) * productosPorPagina
+    const final = inicio + productosPorPagina
+    const arrayPaginado = array.slice(inicio, final)
+
+    cargaGrillaDeProductos(arrayPaginado, false)
+
+    const totalPaginas = Math.ceil(array.length / productosPorPagina)
+    updatePaginationControls(totalPaginas, pagina)
+}
+
+const updatePaginationControls = (totalPaginas, paginaActual, array) => {
+    const paginationControls = document.querySelector('#pagination-controls')
+    let controlsHTML = ''
+
+    controlsHTML += `
+        <button class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === 1 ? 'bg-gray-200 text-gray-700 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual - 1}, ${JSON.stringify(array)})" ${paginaActual === 1 ? 'disabled' : ''}>
+            <span class="sr-only">Previous</span>
+            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+            </svg>
+        </button>
+    `
+
+    for (let i = 1; i <= totalPaginas; i++) {
+        controlsHTML += `
+            <button class="relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold focus:z-20 ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white' : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'}" onclick="irPagina(${i}, ${JSON.stringify(array)})">${i}</button>
+        `
+    }
+
+    controlsHTML += `
+        <button class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === totalPaginas ? 'bg-gray-200 text-gray-700 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual + 1}, ${JSON.stringify(array)})" ${paginaActual === totalPaginas ? 'disabled' : ''}>
+            <span class="sr-only">Next</span>
+            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            </svg>
+        </button>
+    `
+
+    paginationControls.innerHTML = controlsHTML
+}
+
+const irPagina = (page) => {
+    const productos = JSON.parse(localStorage.getItem('PRODUCTOS'))
+    const totalPaginas = Math.ceil(JSON.parse(localStorage.getItem('PRODUCTOS')).length / productosPorPagina)
+    if (page < 1) page = 1
+    if (page > totalPaginas) page = totalPaginas
+    paginaActual = page
+    mostrarPaginaPaginado(productos, paginaActual)
+}
+
+const cargaGrillaDeProductos = (array, restoreStorage) => {
+    displayDeResultados(array)
+    let contenedor = document.querySelector('#listado-productos');
+    let listadoProductos = '';
+
+    for (const producto of array) {
+        producto.kilometraje == '0' ? kilometrajeFormateado = '0km.' : kilometrajeFormateado = numeroFormateado(`${producto.precio}kms.`);
+        producto.condicion == 'Nueva' ? nuevaBadge = '<span class="absolute top-3 right-3 items-center rounded-full bg-purple-100 px-2.5 py-1.5 text-xs font-semibold text-purple-700">NUEVA</span>' : nuevaBadge = '<span class="sr-only"></span>';
+
+        listadoProductos += `
+            <div class="group">
+                <div class="cursor-pointer aspect-square relative flex items-center justify-center border aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg xl:aspect-h-8 xl:aspect-w-7" onclick="triggerModal(${producto.id})" @click="modelOpen =! modelOpen">
+                    <img src="./img/product-img/${producto.imagen}" class="w-full h-auto object-cover object-center px-4 group-hover:opacity-75">
+                    ${nuevaBadge}
+                </div>
+                <h3 class="mt-4 text-sm text-gray-700">
+                    ${producto.marca}
+                    <b>${producto.modelo}</b>
+                </h3>
+                <h5 class="mt-0 text-xs text-gray-500">
+                    ${producto.anio} | ${producto.cilindrada}${producto.cilindradaMedida} | ${kilometrajeFormateado}
+                </h5>
+                <div class="flex items-center justify-between mt-2.5">
+                    <p class="text-lg font-semibold text-gray-900">
+                        USD ${numeroFormateado(`${producto.precio}`)}
+                    </p>
+                    <div class="flex items-center gap-3.5">
+                        <button type="button" onclick="addToWishlist(${producto.id})" class="text-xs hover:underline font-semibold text-gray-500 sm:mt-0 sm:w-auto" title="Add to Wishlist">Add to Wishlist</button>
+                        <button type="button" onclick="addToCart(${producto.id});animarCartCount()" class="rounded-full bg-indigo-600 px-2.5 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" title="Add To Cart">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    array.length > 0 ? contenedor.innerHTML = listadoProductos : contenedor.innerHTML = `<h3 class="text-xs text-center font-semibold text-red-500 col-span-3">- NO EXISTEN COINCIDENCIAS -</h3>`;
+}
+
+fetchProductosJSON().then(productos => {
+    localStorage.setItem('PRODUCTOS', JSON.stringify(productos))
+    mostrarPaginaPaginado(productos, paginaActual)
+})
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -563,7 +664,8 @@ const filtrarPorMarca = marca => {
 	else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
 	else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marca).forEach(producto => arrayFiltradoPorMarca.push(producto))
 
-    cargaGrillaDeProductos(arrayFiltradoPorMarca, true)
+    mostrarPaginaPaginado(arrayFiltradoPorMarca, paginaActual)
+    // cargaGrillaDeProductos(arrayFiltradoPorMarca, true)
     // localStorage.setItem('PRODUCTOS', JSON.stringify(PRODUCTOS))
 }
 
@@ -609,7 +711,8 @@ const filtrarPorEstilo = estilo => {
 	else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
     else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estilo).forEach(producto => arrayFiltradoPorEstilo.push(producto))
 
-    cargaGrillaDeProductos(arrayFiltradoPorEstilo, true)
+    mostrarPaginaPaginado(arrayFiltradoPorEstilo, paginaActual)
+    // cargaGrillaDeProductos(arrayFiltradoPorEstilo, true)
 }
 
 let estiloFiltradoActivo = ''
@@ -629,17 +732,18 @@ arrayRadioButtonsEstilo.forEach(button => {
 
 // FILTRO POR 'AÑO'.
 const filtrarPorAnio = anio => {
-    const arrayFiltradoPorCondicion = []
+    const arrayFiltradoPorAnio = []
     
     if (marcaFiltradaActiva) {
-		if (marcaFiltradaActiva && estiloFiltradoActivo && condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
-		else if (marcaFiltradaActiva && estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
-		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
-	} else if (estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
-	else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
-    else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorCondicion.push(producto))
+		if (marcaFiltradaActiva && estiloFiltradoActivo && condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorAnio.push(producto))
+		else if (marcaFiltradaActiva && estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorAnio.push(producto))
+		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorAnio.push(producto))
+	} else if (estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorAnio.push(producto))
+	else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorAnio.push(producto))
+    else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.anio == anio).forEach(producto => arrayFiltradoPorAnio.push(producto))
 
-    cargaGrillaDeProductos(arrayFiltradoPorCondicion, true)
+    mostrarPaginaPaginado(arrayFiltradoPorAnio, paginaActual)
+    // cargaGrillaDeProductos(arrayFiltradoPorAnio, true)
 }
 
 let anioFiltradoActivo = ''
@@ -669,7 +773,8 @@ const filtrarPorCondicion = condicion => {
 	else if (anioFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.anio == anioFiltradoActivo).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
     else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicion).forEach(producto => arrayFiltradoPorCondicion.push(producto))
 
-    cargaGrillaDeProductos(arrayFiltradoPorCondicion, true)
+    mostrarPaginaPaginado(arrayFiltradoPorCondicion, paginaActual)
+    // cargaGrillaDeProductos(arrayFiltradoPorCondicion, true)
 }
 
 let condicionFiltradaActiva = ''
