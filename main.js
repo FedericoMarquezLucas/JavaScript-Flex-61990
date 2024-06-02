@@ -942,43 +942,72 @@ const shoppingCartCount = array => document.querySelector('#shoppingCartCount').
 
 // ADD TO CART ALERT.
 const alertaProductoCarrito = (marca, modelo, action) => {
-	document.querySelector('#alertDetalleMoto').innerHTML = `${marca} ${modelo}`
-	document.querySelector('#cartAlert').classList.remove('hidden')
+    const cartAlert = document.querySelector('#cartAlert')
+    const alertIconContainer = document.querySelector('#alertIconContainer')
+    const alertAccionMoto = document.querySelector('#alertAccionMoto')
 
-	const addActionClasses = ['bg-green-100', 'border-green-200', 'text-green-800']
-	const existsActionClasses = ['bg-blue-100', 'border-blue-200', 'text-blue-700']
-	const removeActionClasses = ['bg-yellow-100', 'border-yellow-200', 'text-yellow-700']
+    const alertaProductoContenido = (message, iconHTML, addClasses, removeClasses) => {
+        document.querySelector('#alertDetalleMoto').innerHTML = `${marca} ${modelo}`
+        cartAlert.classList.remove('hidden', ...removeClasses)
+        cartAlert.classList.add(...addClasses)
+        alertIconContainer.innerHTML = iconHTML
+        alertAccionMoto.innerHTML = message
+    };
 
-	if (action == 'add' || action == 'addWishlist' || action == 'movedToCart' || action == 'movedToWishlist') {
-		document.querySelector('#cartAlert').classList.add(...addActionClasses)
-		document.querySelector('#cartAlert').classList.remove(...existsActionClasses,...removeActionClasses)
-		document.querySelector('#alertIconContainer').innerHTML	= `<svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>`
-		if (action == 'add') document.querySelector('#alertAccionMoto').innerHTML = `agregada al Carrito`
-		else if (action == 'addWishlist') document.querySelector('#alertAccionMoto').innerHTML = `agregada a Wishlist`
-		else if (action == 'movedToCart') document.querySelector('#alertAccionMoto').innerHTML = `movida al Carrito`
-		else document.querySelector('#alertAccionMoto').innerHTML = `movida a Wishlist`
-	} else if (action == 'remove' || action == 'removeWishlist') {
-		document.querySelector('#cartAlert').classList.add(...removeActionClasses)
-		document.querySelector('#cartAlert').classList.remove(...addActionClasses,...existsActionClasses)
-		document.querySelector('#alertIconContainer').innerHTML	= `<svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>`
-		if (action == 'remove') document.querySelector('#alertAccionMoto').innerHTML = `eliminada del Carrito`
-		else document.querySelector('#alertAccionMoto').innerHTML = `eliminada de Wishlist`
-	} else if (action == 'existWishlist') {
-		document.querySelector('#cartAlert').classList.add(...existsActionClasses)
-		document.querySelector('#cartAlert').classList.remove(...addActionClasses,...removeActionClasses)
-		document.querySelector('#alertIconContainer').innerHTML	= `<svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"></path></svg>`
-		document.querySelector('#alertAccionMoto').innerHTML = `ya existe en la Wishlist`
-	}
+    const addActionClasses = ['bg-green-100', 'border-green-200', 'text-green-800']
+    const existsActionClasses = ['bg-blue-100', 'border-blue-200', 'text-blue-700']
+    const removeActionClasses = ['bg-yellow-100', 'border-yellow-200', 'text-yellow-700']
 
-	const alertPosition = [ { bottom: '-50px' }, { bottom: '15px' } ]
-	const alertTiming = { duration: 250 }
-	const cartAlert = document.querySelector("#cartAlert")
-	cartAlert.animate(alertPosition, alertTiming)
+    const iconMap = {
+        add: `<svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>`,
+        addWishlist: `<svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>`,
+        movedToCart: `<svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>`,
+        movedToWishlist: `<svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>`,
+        remove: `<svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>`,
+        removeWishlist: `<svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>`,
+        existWishlist: `<svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"></path></svg>`
+    }
 
-	setTimeout(() => {
-		document.querySelector('#cartAlert').classList.add('hidden')
-	}, '2500')
+    switch (action) {
+        case 'add':
+        case 'addWishlist':
+        case 'movedToCart':
+        case 'movedToWishlist':
+            alertaProductoContenido(
+                action === 'add' ? 'agregada al Carrito' : 
+                action === 'addWishlist' ? 'agregada a Wishlist' : 
+                action === 'movedToCart' ? 'movida al Carrito' : 'movida a Wishlist',
+                iconMap[action],
+                addActionClasses,
+                [...existsActionClasses, ...removeActionClasses]
+            );
+            break
+        case 'remove':
+        case 'removeWishlist':
+            alertaProductoContenido(
+                action === 'remove' ? 'eliminada del Carrito' : 'eliminada de Wishlist',
+                iconMap[action],
+                removeActionClasses,
+                [...addActionClasses, ...existsActionClasses]
+            );
+            break
+        case 'existWishlist':
+            alertaProductoContenido(
+                'ya existe en la Wishlist',
+                iconMap[action],
+                existsActionClasses,
+                [...addActionClasses, ...removeActionClasses]
+            );
+            break
+    }
+
+    cartAlert.animate([{ bottom: '-50px' }, { bottom: '15px' }], { duration: 250 })
+
+    setTimeout(() => {
+        cartAlert.classList.add('hidden')
+    }, 2500)
 }
+
 
 if (!JSON.parse(localStorage.getItem('arrayCarrito'))) localStorage.setItem('arrayCarrito', JSON.stringify([]));
 listadoProductosCart(JSON.parse(localStorage.getItem('arrayCarrito')))
