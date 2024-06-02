@@ -582,7 +582,6 @@ arrayRadioButtonsMarca.forEach(button => {
             toggleSortButtonClasses('ordenarPrecioAsc', sortButtonActiveClasses, sortButtonInactiveClasses)
             toggleSortButtonClasses('ordenarPrecioDes', sortButtonActiveClasses, sortButtonInactiveClasses)
             toggleSortButtonClasses('ordenarReciente', sortButtonActiveClasses, sortButtonInactiveClasses)
-            toggleRadioButtonsCondicion()
         }
     })
 })
@@ -708,8 +707,14 @@ arrayRadioButtonsCondicion.forEach(button => {
 
 const sortListadoProductos = sort => {
     const arrayProductosOrdenados = []
-    
-    if (marcaFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).forEach(producto => arrayProductosOrdenados.push(producto))
+
+    if (marcaFiltradaActiva) {
+		if (marcaFiltradaActiva && anioFiltradoActivo && condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.anio == anioFiltradoActivo).filter(producto => producto.condicion == condicionFiltradaActiva).forEach(producto => arrayProductosOrdenados.push(producto))
+		else if (marcaFiltradaActiva && condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).filter(producto => producto.condicion == condicionFiltradaActiva).forEach(producto => arrayProductosOrdenados.push(producto))
+		else JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.marca == marcaFiltradaActiva).forEach(producto => arrayProductosOrdenados.push(producto))
+	} else if (estiloFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.estilo == estiloFiltradoActivo).forEach(producto => arrayProductosOrdenados.push(producto)) 
+    else if (anioFiltradoActivo) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.anio == anioFiltradoActivo).forEach(producto => arrayProductosOrdenados.push(producto))
+	else if (condicionFiltradaActiva) JSON.parse(localStorage.getItem('PRODUCTOS')).filter(producto => producto.condicion == condicionFiltradaActiva).forEach(producto => arrayProductosOrdenados.push(producto))
     else JSON.parse(localStorage.getItem('PRODUCTOS')).forEach(producto => arrayProductosOrdenados.push(producto))
 
     if (sort == 'precioAsc') arrayProductosOrdenados.sort((param1, param2) => param1.precio - param2.precio)
