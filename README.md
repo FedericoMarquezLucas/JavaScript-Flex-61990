@@ -19,6 +19,7 @@ De manera de poder mostrar las herramientas vistas en clase, el eCommerce intera
 - Pasaje de Productos de Wishlist al Carrito.
 - Pasaje de Productos des Carrito a Wishlist.
 - Simulación de Finalizado de Compra.
+- Paginado de Productos.
 
 Para desarrollar las funcionalidades detalladas, se hizo uso de las siguientes herramientas:
 - **variables**
