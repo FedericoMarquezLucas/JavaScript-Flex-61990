@@ -357,11 +357,14 @@ SECTIONHEADING.innerHTML += `
                     <div class="flex items-center space-x-2">
                         <h3 class="text-xs text-gray-700 font-bold">Ordenar:</h3>
 
-                        <select id="ordenar" name="ordenar" class="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 text-xs font-semibold ring-1 ring-inset ring-gray-300 focus:ring-gray-300 sm:leading-6">
+                        <select id="ordenar" name="ordenar" class="block w-full cursor-pointer rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 text-xs font-semibold ring-1 ring-inset ring-gray-300 focus:ring-gray-300 sm:leading-6">
                             <option value="">- Defecto -</option>
                             <option value="precioAsc">Precio (ASC)</option>
                             <option value="precioDes">Precio (DES)</option>
-                            <option value="rating">Rating</option>
+                            <option value="marca">Marca</option>
+                            <option value="anio">Año</option>
+                            <option value="ratingAsc">Rating (ASC)</option>
+                            <option value="ratingDes">Rating (DES)</option>
                             <option value="reciente">Recientes</option>
                         </select>
 
@@ -846,13 +849,29 @@ const sortListadoProductos = sort => {
 
     if (sort == 'precioAsc') arrayProductosOrdenados.sort((param1, param2) => param1.precio - param2.precio)
     else if (sort == 'precioDes') arrayProductosOrdenados.sort((param1, param2) => param2.precio - param1.precio)
-    else if (sort == 'rating') arrayProductosOrdenados.sort((param1, param2) => param2.rating - param1.rating)
+    else if (sort == 'marca') {
+        function marca( param1, param2 ){
+            if (param1.marca < param2.marca)
+                return -1;
+            if (param1.marca > param2.marca)
+                return 1;
+                return 0;
+        }
+        arrayProductosOrdenados.sort(marca)
+    }
+    else if (sort == 'anio') arrayProductosOrdenados.sort((param1, param2) => param1.anio - param2.anio)
+    else if (sort == 'ratingAsc') arrayProductosOrdenados.sort((param1, param2) => param1.rating - param2.rating)
+    else if (sort == 'ratingDes') arrayProductosOrdenados.sort((param1, param2) => param2.rating - param1.rating)
     else if (sort == 'reciente') arrayProductosOrdenados.reverse()
 
     cargaGrillaDeProductos(arrayProductosOrdenados, true)
 }
 
-const sortButton = (activeButtonId, inactiveButtonId, inactiveButtonIdTwo) => {
+// SELECT ORDENAR.
+const selectSort = document.getElementById('ordenar')
+selectSort.addEventListener('change', () => sortListadoProductos(selectSort.value) )
+
+/* const sortButton = (activeButtonId, inactiveButtonId, inactiveButtonIdTwo) => {
     ['remove', 'add'].forEach((method, i) => {
         document.getElementById(activeButtonId).classList[method](...(i ? sortButtonActiveClasses : sortButtonInactiveClasses))
         document.getElementById(inactiveButtonId).classList[method](...(i ? sortButtonInactiveClasses : sortButtonActiveClasses))
@@ -860,12 +879,8 @@ const sortButton = (activeButtonId, inactiveButtonId, inactiveButtonIdTwo) => {
     })
 }
 
-// SELECT ORDENAR.
-const selectSort = document.getElementById('ordenar')
-selectSort.addEventListener('change', (e) => sortListadoProductos(selectSort.value) )
-
 // BOTONES ORDENAR.
-/* document.getElementById('ordenarPrecioAsc').addEventListener('click', () => {
+document.getElementById('ordenarPrecioAsc').addEventListener('click', () => {
     sortButton('ordenarPrecioAsc', 'ordenarPrecioDes', 'ordenarReciente')
     sortListadoProductos('precioAsc')
 })
