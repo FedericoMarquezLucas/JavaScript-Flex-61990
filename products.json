@@ -11,6 +11,7 @@
 		"potencia": 72,
 		"kilometraje": 55000,
 		"precio": 29900,
+		"rating": 1,
 		"imagen": "img_softail_deluxe_flstn.jpg",
 		"logo": "logo_harley_davidson.svg"
 	},
@@ -26,6 +27,7 @@
 		"potencia": 66,
 		"kilometraje": 20000,
 		"precio": 19900,
+		"rating": 5,
 		"imagen": "img_sportster_forty_eight.png",
 		"logo": "logo_harley_davidson.svg"
 	},
@@ -41,6 +43,7 @@
 		"potencia": 170,
 		"kilometraje": 0,
 		"precio": 40900,
+		"rating": 4,
 		"imagen": "img_multistrada_v4.png",
 		"logo": "logo_ducati.png"
 	},
@@ -56,6 +59,7 @@
 		"potencia": 150,
 		"kilometraje": 25000,
 		"precio": 16000,
+		"rating": 4,
 		"imagen": "img_1190_adventure_r.jpeg",
 		"logo": "logo_ktm.png"
 	},
@@ -71,6 +75,7 @@
 		"potencia": 200,
 		"kilometraje": 0,
 		"precio": 34990,
+		"rating": 2,
 		"imagen": "img_zx10r.png",
 		"logo": "logo_kawasaki.svg"
 	},
@@ -86,6 +91,7 @@
 		"potencia": 75,
 		"kilometraje": 2500,
 		"precio": 10900,
+		"rating": 1,
 		"imagen": "img_svartpilen_701.jpeg",
 		"logo": "logo_husqvarna.png"
 	},
@@ -101,6 +107,7 @@
 		"potencia":  210,
 		"kilometraje": 0,
 		"precio": 79990,
+		"rating": 4,
 		"imagen": "img_m1000r.jpeg",
 		"logo": "logo_bmw.png"
 	},
@@ -116,6 +123,7 @@
 		"potencia": 120,
 		"kilometraje": 0,
 		"precio": 18900,
+		"rating": 5,
 		"imagen": "img_mt09.avif",
 		"logo": "logo_yamaha.png"
 	},
@@ -131,6 +139,7 @@
 		"potencia": 90,
 		"kilometraje": 0,
 		"precio": 38900,
+		"rating": 5,
 		"imagen": "img_scrambler1200x.avif",
 		"logo": "logo_triumph.svg"
 	},
@@ -146,6 +155,7 @@
 		"potencia": 80,
 		"kilometraje": 0,
 		"precio": 69900,
+		"rating": 2,
 		"imagen": "img_road_glide_cvo.webp",
 		"logo": "logo_harley_davidson.svg"
 	},
@@ -161,6 +171,7 @@
 		"potencia": 120,
 		"kilometraje": 0,
 		"precio": 39900,
+		"rating": 4,
 		"imagen": "img_sportster_s.jpeg",
 		"logo": "logo_harley_davidson.svg"
 	},
@@ -176,6 +187,7 @@
 		"potencia": 115,
 		"kilometraje": 5850,
 		"precio": 14900,
+		"rating": 2,
 		"imagen": "img_hypermotard_950_sp.jpeg",
 		"logo": "logo_ducati.png"
 	},
@@ -191,6 +203,7 @@
 		"potencia": 85,
 		"kilometraje": 10000,
 		"precio": 18900,
+		"rating": 3,
 		"imagen": "img_scrambler_1100_tribute.jpeg",
 		"logo": "logo_ducati.png"
 	},
@@ -206,6 +219,7 @@
 		"potencia": 80,
 		"kilometraje": 0,
 		"precio": 49900,
+		"rating": 3,
 		"imagen": "img_chief_classic.jpeg",
 		"logo": "logo_indian.svg"
 	},
@@ -221,6 +235,7 @@
 		"potencia": 35,
 		"kilometraje": 0,
 		"precio": 10850,
+		"rating": 5,
 		"imagen": "img_yz125.webp",
 		"logo": "logo_yamaha.png"
 	},
@@ -236,6 +251,7 @@
 		"potencia": 105,
 		"kilometraje": 5000,
 		"precio": 15990,
+		"rating": 1,
 		"imagen": "img_norden_901.jpeg",
 		"logo": "logo_husqvarna.png"
 	},
@@ -251,6 +267,7 @@
 		"potencia": 75,
 		"kilometraje": 0,
 		"precio": 10990,
+		"rating": 4,
 		"imagen": "img_enduro_701.webp",
 		"logo": "logo_husqvarna.png"
 	},
@@ -266,6 +283,7 @@
 		"potencia": 45,
 		"kilometraje": 8500,
 		"precio": 6900,
+		"rating": 4,
 		"imagen": "img_viptilen_401.avif",
 		"logo": "logo_husqvarna.png"
 	},
@@ -281,6 +299,7 @@
 		"potencia": 115,
 		"kilometraje": 500,
 		"precio": 20900,
+		"rating": 5,
 		"imagen": "img_xsr900.avif",
 		"logo": "logo_yamaha.png"
 	},
@@ -296,6 +315,7 @@
 		"potencia": 4.5,
 		"kilometraje": 25000,
 		"precio": 1090,
+		"rating": 5,
 		"imagen": "img_jog.webp",
 		"logo": "logo_yamaha.png"
 	},
@@ -311,6 +331,7 @@
 		"potencia": 90,
 		"kilometraje": 0,
 		"precio": 59900,
+		"rating": 2,
 		"imagen": "img_tri_glide_ultra.webp",
 		"logo": "logo_harley_davidson.svg"
 	},
@@ -326,6 +347,7 @@
 		"potencia": 210,
 		"kilometraje": 0,
 		"precio": 49900,
+		"rating": 4,
 		"imagen": "img_panigale_v4.webp",
 		"logo": "logo_ducati.png"
 	},
@@ -341,6 +363,7 @@
 		"potencia": 110,
 		"kilometraje": 10000,
 		"precio": 27900,
+		"rating": 4,
 		"imagen": "img_desertx.webp",
 		"logo": "logo_ducati.png"
 	},
@@ -356,6 +379,7 @@
 		"potencia": 150,
 		"kilometraje": 25000,
 		"precio": 25900,
+		"rating": 5,
 		"imagen": "img_xdiavel.png",
 		"logo": "logo_ducati.png"
 	},
@@ -371,6 +395,7 @@
 		"potencia": 65,
 		"kilometraje": 55000,
 		"precio": 20900,
+		"rating": 5,
 		"imagen": "img_fat_boy.jpeg",
 		"logo": "logo_harley_davidson.svg"
 	},
@@ -386,6 +411,7 @@
 		"potencia": 150,
 		"kilometraje": 0,
 		"precio": 32900,
+		"rating": 5,
 		"imagen": "img_pan_america.png",
 		"logo": "logo_harley_davidson.svg"
 	},
@@ -401,6 +427,7 @@
 		"potencia": 125,
 		"kilometraje": 0,
 		"precio": 49900,
+		"rating": 5,
 		"imagen": "img_r1200_gs_adventure.jpeg",
 		"logo": "logo_bmw.png"
 	},
@@ -416,6 +443,7 @@
 		"potencia": 205,
 		"kilometraje": 15000,
 		"precio": 29900,
+		"rating": 1,
 		"imagen": "img_s1000_rr.avif",
 		"logo": "logo_bmw.png"
 	},
@@ -431,6 +459,7 @@
 		"potencia": 20,
 		"kilometraje": 0,
 		"precio": 19900,
+		"rating": 3,
 		"imagen": "img_ce_04.webp",
 		"logo": "logo_bmw.png"
 	},
@@ -446,6 +475,7 @@
 		"potencia": 60,
 		"kilometraje": 0,
 		"precio": 17900,
+		"rating": 5,
 		"imagen": "img_fc_450.png",
 		"logo": "logo_husqvarna.png"
 	},
@@ -461,6 +491,7 @@
 		"potencia": 75,
 		"kilometraje": 15000,
 		"precio": 12900,
+		"rating": 4,
 		"imagen": "img_vitpilen_701.jpeg",
 		"logo": "logo_husqvarna.png"
 	},
@@ -476,6 +507,7 @@
 		"potencia": 110,
 		"kilometraje": 12500,
 		"precio": 18900,
+		"rating": 4,
 		"imagen": "img_z900_rs.png",
 		"logo": "logo_kawasaki.svg"
 	},
@@ -491,6 +523,7 @@
 		"potencia": 55,
 		"kilometraje": 1500,
 		"precio": 12900,
+		"rating": 3,
 		"imagen": "img_kx450.png",
 		"logo": "logo_kawasaki.svg"
 	},
@@ -506,6 +539,7 @@
 		"potencia": 130,
 		"kilometraje": 1500,
 		"precio": 10900,
+		"rating": 2,
 		"imagen": "img_zx6r.jpeg",
 		"logo": "logo_kawasaki.svg"
 	},
@@ -521,6 +555,7 @@
 		"potencia": 160,
 		"kilometraje": 0,
 		"precio": 40900,
+		"rating": 5,
 		"imagen": "img_1290_super_adventure_r.jpeg",
 		"logo": "logo_ktm.png"
 	},
@@ -536,6 +571,7 @@
 		"potencia": 180,
 		"kilometraje": 0,
 		"precio": 30900,
+		"rating": 5,
 		"imagen": "img_1290_super_duke_r.png",
 		"logo": "logo_ktm.png"
 	},
@@ -551,6 +587,7 @@
 		"potencia": 120,
 		"kilometraje": 0,
 		"precio": 50900,
+		"rating": 2,
 		"imagen": "img_challenger_elite.png",
 		"logo": "logo_indian.svg"
 	},
@@ -566,6 +603,7 @@
 		"potencia": 120,
 		"kilometraje": 0,
 		"precio": 35900,
+		"rating": 3,
 		"imagen": "img_ftr_rally.jpeg",
 		"logo": "logo_indian.svg"
 	},
@@ -581,6 +619,7 @@
 		"potencia": 165,
 		"kilometraje": 16500,
 		"precio": 35900,
+		"rating": 3,
 		"imagen": "img_rocket_3_gt.png",
 		"logo": "logo_triumph.svg"
 	},
@@ -596,6 +635,7 @@
 		"potencia": 105,
 		"kilometraje": 0,
 		"precio": 29900,
+		"rating": 4,
 		"imagen": "img_tiger_1200_rally_pro.avif",
 		"logo": "logo_triumph.svg"
 	},
@@ -611,6 +651,7 @@
 		"potencia": 100,
 		"kilometraje": 900,
 		"precio": 29900,
+		"rating": 4,
 		"imagen": "img_thruxton_rs.avif",
 		"logo": "logo_triumph.svg"
 	},
@@ -626,6 +667,7 @@
 		"potencia": 100,
 		"kilometraje": 40000,
 		"precio": 12900,
+		"rating": 5,
 		"imagen": "img_monster_1100_evo.webp",
 		"logo": "logo_ducati.png"
 	},
@@ -641,6 +683,7 @@
 		"potencia": 100,
 		"kilometraje": 8000,
 		"precio": 22900,
+		"rating": 4,
 		"imagen": "img_scout.jpeg",
 		"logo": "logo_indian.svg"
 	},
@@ -656,6 +699,7 @@
 		"potencia": 30,
 		"kilometraje": 0,
 		"precio": 10900,
+		"rating": 4,
 		"imagen": "img_sx_125.png",
 		"logo": "logo_ktm.png"
 	},
@@ -671,6 +715,7 @@
 		"potencia": 25,
 		"kilometraje": 0,
 		"precio": 6900,
+		"rating": 2,
 		"imagen": "img_rc_200.png",
 		"logo": "logo_ktm.png"
 	},
@@ -686,6 +731,7 @@
 		"potencia": 80,
 		"kilometraje": 8500,
 		"precio": 26900,
+		"rating": 3,
 		"imagen": "img_bonneville_t120.webp",
 		"logo": "logo_triumph.svg"
 	},
@@ -701,6 +747,7 @@
 		"potencia": 72,
 		"kilometraje": 50000,
 		"precio": 34900,
+		"rating": 1,
 		"imagen": "img_road_king_classic.jpeg",
 		"logo": "logo_harley_davidson.svg"
 	},
@@ -716,6 +763,7 @@
 		"potencia": 55,
 		"kilometraje": 7500,
 		"precio": 20900,
+		"rating": 2,
 		"imagen": "img_sportster_seventy_two.jpeg",
 		"logo": "logo_harley_davidson.svg"
 	},
@@ -731,6 +779,7 @@
 		"potencia": 100,
 		"kilometraje": 7500,
 		"precio": 26900,
+		"rating": 1,
 		"imagen": "img_crf1000_africa_twin.jpeg",
 		"logo": "logo_honda.svg"
 	},
@@ -746,6 +795,7 @@
 		"potencia": 52.5,
 		"kilometraje": 0,
 		"precio": 16900,
+		"rating": 3,
 		"imagen": "img_crf450.webp",
 		"logo": "logo_honda.svg"
 	},
@@ -761,6 +811,7 @@
 		"potencia": 80,
 		"kilometraje": 5500,
 		"precio": 17900,
+		"rating": 5,
 		"imagen": "img_cb650r.avif",
 		"logo": "logo_honda.svg"
 	},
@@ -776,6 +827,7 @@
 		"potencia": 95,
 		"kilometraje": 50000,
 		"precio": 7500,
+		"rating": 4,
 		"imagen": "img_cbx750.webp",
 		"logo": "logo_honda.svg"
 	},
@@ -791,6 +843,7 @@
 		"potencia": 215,
 		"kilometraje": 0,
 		"precio": 26900,
+		"rating": 4,
 		"imagen": "img_cbr1000rr.avif",
 		"logo": "logo_honda.svg"
 	},
@@ -806,6 +859,7 @@
 		"potencia": 115,
 		"kilometraje": 0,
 		"precio": 68900,
+		"rating": 2,
 		"imagen": "img_cvo_street_glide.png",
 		"logo": "logo_harley_davidson.svg"
 	},
@@ -821,6 +875,7 @@
 		"potencia": 65,
 		"kilometraje": 42500,
 		"precio": 14900,
+		"rating": 2,
 		"imagen": "img_sportster_iron_883.jpeg",
 		"logo": "logo_harley_davidson.svg"
 	},
@@ -836,6 +891,7 @@
 		"potencia": 85,
 		"kilometraje": 20500,
 		"precio": 34900,
+		"rating": 2,
 		"imagen": "img_ultra_classic.png",
 		"logo": "logo_harley_davidson.svg"
 	},
@@ -851,6 +907,7 @@
 		"potencia": 75,
 		"kilometraje": 25000,
 		"precio": 18900,
+		"rating": 5,
 		"imagen": "img_xl1200_sportster_roadster.jpeg",
 		"logo": "logo_harley_davidson.svg"
 	}
