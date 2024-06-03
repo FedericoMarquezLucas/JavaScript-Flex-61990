@@ -499,9 +499,8 @@ function toggleRadioButtons (names) {
 // DISPLAY DE CANTIDAD DE RESULTADOS.
 const displayDeResultados = (array, inicio, final) => {
     let resultado = document.querySelector('#resultado-array')
-    let totalProductosJSON = JSON.parse(localStorage.getItem('PRODUCTOS')).length
-    document.querySelector('#resultados-productos').innerHTML = `Mostrando <b>${inicio == 0 ? inicio + 1 : inicio}</b> a <b>${final > totalProductosJSON ? final = totalProductosJSON : final}</b>`
-    array.length > 1 ? resultado.innerHTML = `de <b>${totalProductosJSON}</b> Motos` : resultado.innerHTML = `Moto`
+    document.querySelector('#resultados-productos').innerHTML = `Mostrando <b>${inicio == 0 ? inicio + 1 : inicio}</b> a <b>${final > array.length ? final = array.length : final}</b>`
+    array.length > 1 ? resultado.innerHTML = `de <b>${array.length}</b> Motos` : resultado.innerHTML = `Moto`
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -564,17 +563,15 @@ const mostrarPaginaPaginado = (array, pagina) => {
     const totalPaginas = Math.ceil(array.length / productosPorPagina)
     updatePaginationControls(totalPaginas, pagina)
 
-    console.log(`INICIO: ${inicio}`)
-    console.log(`FINAL: ${final}`)
     displayDeResultados(array, inicio, final)
 }
 
-const updatePaginationControls = (totalPaginas, paginaActual, array) => {
+const updatePaginationControls = (totalPaginas, paginaActual) => {
     const paginationControls = document.querySelector('#pagination-controls')
     let controlsHTML = ''
 
     controlsHTML += `
-        <button class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === 1 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual - 1}, ${JSON.stringify(array)})" ${paginaActual === 1 ? 'disabled' : ''}>
+        <button class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === 1 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual - 1})" ${paginaActual === 1 ? 'disabled' : ''}>
             <span class="sr-only">Previous</span>
             <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
@@ -583,11 +580,11 @@ const updatePaginationControls = (totalPaginas, paginaActual, array) => {
     `
 
     for (let i = 1; i <= totalPaginas; i++) {
-        controlsHTML += `<button class="relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold focus:z-20 ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white' : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'}" onclick="irPagina(${i}, ${JSON.stringify(array)})">${i}</button>`
+        controlsHTML += `<button class="relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold focus:z-20 ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white' : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'}" onclick="irPagina(${i})">${i}</button>`
     }
 
     controlsHTML += `
-        <button class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === totalPaginas ? 'opacity-30 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual + 1}, ${JSON.stringify(array)})" ${paginaActual === totalPaginas ? 'disabled' : ''}>
+        <button class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === totalPaginas ? 'opacity-30 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? 'disabled' : ''}>
             <span class="sr-only">Next</span>
             <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
@@ -1327,7 +1324,6 @@ FINALIZARCOMPRA.innerHTML += `
 `
 
 document.getElementById('finalizarCompraBoton').addEventListener('click', () => {
-    console.log('COMPRA FINALIZADA')
     MAIN.innerHTML = ''
     MAIN.append(FINALIZARCOMPRA)
 })
