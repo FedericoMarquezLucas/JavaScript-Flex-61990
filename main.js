@@ -397,7 +397,7 @@ PRODUCTLISTING.innerHTML += `
         <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:pt-0 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 lg:gap-x-8" id="listado-productos"></div>
             <div class="flex items-center justify-between mt-10 pt-8 border-t border-gray-200">
-                <p class="text-sm text-gray-700">
+                <p class="text-xs sm:text-sm text-gray-700">
                     <span id="resultados-productos"></span>
                     <span id="resultado-array"></span>
                 </p>
@@ -412,15 +412,11 @@ PRODUCTLISTING.innerHTML += `
 const FOOTER = document.createElement('footer')
 FOOTER.className += 'bg-white rounded-lg shadow mx-4 mb-4 dark:bg-gray-900'
 FOOTER.innerHTML += `
-    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between lg:px-8">
-        <span class="text-sm text-gray-500 dark:text-white sm:text-center dark:text-gray-400">
+    <div class="w-full mx-auto max-w-screen-xl p-4 flex items-center flex-col gap-3 md:flex-row md:justify-between lg:px-8">
+        <span class="text-xs sm:text-sm text-gray-500 dark:text-white sm:text-center dark:text-gray-400">
             Federico Márquez Lucas | Entregable #2 - JavaScript Flex | 61990
         </span>
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-            <a class="hover:underline" href="https://www.coderhouse.com/uy/?pipe_source=google&pipe_medium=cpc&pipe_campaign=0&gad_source=1&gclid=Cj0KCQjw6auyBhDzARIsALIo6v9l7bHL_O3jaqmlONYACs5FljtgMbhUe_bhweq1ZEhh0sasjxGiRMsaAqCtEALw_wcB" target="_blank" title="CODERHOUSE">
-                <img src="./img/logo-img/CODERHOUSE_Logo.svg" alt="CODERHOUSE" class="w-auto h-[15px]">
-            </a>
-        </span>
+        <img src="./img/logo-img/CODERHOUSE_Logo.svg" alt="CODERHOUSE" class="w-auto h-[15px]">
     </div>
 `
 
@@ -573,20 +569,20 @@ const updatePaginationControls = (totalPaginas, paginaActual) => {
     controlsHTML += `
         <button class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === 1 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual - 1})" ${paginaActual === 1 ? 'disabled' : ''}>
             <span class="sr-only">Previous</span>
-            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <svg class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
             </svg>
         </button>
     `
 
     for (let i = 1; i <= totalPaginas; i++) {
-        controlsHTML += `<button class="relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold focus:z-20 ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white' : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'}" onclick="irPagina(${i})">${i}</button>`
+        controlsHTML += `<button class="relative z-10 inline-flex items-center px-3 sm:px-4 py-2 text-xs sm:text-sm focus:z-20 ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white font-bold' : 'text-gray-900 font-medium ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'}" onclick="irPagina(${i})">${i}</button>`
     }
 
     controlsHTML += `
         <button class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === totalPaginas ? 'opacity-30 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? 'disabled' : ''}>
             <span class="sr-only">Next</span>
-            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <svg class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
             </svg>
         </button>
@@ -604,6 +600,7 @@ const irPagina = (page) => {
     mostrarPaginaPaginado(productos, paginaActual)
 }
 
+// LISTADO DE PRODUCTOS.
 const cargaGrillaDeProductos = (array, restoreStorage) => {
     // displayDeResultados(array)
     let contenedor = document.querySelector('#listado-productos');
