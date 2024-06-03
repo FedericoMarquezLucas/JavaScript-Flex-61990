@@ -115,11 +115,6 @@ SECTIONHEADING.innerHTML += `
             </div>
             <div class="mt-4 flex items-center gap-4 md:ml-4 md:mt-0">
 
-                <span class="text-sm text-gray-700 font-normal">
-                    <b id="resultados-productos"></b>
-                    <span id="resultado" class="font-light"></span>
-                </span>
-
                 <!-- START : DISPLAY SELECTOR -->
                 <span class="isolate hidden lg:inline-flex rounded-md shadow-sm">
                     <button type="button" id="display-table-button" class="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10" title="Display Tabla">
@@ -399,9 +394,13 @@ const PRODUCTLISTING = document.createElement('div')
 PRODUCTLISTING.className += 'bg-white'
 PRODUCTLISTING.innerHTML += `
     <div x-data="{ modelOpen: false }">
-        <div class="mx-auto max-w-7xl px-4 py-8 sm:py-16 sm:px-6 sm:pb-14 sm:pt-0 lg:px-8">
+        <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:pt-0 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 lg:gap-x-8" id="listado-productos"></div>
-            <div class="flex justify-center mt-16">
+            <div class="flex items-center justify-between mt-10 pt-8 border-t border-gray-200">
+                <p class="text-sm text-gray-700">
+                    <span id="resultados-productos"></span>
+                    <span id="resultado-array"></span>
+                </p>
                 <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" id="pagination-controls" aria-label="Pagination"></nav>
             </div>
         </div>
@@ -498,11 +497,11 @@ function toggleRadioButtons (names) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // DISPLAY DE CANTIDAD DE RESULTADOS.
-const displayDeResultados = array => {
-    document.querySelector('#resultados-productos').innerText = array.length
-    let resultado = document.querySelector('#resultado')
+const displayDeResultados = (array, inicio, final) => {
+    let resultado = document.querySelector('#resultado-array')
     let totalProductosJSON = JSON.parse(localStorage.getItem('PRODUCTOS')).length
-    array.length > 1 ? resultado.innerHTML = `de ${totalProductosJSON} Motos` : resultado.innerHTML = `Moto`
+    document.querySelector('#resultados-productos').innerHTML = `Mostrando <b>${inicio == 0 ? inicio + 1 : inicio}</b> a <b>${final > totalProductosJSON ? final = totalProductosJSON : final}</b>`
+    array.length > 1 ? resultado.innerHTML = `de <b>${totalProductosJSON}</b> Motos` : resultado.innerHTML = `Moto`
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -564,6 +563,10 @@ const mostrarPaginaPaginado = (array, pagina) => {
 
     const totalPaginas = Math.ceil(array.length / productosPorPagina)
     updatePaginationControls(totalPaginas, pagina)
+
+    console.log(`INICIO: ${inicio}`)
+    console.log(`FINAL: ${final}`)
+    displayDeResultados(array, inicio, final)
 }
 
 const updatePaginationControls = (totalPaginas, paginaActual, array) => {
@@ -571,7 +574,7 @@ const updatePaginationControls = (totalPaginas, paginaActual, array) => {
     let controlsHTML = ''
 
     controlsHTML += `
-        <button class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === 1 ? 'bg-gray-200 text-gray-700 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual - 1}, ${JSON.stringify(array)})" ${paginaActual === 1 ? 'disabled' : ''}>
+        <button class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === 1 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual - 1}, ${JSON.stringify(array)})" ${paginaActual === 1 ? 'disabled' : ''}>
             <span class="sr-only">Previous</span>
             <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
@@ -580,13 +583,11 @@ const updatePaginationControls = (totalPaginas, paginaActual, array) => {
     `
 
     for (let i = 1; i <= totalPaginas; i++) {
-        controlsHTML += `
-            <button class="relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold focus:z-20 ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white' : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'}" onclick="irPagina(${i}, ${JSON.stringify(array)})">${i}</button>
-        `
+        controlsHTML += `<button class="relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold focus:z-20 ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white' : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'}" onclick="irPagina(${i}, ${JSON.stringify(array)})">${i}</button>`
     }
 
     controlsHTML += `
-        <button class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === totalPaginas ? 'bg-gray-200 text-gray-700 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual + 1}, ${JSON.stringify(array)})" ${paginaActual === totalPaginas ? 'disabled' : ''}>
+        <button class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === totalPaginas ? 'opacity-30 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual + 1}, ${JSON.stringify(array)})" ${paginaActual === totalPaginas ? 'disabled' : ''}>
             <span class="sr-only">Next</span>
             <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
@@ -607,7 +608,7 @@ const irPagina = (page) => {
 }
 
 const cargaGrillaDeProductos = (array, restoreStorage) => {
-    displayDeResultados(array)
+    // displayDeResultados(array)
     let contenedor = document.querySelector('#listado-productos');
     let listadoProductos = '';
 
