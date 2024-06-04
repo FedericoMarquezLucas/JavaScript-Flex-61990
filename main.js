@@ -439,27 +439,26 @@ const numeroFormateado = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// SWITCH DISPLAY LISTADO DE PRODUCTOS ( GRID/TABLE ).
-// ACTIVE/INACTIVE STATE DE CADA BOTÓN.
-
+// ACTIVE/INACTIVE STATE DISPLAY BUTTON.
 const buttonInactiveClasses = ['bg-white', 'hover:bg-gray-50']
 const buttonActiveClasses = ['bg-gray-200', 'hover:bg-gray-200']
 
 const toggleDisplay = (activeButtonId, inactiveButtonId, removeClass, addClass) => {
     document.getElementById('listado-productos').classList.replace(removeClass, addClass);
     ['remove', 'add'].forEach((method, i) => {
-        document.getElementById(activeButtonId).classList[method](...(i ? buttonActiveClasses : buttonInactiveClasses));
-        document.getElementById(inactiveButtonId).classList[method](...(i ? buttonInactiveClasses : buttonActiveClasses));
+        document.getElementById(activeButtonId).classList[method](...(i ? buttonActiveClasses : buttonInactiveClasses))
+        document.getElementById(inactiveButtonId).classList[method](...(i ? buttonInactiveClasses : buttonActiveClasses))
     });
-};
+}
 
+// SWITCH DISPLAY LISTADO DE PRODUCTOS ( GRID/TABLE ).
 document.getElementById('display-table-button').addEventListener('click', () => {
-    toggleDisplay('display-table-button', 'display-grid-button', 'lg:grid-cols-3', 'lg:grid-cols-2');
-});
+    toggleDisplay('display-table-button', 'display-grid-button', 'lg:grid-cols-3', 'lg:grid-cols-2')
+})
 
 document.getElementById('display-grid-button').addEventListener('click', () => {
-    toggleDisplay('display-grid-button', 'display-table-button', 'lg:grid-cols-2', 'lg:grid-cols-3');
-});
+    toggleDisplay('display-grid-button', 'display-table-button', 'lg:grid-cols-2', 'lg:grid-cols-3')
+})
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1005,6 +1004,7 @@ const listadoProductosCart = array => {
 	array.length > 0 ? listadoProductosCart.innerHTML = productoCart : listadoProductosCart.innerHTML = `<li class="text-xs text-center text-gray-500 font-semibold">NO HAY PRODUCTOS EN SU CARRITO</li>`
 }
 
+// MOVER PRODUCTO UP & DOWN.
 const moverProducto = (productoId, direccion) => {
 	let array = JSON.parse(localStorage.getItem('arrayCarrito'))
 	const index = array.findIndex(product => product.id === productoId)
