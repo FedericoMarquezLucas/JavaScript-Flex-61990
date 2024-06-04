@@ -864,7 +864,8 @@ const sortListadoProductos = sort => {
     else if (sort == 'ratingDes') arrayProductosOrdenados.sort((param1, param2) => param2.rating - param1.rating)
     else if (sort == 'reciente') arrayProductosOrdenados.reverse()
 
-    cargaGrillaDeProductos(arrayProductosOrdenados, true)
+    mostrarPaginaPaginado(arrayProductosOrdenados, paginaActual)
+    // cargaGrillaDeProductos(arrayProductosOrdenados, true)
 }
 
 // SELECT ORDENAR.
@@ -903,7 +904,8 @@ document.getElementById('borrarFiltros').addEventListener('click', () => listado
 const listadoProductosInicial = () => {
     toggleRadioButtons(['filtro-marca', 'filtro-estilo', 'filtro-anio', 'filtro-condicion'])
     clearSelected()
-    cargaGrillaDeProductos(JSON.parse(localStorage.getItem('PRODUCTOS')), false)
+    mostrarPaginaPaginado(JSON.parse(localStorage.getItem('PRODUCTOS')), paginaActual)
+    // cargaGrillaDeProductos(JSON.parse(localStorage.getItem('PRODUCTOS')), false)
     // toggleSortButtonClasses(['ordenarPrecioAsc', 'ordenarPrecioDes', 'ordenarReciente'], sortButtonActiveClasses, sortButtonInactiveClasses)
 }
 
