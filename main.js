@@ -429,7 +429,7 @@ FOOTER.className += 'bg-white rounded-lg shadow mx-4 mb-4 dark:bg-gray-900'
 FOOTER.innerHTML += `
     <div class="w-full mx-auto max-w-screen-xl p-4 flex items-center flex-col gap-3 md:flex-row md:justify-between lg:px-8">
         <span class="text-xs sm:text-sm text-gray-500 dark:text-white sm:text-center dark:text-gray-400">
-            Federico Márquez Lucas | Entregable #2 - JavaScript Flex | 61990
+            Federico Márquez Lucas | Proyecto Final | JavaScript Flex - 61990
         </span>
         <img src="./img/logo-img/CODERHOUSE_Logo.svg" alt="CODERHOUSE" class="w-auto h-[15px]">
     </div>
@@ -569,7 +569,7 @@ const displayDeResultados = (array, inicio, final) => {
 fetchProductosJSON().then(productos => localStorage.setItem('PRODUCTOS', JSON.stringify(productos)))
 cargaGrillaDeProductos(JSON.parse(localStorage.getItem('PRODUCTOS')), false) */
 
-const productosPorPagina = 15
+const productosPorPagina = 21
 let paginaActual = 1
 
 const mostrarPaginaPaginado = (array, pagina) => {
