@@ -115,6 +115,11 @@ SECTIONHEADING.innerHTML += `
             </div>
             <div class="mt-4 flex items-center gap-4 md:ml-4 md:mt-0">
 
+                <p class="text-xs sm:text-sm text-gray-700">
+                    <span class="resultados-productos"></span>
+                    <span class="resultado-array"></span>
+                </p>
+
                 <!-- START : DISPLAY SELECTOR -->
                 <span class="isolate hidden lg:inline-flex rounded-md shadow-sm">
                     <button type="button" id="display-table-button" class="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10" title="Display Tabla">
@@ -358,11 +363,14 @@ SECTIONHEADING.innerHTML += `
                         <h3 class="text-xs text-gray-700 font-bold">Ordenar:</h3>
                         <select id="ordenar" name="ordenar" class="block w-full cursor-pointer rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 text-xs font-semibold ring-1 ring-inset ring-gray-300 focus:ring-gray-300 sm:leading-6">
                             <option value="">- Defecto -</option>
+                            <option value="anio">Año</option>
+                            <option value="marca">Marca</option>
+                            <option value="modelo">Modelo</option>
                             <option value="precioAsc">Precio (ASC)</option>
                             <option value="precioDes">Precio (DES)</option>
-                            <option value="reciente">Recientes</option>
                             <option value="ratingAsc">Rating (ASC)</option>
                             <option value="ratingDes">Rating (DES)</option>
+                            <option value="reciente">Recientes</option>
                         </select>
                     </div>
                     <!-- END : SORTING DROPDOWN -->
@@ -396,8 +404,8 @@ PRODUCTLISTING.innerHTML += `
             <!-- START : PAGINATION -->
             <div class="flex items-center justify-between mt-10 pt-8 border-t border-gray-200">
                 <p class="text-xs sm:text-sm text-gray-700">
-                    <span id="resultados-productos"></span>
-                    <span id="resultado-array"></span>
+                    <span class="resultados-productos"></span>
+                    <span class="resultado-array"></span>
                 </p>
                 <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm">
                     <button id="paginationPrevButton" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-700 font-bold ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-offset-0">
@@ -507,9 +515,9 @@ function toggleRadioButtons (names) {
 
 // DISPLAY DE CANTIDAD DE RESULTADOS.
 const displayDeResultados = (array, inicio, final) => {
-    let resultado = document.querySelector('#resultado-array')
-    document.querySelector('#resultados-productos').innerHTML = `Mostrando <b>${inicio == 0 ? inicio + 1 : inicio}</b> a <b>${final > array.length ? final = array.length : final}</b>`
-    array.length > 1 ? resultado.innerHTML = `de <b>${array.length}</b> Motos` : resultado.innerHTML = `Moto`
+    let resultado = document.querySelectorAll('.resultado-array')
+    document.querySelectorAll('.resultados-productos').forEach(resultado => resultado.innerHTML = `Mostrando <b>${inicio == 0 ? inicio + 1 : inicio}</b> a <b>${final > array.length ? final = array.length : final}</b>`)
+    array.length > 1 ? resultado.forEach(resultado => resultado.innerHTML = `de <b>${array.length}</b> Motos`) : resultado.forEach(resultado => resultado.innerHTML = `Moto`)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -804,6 +812,9 @@ const sortListadoProductos = sort => {
         precioDes: (a, b) => b.precio - a.precio,
         ratingAsc: (a, b) => a.rating - b.rating,
         ratingDes: (a, b) => b.rating - a.rating,
+        anio: (a, b) => a.anio - b.anio,
+        marca: (a, b) => a.marca.localeCompare(b.marca),
+        modelo: (a, b) => a.modelo.localeCompare(b.modelo),
         reciente: () => arrayProductosOrdenados.reverse()
     }
     
