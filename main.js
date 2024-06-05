@@ -388,16 +388,41 @@ PRODUCTLISTING.className += 'bg-white'
 PRODUCTLISTING.innerHTML += `
     <div x-data="{ modelOpen: false }">
         <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:pt-0 lg:px-8">
+
+            <!-- START : PRODUCT LISTING -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 lg:gap-x-8" id="listado-productos"></div>
+            <!-- START : PRODUCT LISTING -->
+
+            <!-- START : PAGINATION -->
             <div class="flex items-center justify-between mt-10 pt-8 border-t border-gray-200">
                 <p class="text-xs sm:text-sm text-gray-700">
                     <span id="resultados-productos"></span>
                     <span id="resultado-array"></span>
                 </p>
-                <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" id="pagination-controls" aria-label="Pagination"></nav>
+                <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm">
+                    <button id="paginationPrevButton" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-700 font-bold ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-offset-0">
+                        <span class="sr-only">Previous</span>
+                        <svg class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="-space-x-px" id="paginationPages"></div>
+                    <button id="paginationNextButton" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-700 font-bold ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-offset-0">
+                        <span class="sr-only">Next</span>
+                        <svg class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </nav>
             </div>
+            <!-- END : PAGINATION -->
+
         </div>
+
+        <!-- START : PRODUCT MODAL -->
         <div id="modal-producto"></div>
+        <!-- END : PRODUCT MODAL -->
+
     </div>
 `
 
@@ -534,7 +559,7 @@ const displayDeResultados = (array, inicio, final) => {
 fetchProductosJSON().then(productos => localStorage.setItem('PRODUCTOS', JSON.stringify(productos)))
 cargaGrillaDeProductos(JSON.parse(localStorage.getItem('PRODUCTOS')), false) */
 
-const productosPorPagina = 21
+const productosPorPagina = 15
 let paginaActual = 1
 
 const mostrarPaginaPaginado = (array, pagina) => {
@@ -545,47 +570,35 @@ const mostrarPaginaPaginado = (array, pagina) => {
     cargaGrillaDeProductos(arrayPaginado, false)
 
     const totalPaginas = Math.ceil(array.length / productosPorPagina)
-    updatePaginationControls(totalPaginas, pagina)
+    updatePaginationControls(totalPaginas, pagina, array)
 
     displayDeResultados(array, inicio, final)
 }
 
-const updatePaginationControls = (totalPaginas, paginaActual) => {
-    const paginationControls = document.querySelector('#pagination-controls')
+const updatePaginationControls = (totalPaginas, paginaActual, array) => {
+    // PREV. BUTTON.
+    const prevButton = document.getElementById('paginationPrevButton')
+    prevButton.addEventListener('click', () => irPagina(paginaActual - 1, array))
+
+    // NEXT BUTTON.
+    const nextButton = document.getElementById('paginationNextButton')
+    nextButton.addEventListener('click', () => irPagina(paginaActual + 1, array))
+
+    // RESULTS PAGES.
     let controlsHTML = ''
-
-    controlsHTML += `
-        <button class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === 1 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual - 1})" ${paginaActual === 1 ? 'disabled' : ''}>
-            <span class="sr-only">Previous</span>
-            <svg class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
-            </svg>
-        </button>
-    `
-
     for (let i = 1; i <= totalPaginas; i++) {
-        controlsHTML += `<button class="relative z-10 inline-flex items-center px-3 sm:px-4 py-2 text-xs sm:text-sm focus:z-20 ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white font-bold' : 'text-gray-900 font-medium ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'}" onclick="irPagina(${i})">${i}</button>`
+        controlsHTML += `<span class="pointer-events-none relative z-10 inline-flex items-center px-3 sm:px-4 py-2 text-xs sm:text-sm focus:z-20 ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white font-bold' : 'text-gray-400 font-normal ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'}">${i}</span>`
     }
-
-    controlsHTML += `
-        <button class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 ${paginaActual === totalPaginas ? 'opacity-30 cursor-not-allowed' : 'hover:bg-gray-50'}" onclick="irPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? 'disabled' : ''}>
-            <span class="sr-only">Next</span>
-            <svg class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-            </svg>
-        </button>
-    `
-
+    const paginationControls = document.querySelector('#paginationPages')
     paginationControls.innerHTML = controlsHTML
 }
 
-const irPagina = (page) => {
-    const productos = JSON.parse(localStorage.getItem('PRODUCTOS'))
-    const totalPaginas = Math.ceil(JSON.parse(localStorage.getItem('PRODUCTOS')).length / productosPorPagina)
+const irPagina = (page, array) => {
+    const totalPaginas = Math.ceil(array.length / productosPorPagina)
     if (page < 1) page = 1
     if (page > totalPaginas) page = totalPaginas
     paginaActual = page
-    mostrarPaginaPaginado(productos, paginaActual)
+    mostrarPaginaPaginado(array, paginaActual)
 }
 
 // PRODUCT RATING STARS.
