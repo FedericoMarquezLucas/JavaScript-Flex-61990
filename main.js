@@ -24,12 +24,14 @@ HEADER.innerHTML += `
                 <span class="text-sm md:text-lg text-gray-900 font-semibold">Federico Márquez Lucas</span>
             </a>
         </div>
-        <div class="flex flex-row items-center gap-x-3.5">
+        <div class="flex flex-row items-center gap-x-3.5" x-data="{ openWishlist: false, openCartSlideOver: false }">
 
+            <!-- START : SEARCH -->
             <input type="search" name="search" id="searchInput" class="hidden sm:block w-full min-w-[250px] rounded-md border-0 py-1.5 italic text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Buscar">
+            <!-- END : SEARCH -->
 
             <!-- START : WISHLIST -->
-            <div class="relative" x-data="{ openWishlist: false }">
+            <div class="relative">
                 <div class="flex items-center">
                     <button x-on:click="openWishlist = true" class="cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" id="wishlistIcon">
@@ -46,26 +48,26 @@ HEADER.innerHTML += `
             <!-- END : WISHLIST -->
 
             <!-- START : SHOPPING CART SLIDE-OVER -->
-            <div x-data="{ openSlideOver: false }">
-                <button x-on:click="openSlideOver = true" class="relative" title="Carrito">
+            <div>
+                <button x-on:click="openCartSlideOver = true" class="relative" title="Carrito">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />
                     </svg>
                     <span id="shoppingCartCount" class="absolute top-[-67.5%] right-[-67.5%] flex items-center justify-center rounded-full border w-6 h-6 bg-purple-100 text-xs text-purple-700 font-semibold"></span>
                 </button>
-                <div @keydown.window.escape="openSlideOver = false" x-show="openSlideOver" class="relative z-10" aria-labelledby="slide-over-title" x-ref="dialog" aria-modal="true">
-                    <div x-show="openSlideOver" x-transition:enter="ease-in-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-500" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-description="Background backdrop, show/hide based on slide-over state." class="fixed inset-0 bg-gray-700 bg-opacity-80 transition-opacity"></div>
-                    <!-- <div x-show="openSlideOver" @click.away="openSlideOver = false" x-transition:enter="ease-in-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-500" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-description="Background backdrop, show/hide based on slide-over state." class="fixed inset-0 bg-gray-700 bg-opacity-80 transition-opacity"></div> -->
+                <div @keydown.window.escape="openCartSlideOver = false" x-show="openCartSlideOver" class="relative z-10" aria-labelledby="slide-over-title" x-ref="dialog" aria-modal="true">
+                    <div x-show="openCartSlideOver" x-transition:enter="ease-in-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-500" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-description="Background backdrop, show/hide based on slide-over state." class="fixed inset-0 bg-gray-700 bg-opacity-80 transition-opacity"></div>
+                    <!-- <div x-show="openCartSlideOver" @click.away="openCartSlideOver = false" x-transition:enter="ease-in-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-500" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-description="Background backdrop, show/hide based on slide-over state." class="fixed inset-0 bg-gray-700 bg-opacity-80 transition-opacity"></div> -->
                     <div class="fixed inset-0 overflow-hidden">
                         <div class="absolute inset-0 overflow-hidden">
                             <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-                                <div x-show="openSlideOver" x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="pointer-events-auto w-screen max-w-md" x-description="Slide-over panel, show/hide based on slide-over state.">
+                                <div x-show="openCartSlideOver" x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="pointer-events-auto w-screen max-w-md" x-description="Slide-over panel, show/hide based on slide-over state.">
                                     <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                                         <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                                             <div class="flex items-start justify-between">
                                                 <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Carrito de Compras</h2>
                                                 <div class="ml-3 flex h-7 items-center">
-                                                    <button type="button" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500" @click="openSlideOver = false">
+                                                    <button type="button" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500" @click="openCartSlideOver = false">
                                                         <span class="absolute -inset-0.5"></span>
                                                         <span class="sr-only">Close panel</span>
                                                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -87,8 +89,8 @@ HEADER.innerHTML += `
                                             </div>
                                             <button id="finalizarCompraBoton" title="Finalizar Compra" class="mt-6 flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Finalizar Compra</button>
                                             <div class="mt-4 flex items-center justify-between text-center text-sm text-gray-500">
-                                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="openSlideOver = false" id="botonLimpiarCarrito">Limpiar Carrito</button>
-                                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="openSlideOver = false"> Continuar Comprando <span aria-hidden="true"> →</span></button>
+                                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="openCartSlideOver = false" id="botonLimpiarCarrito">Limpiar Carrito</button>
+                                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="openCartSlideOver = false"> Continuar Comprando <span aria-hidden="true"> →</span></button>
                                             </div>
                                         </div>
                                     </div>
@@ -414,7 +416,7 @@ PRODUCTLISTING.innerHTML += `
                             <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                    <div class="-space-x-px" id="paginationPages"></div>
+                    <div class="flex flex-row items-center -space-x-px" id="paginationPages"></div>
                     <button id="paginationNextButton" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-700 font-bold ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-offset-0">
                         <span class="sr-only">Next</span>
                         <svg class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -446,7 +448,7 @@ FOOTER.innerHTML += `
     </div>
 `
 
-// 'ADD TO CART' ALERT.
+// 'ADD TO CART' & 'ADD TO WISHLIST' ALERT.
 const CARTALERT = document.createElement('div')
 CARTALERT.setAttribute('id', 'cartAlert')
 CARTALERT.className += 'hidden rounded-md border p-4 fixed bottom-[15px] left-[50%] transform translate-x-[-50%] z-50'
@@ -595,7 +597,7 @@ const updatePaginationControls = (totalPaginas, paginaActual, array) => {
     // RESULTS PAGES.
     let controlsHTML = ''
     for (let i = 1; i <= totalPaginas; i++) {
-        controlsHTML += `<span class="pointer-events-none relative z-10 inline-flex items-center px-3 sm:px-4 py-2 text-xs sm:text-sm focus:z-20 ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white font-bold' : 'text-gray-400 font-normal ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'}">${i}</span>`
+        controlsHTML += `<span class="pointer-events-none cursor-not-allowed inline-flex items-center px-3 sm:px-4 py-2 text-xs sm:text-sm ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white font-bold' : 'text-gray-400 font-normal ring-1 ring-inset ring-gray-300'}">${i}</span>`
     }
     const paginationControls = document.querySelector('#paginationPages')
     paginationControls.innerHTML = controlsHTML
