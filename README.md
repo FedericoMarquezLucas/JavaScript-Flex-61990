@@ -37,6 +37,7 @@ Para desarrollar las funcionalidades detalladas, se hizo uso de las siguientes h
 - **try** & **catch**
 - **frameworks**
 - **librerías**
+- **NPM**
 
 El simulador de eCommerce fue construído aplicando los conocimientos desarrollados en el correr de las diez semanas de duración, enmarcándose dentro de las condiciones y requerimientos estipulados en la consigna subida a la plataforma - [JavaScript Flex Proyecto Final](https://docs.google.com/presentation/d/1G6YBej6icFVkGUebNWEhaHCaGtBOoC1vepL-J9yoKyk/edit#slide=id.p1) .
 
