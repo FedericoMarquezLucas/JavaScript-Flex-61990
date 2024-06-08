@@ -942,5 +942,53 @@
 		"rating": 4,
 		"imagen": "img_r_ninet.avif",
 		"logo": "logo_bmw.png"
+	},
+	{
+		"id": 61,
+		"marca": "Harley Davidson",
+		"modelo": "Softail Street Bob",
+		"estilo": "Street",
+		"anio": 2018,
+		"condicion": "Usada",
+		"cilindrada": 107,
+		"cilindradaMedida": "ci",
+		"potencia": 75,
+		"kilometraje": 0,
+		"precio": 22900,
+		"rating": 3,
+		"imagen": "img_softail_street_bob.png",
+		"logo": "logo_harley_davidson.svg"
+	},
+	{
+		"id": 62,
+		"marca": "Harley Davidson",
+		"modelo": "Dyna Fat Bob",
+		"estilo": "Street",
+		"anio": 2015,
+		"condicion": "Usada",
+		"cilindrada": 103,
+		"cilindradaMedida": "ci",
+		"potencia": 75,
+		"kilometraje": 0,
+		"precio": 20900,
+		"rating": 4,
+		"imagen": "img_dyna_fat_bob.jpeg",
+		"logo": "logo_harley_davidson.svg"
+	},
+	{
+		"id": 63,
+		"marca": "Harley Davidson",
+		"modelo": "Softail Heritage Classic",
+		"estilo": "Cruiser",
+		"anio": 2015,
+		"condicion": "Usada",
+		"cilindrada": 103,
+		"cilindradaMedida": "ci",
+		"potencia": 75,
+		"kilometraje": 0,
+		"precio": 21900,
+		"rating": 3,
+		"imagen": "img_softail_heritage_classic.jpeg",
+		"logo": "logo_harley_davidson.svg"
 	}
 ]
