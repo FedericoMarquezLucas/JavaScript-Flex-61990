@@ -6,7 +6,7 @@
         <title>Proyecto Final | Federico Márquez Lucas | JavaScript Flex - 61990 | CODERHOUSE</title>
         <link rel="stylesheet" href="./css/output.css">
     </head>
-    <body>
+    <body x-data="{darkMode: false}" :class="[darkMode === true ? 'dark dark:bg-slate-900' : '']">
         <div id="main"></div>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
         <script src="main.js"></script>

@@ -16,31 +16,31 @@ const MAIN = document.getElementById('main')
 
 // HEADER.
 const HEADER = document.createElement('header')
-HEADER.className += 'bg-white border-b fixed w-full z-50'
+HEADER.className += 'bg-white dark:bg-slate-900 border-b border-slate-900/10 dark:border-slate-300/10 fixed w-full z-50'
 HEADER.innerHTML += `
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">
-                <span class="text-sm md:text-lg text-gray-900 font-semibold">Federico Márquez Lucas</span>
+                <span class="text-sm md:text-lg text-gray-900 dark:text-white font-semibold">Federico Márquez Lucas</span>
             </a>
         </div>
         <div class="flex flex-row items-center gap-x-3.5" x-data="{ openWishlist: false, openCartSlideOver: false }">
 
             <!-- START : SEARCH -->
-            <input type="search" name="search" id="searchInput" class="hidden sm:block w-full min-w-[250px] rounded-md border-0 py-1.5 italic text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Buscar">
+            <input type="search" name="search" id="searchInput" class="hidden sm:block w-full min-w-[250px] rounded-md bg-white dark:bg-slate-800 border-0 py-1.5 italic text-gray-900 shadow-sm ring-1 dark:ring-0 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-slate-300/10 sm:text-sm sm:leading-6" placeholder="Buscar">
             <!-- END : SEARCH -->
 
             <!-- START : WISHLIST -->
             <div class="relative">
                 <div class="flex items-center">
-                    <button x-on:click="openWishlist = true" class="cursor-pointer">
+                    <button x-on:click="openWishlist = true" class="cursor-pointer dark:text-slate-400">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" id="wishlistIcon">
                             <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
                         </svg>
                     </button>
                 </div>
                 <div class="absolute top-[55px] right-0 z-10 flex w-screen max-w-max" x-show="openWishlist" x-on:click.away="openWishlist = false">
-                    <div class="w-screen max-w-md flex-auto overflow-hidden rounded-xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+                    <div class="w-screen max-w-md flex-auto overflow-hidden rounded-xl bg-white dark:bg-slate-800 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
                         <div id="listado-productos-wishlist" class="p-4"></div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ HEADER.innerHTML += `
 
             <!-- START : SHOPPING CART SLIDE-OVER -->
             <div>
-                <button x-on:click="openCartSlideOver = true" class="relative" title="Carrito">
+                <button x-on:click="openCartSlideOver = true" class="relative dark:text-slate-400" title="Carrito">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />
                     </svg>
@@ -62,12 +62,12 @@ HEADER.innerHTML += `
                         <div class="absolute inset-0 overflow-hidden">
                             <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
                                 <div x-show="openCartSlideOver" x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="pointer-events-auto w-screen max-w-md" x-description="Slide-over panel, show/hide based on slide-over state.">
-                                    <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                                    <div class="flex h-full flex-col overflow-y-scroll bg-white dark:bg-slate-800 shadow-xl">
                                         <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                                             <div class="flex items-start justify-between">
-                                                <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Carrito de Compras</h2>
+                                                <h2 class="text-lg font-medium text-gray-900 dark:text-white" id="slide-over-title">Carrito de Compras</h2>
                                                 <div class="ml-3 flex h-7 items-center">
-                                                    <button type="button" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500" @click="openCartSlideOver = false">
+                                                    <button type="button" class="relative -m-2 p-2 text-gray-400 dark:text-slate-400 hover:text-gray-500 dark:text-slate-600" @click="openCartSlideOver = false">
                                                         <span class="absolute -inset-0.5"></span>
                                                         <span class="sr-only">Close panel</span>
                                                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -78,19 +78,19 @@ HEADER.innerHTML += `
                                             </div>
                                             <div class="mt-8">
                                                 <div class="flow-root">
-                                                    <ul role="list" class="-my-6 divide-y divide-gray-200" id="listado-productos-shopping-cart"></ul>
+                                                    <ul role="list" class="-my-6 divide-y divide-gray-200 dark:divide-slate-300/10" id="listado-productos-shopping-cart"></ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
-                                            <div class="flex justify-between text-base font-medium text-gray-900">
+                                        <div class="border-t border-gray-200 dark:border-slate-300/10 px-4 py-6 sm:px-6">
+                                            <div class="flex justify-between text-base font-medium text-gray-900 dark:text-white">
                                                 <p>Total</p>
-                                                <p class="font-bold text-gray-900" id="shopping-cart-total"></p>
+                                                <p class="font-bold text-gray-900 dark:text-white" id="shopping-cart-total"></p>
                                             </div>
                                             <button id="finalizarCompraBoton" title="Finalizar Compra" class="mt-6 flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Finalizar Compra</button>
                                             <div class="mt-4 flex items-center justify-between text-center text-sm text-gray-500">
-                                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="openCartSlideOver = false" id="botonLimpiarCarrito">Limpiar Carrito</button>
-                                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="openCartSlideOver = false"> Continuar Comprando <span aria-hidden="true"> →</span></button>
+                                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-white dark:hover:text-white dark:hover:underline" @click="openCartSlideOver = false" id="botonLimpiarCarrito">Limpiar Carrito</button>
+                                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-white dark:hover:text-white dark:hover:underline" @click="openCartSlideOver = false"> Continuar Comprando <span aria-hidden="true"> →</span></button>
                                             </div>
                                         </div>
                                     </div>
@@ -108,16 +108,38 @@ HEADER.innerHTML += `
 
 // SECTION HEADING.
 const SECTIONHEADING = document.createElement('div')
-SECTIONHEADING.className += 'bg-white pt-[85px]'
+SECTIONHEADING.className += 'bg-white dark:bg-transparent pt-[85px]'
 SECTIONHEADING.innerHTML += `
     <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-14 lg:px-8">
-        <div class="md:flex md:items-center md:justify-between">
-            <div class="min-w-0 flex-1">
-                <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Listado de Productos</h2>
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+            <div class="flex items-center gap-5 min-w-0">
+                <h2 class="text-2xl font-bold leading-7 text-gray-900 dark:text-white sm:truncate sm:text-3xl sm:tracking-tight">Listado de Productos</h2>
             </div>
-            <div class="mt-4 flex items-center gap-4 md:ml-4 md:mt-0">
 
-                <p class="text-xs sm:text-sm text-gray-700">
+            <!-- START : DARK MODE TOGGLE -->
+            <div class="flex items-center gap-2">
+                <span class="text-[.625rem] font-medium text-gray-500" :class="[darkMode === true ? 'opacity-0 duration-100 ease-out' : 'duration-200 ease-in']">Light</span>
+                <button type="button" @click="darkMode === false ? darkMode = true : darkMode = false" :class="[darkMode === true ? 'bg-indigo-600' : 'bg-gray-200']" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-indigo-600 focus:ring-offset-1" role="switch" aria-checked="false">
+                    <span aria-hidden="true" :class="[darkMode === true ? 'translate-x-5' : 'translate-x-0']" class="pointer-events-none inline-block h-5 w-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out">
+                        <span :class="[darkMode === true ? 'opacity-0 duration-100 ease-out' : 'duration-200 ease-in']" class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity duration-200 ease-in" aria-hidden="true">
+                            <svg class="h-[15.5px] w-[15.5px] text-indigo-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+                            </svg>                          
+                        </span>
+                        <span :class="[darkMode === true ? 'opacity-100 duration-200 ease-in' : 'opacity-0 duration-100 ease-out']" class="absolute inset-0 flex h-full w-full items-center justify-center opacity-0 transition-opacity duration-100 ease-out" aria-hidden="true">
+                            <svg class="h-[12.5px] w-[12.5px] text-indigo-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+                            </svg>                          
+                        </span>
+                    </span>
+                </button>
+                <span class="text-[.625rem] font-medium dark:text-slate-400" :class="[darkMode === true ? 'duration-200 ease-in' : 'opacity-0 duration-100 ease-out']">Dark</span>
+            </div>
+            <!-- END : DARK MODE TOGGLE -->
+
+            <div class="flex items-center gap-4 md:ml-4">
+
+                <p class="text-xs sm:text-sm text-gray-700 dark:text-white">
                     <span class="resultados-productos"></span>
                     <span class="resultado-array"></span>
                 </p>
@@ -142,68 +164,68 @@ SECTIONHEADING.innerHTML += `
         </div>
 
         <!-- START : PRODUCTS FILTERS -->
-        <div class="mt-7 pt-7 border-t">
+        <div class="mt-7 pt-7 border-t dark:border-slate-300/10">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-y-5" id="productFiltersBar">
                 <div class="flex flex-col sm:flex-row gap-y-5 sm:items-center justify-between md:space-x-8">
 
                     <!-- DROPDOWN FILTERS -->
                     <div class="flex items-center space-x-2">
-                        <h3 class="text-xs text-gray-700 font-bold">Filtrar:</h3>
+                        <h3 class="text-xs text-gray-700 dark:text-white font-bold">Filtrar:</h3>
 
 						<!-- START : FILTRO 'MARCA' -->
                         <div class="relative inline-block text-left" id="labelFiltroMarca" x-data="{ open: false }">
                             <div>
-                                <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white dark:bg-slate-800 px-3 py-2 text-xs text-gray-900 dark:text-slate-400 font-semibold shadow-sm ring-1 dark:ring-0 ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-slate-800" id="menu-button" aria-expanded="true" aria-haspopup="true">
                                     Marca
                                     <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                     </svg>
                                 </button>
                             </div>
-                            <div x-show="open" x-on:click.away="open = false" class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                            <div x-show="open" x-on:click.away="open = false" class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                                 <div class="p-5" role="none">
                                     <fieldset>
                                         <legend class="sr-only">Marca</legend>
                                         <div class="space-y-2">
                                             <div class="flex items-center">
                                                 <input id="BMW" value="BMW" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="BMW" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">BMW</label>
+                                                <label for="BMW" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">BMW</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Ducati" value="Ducati" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Ducati" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Ducati</label>
+                                                <label for="Ducati" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Ducati</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Harley Davidson" value="Harley Davidson" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Harley Davidson" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Harley Davidson</label>
+                                                <label for="Harley Davidson" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Harley Davidson</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Honda" value="Honda" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Honda" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Honda</label>
+                                                <label for="Honda" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Honda</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Husqvarna" value="Husqvarna" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Husqvarna" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Husqvarna</label>
+                                                <label for="Husqvarna" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Husqvarna</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Indian" value="Indian" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Indian" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Indian</label>
+                                                <label for="Indian" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Indian</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Kawasaki" value="Kawasaki" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Kawasaki" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Kawasaki</label>
+                                                <label for="Kawasaki" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Kawasaki</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="KTM" value="KTM" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="KTM" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">KTM</label>
+                                                <label for="KTM" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">KTM</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Triumph" value="Triumph" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Triumph" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Triumph</label>
+                                                <label for="Triumph" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Triumph</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Yamaha" value="Yamaha" name="filtro-marca" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Yamaha" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Yamaha</label>
+                                                <label for="Yamaha" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Yamaha</label>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -215,41 +237,41 @@ SECTIONHEADING.innerHTML += `
 						<!-- START : FILTRO 'ESTILO' -->
                         <div class="relative inline-block text-left" id="labelFiltroEstilo" x-data="{ open: false }">
                             <div>
-                                <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white dark:bg-slate-800 px-3 py-2 text-xs text-gray-900 dark:text-slate-400 font-semibold shadow-sm ring-1 dark:ring-0 ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-slate-800" id="menu-button" aria-expanded="true" aria-haspopup="true">
                                     Estilo
                                     <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                     </svg>
                                 </button>
                             </div>
-                            <div x-show="open" x-on:click.away="open = false" class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                            <div x-show="open" x-on:click.away="open = false" class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                                 <div class="p-5" role="none">
                                     <fieldset>
                                         <legend class="sr-only">Condición</legend>
                                         <div class="space-y-2">
                                             <div class="flex items-center">
                                                 <input id="Cross" value="Cross" name="filtro-estilo" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Cross" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Cross</label>
+                                                <label for="Cross" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Cross</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Cruiser" value="Cruiser" name="filtro-estilo" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Cruiser" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Cruiser</label>
+                                                <label for="Cruiser" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Cruiser</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Enduro" value="Enduro" name="filtro-estilo" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Enduro" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Enduro</label>
+                                                <label for="Enduro" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Enduro</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Scooter" value="Scooter" name="filtro-estilo" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Scooter" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Scooter</label>
+                                                <label for="Scooter" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Scooter</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Sport" value="Sport" name="filtro-estilo" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Sport" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Sport</label>
+                                                <label for="Sport" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Sport</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Street" value="Street" name="filtro-estilo" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Street" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Street</label>
+                                                <label for="Street" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Street</label>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -261,65 +283,65 @@ SECTIONHEADING.innerHTML += `
 						<!-- START : FILTRO 'AÑO' -->
                         <div class="relative inline-block text-left" id="labelFiltroAnio" x-data="{ open: false }">
                             <div>
-                                <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white dark:bg-slate-800 px-3 py-2 text-xs text-gray-900 dark:text-slate-400 font-semibold shadow-sm ring-1 dark:ring-0 ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-slate-800" id="menu-button" aria-expanded="true" aria-haspopup="true">
                                     Año
                                     <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                     </svg>
                                 </button>
                             </div>
-                            <div x-show="open" x-on:click.away="open = false" class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                            <div x-show="open" x-on:click.away="open = false" class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                                 <div class="p-5" role="none">
                                     <fieldset>
                                         <legend class="sr-only">Año</legend>
                                         <div class="space-y-2">
                                             <div class="flex items-center">
                                                 <input id="2024" value="2024" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="2024" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2024</label>
+                                                <label for="2024" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">2024</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="2023" value="2023" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="2023" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2023</label>
+                                                <label for="2023" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">2023</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="2022" value="2022" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="2022" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2022</label>
+                                                <label for="2022" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">2022</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="2020" value="2020" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="2020" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2020</label>
+                                                <label for="2020" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">2020</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="2019" value="2019" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="2019" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2019</label>
+                                                <label for="2019" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">2019</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="2018" value="2018" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="2018" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2018</label>
+                                                <label for="2018" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">2018</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="2015" value="2015" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="2015" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2015</label>
+                                                <label for="2015" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">2015</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="2013" value="2013" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="2013" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2013</label>
+                                                <label for="2013" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">2013</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="2011" value="2011" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="2011" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2011</label>
+                                                <label for="2011" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">2011</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="2010" value="2010" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="2010" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2010</label>
+                                                <label for="2010" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">2010</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="2003" value="2003" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="2003" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">2003</label>
+                                                <label for="2003" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">2003</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="1990" value="1990" name="filtro-anio" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="1990" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">1990</label>
+                                                <label for="1990" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">1990</label>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -331,25 +353,25 @@ SECTIONHEADING.innerHTML += `
 						<!-- START : FILTRO 'CONDICION' -->
                         <div class="relative inline-block text-left" id="labelFiltroCondicion" x-data="{ open: false }">
                             <div>
-                                <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                <button type="button" x-on:click="open = true" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white dark:bg-slate-800 px-3 py-2 text-xs text-gray-900 dark:text-slate-400 font-semibold shadow-sm ring-1 dark:ring-0 ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-slate-800" id="menu-button" aria-expanded="true" aria-haspopup="true">
                                     Condición
                                     <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                     </svg>
                                 </button>
                             </div>
-                            <div x-show="open" x-on:click.away="open = false" class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                            <div x-show="open" x-on:click.away="open = false" class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                                 <div class="p-5" role="none">
                                     <fieldset>
                                         <legend class="sr-only">Condición</legend>
                                         <div class="space-y-2">
                                             <div class="flex items-center">
                                                 <input id="Nueva" value="Nueva" name="filtro-condicion" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Nueva" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Nueva</label>
+                                                <label for="Nueva" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Nueva</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input id="Usada" value="Usada" name="filtro-condicion" type="radio" class="h-4 w-4 cursor-pointer border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                                <label for="Usada" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900">Usada</label>
+                                                <label for="Usada" class="ml-2 cursor-pointer block text-xs font-medium leading-6 text-gray-900 dark:text-white dark:hover:underline">Usada</label>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -362,8 +384,8 @@ SECTIONHEADING.innerHTML += `
 
                     <!-- START : SORTING DROPDOWN -->
                     <div class="flex items-center space-x-2">
-                        <h3 class="text-xs text-gray-700 font-bold">Ordenar:</h3>
-                        <select id="ordenar" name="ordenar" class="block w-full cursor-pointer rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 text-xs font-semibold ring-1 ring-inset ring-gray-300 focus:ring-gray-300 sm:leading-6">
+                        <h3 class="text-xs text-gray-700 dark:text-white font-bold">Ordenar:</h3>
+                        <select id="ordenar" name="ordenar" class="block w-full cursor-pointer rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 text-xs font-semibold ring-1 ring-inset ring-gray-300 focus:ring-gray-300 sm:leading-6 dark:bg-slate-800 dark:ring-0 dark:focus:ring-transparent dark:text-slate-400">
                             <option value="">- Defecto -</option>
                             <option value="anio">Año</option>
                             <option value="marca">Marca</option>
@@ -381,7 +403,7 @@ SECTIONHEADING.innerHTML += `
 
                 <!-- START : CLEAR FILTERS BUTTON -->
                 <div class="flex items-start">
-                    <button type="button" id="borrarFiltros" class="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" title="Borrar Filtros">Borrar Filtros</button>
+                    <button type="button" id="borrarFiltros" class="rounded-full bg-white dark:bg-slate-800 px-2.5 py-1 text-xs font-semibold text-gray-900 dark:text-slate-400 shadow-sm ring-1 dark:ring-0 dark:hover:underline ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-slate-800" title="Borrar Filtros">Borrar Filtros</button>
                 </div>
                 <!-- END : CLEAR FILTERS BUTTON -->
                 
@@ -394,7 +416,7 @@ SECTIONHEADING.innerHTML += `
 
 // PRODUCT LISTING.
 const PRODUCTLISTING = document.createElement('div')
-PRODUCTLISTING.className += 'bg-white'
+PRODUCTLISTING.className += 'bg-white dark:bg-transparent'
 PRODUCTLISTING.innerHTML += `
     <div x-data="{ modelOpen: false }">
         <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:pt-0 lg:px-8">
@@ -404,20 +426,20 @@ PRODUCTLISTING.innerHTML += `
             <!-- START : PRODUCT LISTING -->
 
             <!-- START : PAGINATION -->
-            <div class="flex items-center justify-between mt-10 pt-8 border-t border-gray-200">
-                <p class="text-xs sm:text-sm text-gray-700">
+            <div class="flex items-center justify-between mt-10 pt-8 border-t border-gray-200 dark:border-slate-300/10">
+                <p class="text-xs sm:text-sm text-gray-700 dark:text-white">
                     <span class="resultados-productos"></span>
                     <span class="resultado-array"></span>
                 </p>
                 <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm">
-                    <button id="paginationPrevButton" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-700 font-bold ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-offset-0">
+                    <button id="paginationPrevButton" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-700 font-bold ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-offset-0 dark:bg-slate-800 dark:hover:bg-slate-600 dark:text-slate-400 dark:ring-slate-600">
                         <span class="sr-only">Previous</span>
                         <svg class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
                         </svg>
                     </button>
                     <div class="flex flex-row items-center -space-x-px" id="paginationPages"></div>
-                    <button id="paginationNextButton" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-700 font-bold ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-offset-0">
+                    <button id="paginationNextButton" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-700 font-bold ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-offset-0 dark:bg-slate-800 dark:hover:bg-slate-600 dark:text-slate-400 dark:ring-slate-600">
                         <span class="sr-only">Next</span>
                         <svg class="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
@@ -438,10 +460,10 @@ PRODUCTLISTING.innerHTML += `
 
 // FOOTER.
 const FOOTER = document.createElement('footer')
-FOOTER.className += 'bg-white rounded-lg shadow mx-4 mb-4 dark:bg-gray-900'
+FOOTER.className += 'bg-gray-900 rounded-lg shadow mx-4 mb-4 dark:bg-slate-800'
 FOOTER.innerHTML += `
     <div class="w-full mx-auto max-w-screen-xl p-4 flex items-center flex-col gap-3 md:flex-row md:justify-between lg:px-8">
-        <span class="text-xs sm:text-sm text-gray-500 dark:text-white sm:text-center dark:text-gray-400">
+        <span class="text-xs sm:text-sm text-white dark:text-white sm:text-center">
             Federico Márquez Lucas | Proyecto Final | JavaScript Flex - 61990
         </span>
         <img src="./img/logo-img/CODERHOUSE_Logo.svg" alt="CODERHOUSE" class="w-auto h-[15px]">
@@ -597,7 +619,7 @@ const updatePaginationControls = (totalPaginas, paginaActual, array) => {
     // RESULTS PAGES.
     let controlsHTML = ''
     for (let i = 1; i <= totalPaginas; i++) {
-        controlsHTML += `<span class="pointer-events-none cursor-not-allowed inline-flex items-center px-3 sm:px-4 py-2 text-xs sm:text-sm ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white font-bold' : 'text-gray-400 font-normal ring-1 ring-inset ring-gray-300'}">${i}</span>`
+        controlsHTML += `<span class="pointer-events-none cursor-not-allowed inline-flex items-center px-3 sm:px-4 py-2 text-xs sm:text-sm ${i === paginaActual ? 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 dark:ring-1 dark:ring-inset dark:ring-slate-600 text-white font-bold' : 'text-gray-400 font-normal ring-1 ring-inset ring-gray-300 dark:ring-slate-600'}">${i}</span>`
     }
     const paginationControls = document.querySelector('#paginationPages')
     paginationControls.innerHTML = controlsHTML
@@ -635,26 +657,26 @@ const cargaGrillaDeProductos = (array, restoreStorage) => {
 
         listadoProductos += `
             <div class="group">
-                <div class="cursor-pointer aspect-square relative flex items-center justify-center border aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg xl:aspect-h-8 xl:aspect-w-7" onclick="triggerModal(${producto.id})" @click="modelOpen =! modelOpen">
+                <div class="cursor-pointer aspect-square relative flex items-center justify-center bg-white border dark:border-slate-300/10 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg xl:aspect-h-8 xl:aspect-w-7" onclick="triggerModal(${producto.id})" @click="modelOpen =! modelOpen">
                     <img src="./img/product-img/${producto.imagen}" class="w-full h-auto object-cover object-center px-4 group-hover:opacity-75">
                     ${nuevaBadge}
                 </div>
-                <h3 class="mt-4 text-sm text-gray-700">
+                <h3 class="mt-4 text-sm text-gray-700 dark:text-white">
                     ${producto.marca}
                     <b>${producto.modelo}</b>
                 </h3>
                 <div class="flex flex-row items-center gap-2.5">
-                    <h5 class="mt-0 text-xs text-gray-500">
+                    <h5 class="mt-0 text-xs text-gray-500 dark:text-white">
                         ${producto.anio} | ${producto.cilindrada}${producto.cilindradaMedida} | ${kilometrajeFormateado}
                     </h5>
                     <div class="flex flex-row items-center text-yellow-400">${ratingStars(producto.rating)}</div>
                 </div>
                 <div class="flex items-center justify-between mt-2.5">
-                    <p class="text-lg font-semibold text-gray-900">
+                    <p class="text-lg font-semibold text-gray-900 dark:text-white">
                         USD ${numeroFormateado(`${producto.precio}`)}
                     </p>
                     <div class="flex items-center gap-3.5">
-                        <button type="button" onclick="addToWishlist(${producto.id})" class="text-xs hover:underline font-semibold text-gray-500 sm:mt-0 sm:w-auto" title="Add to Wishlist">Add to Wishlist</button>
+                        <button type="button" onclick="addToWishlist(${producto.id})" class="text-xs hover:underline font-semibold text-gray-500 dark:text-white sm:mt-0 sm:w-auto" title="Add to Wishlist">Add to Wishlist</button>
                         <button type="button" onclick="addToCart(${producto.id});animarCartCount()" class="rounded-full bg-indigo-600 px-2.5 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" title="Add To Cart">Add To Cart</button>
                     </div>
                 </div>
@@ -860,16 +882,16 @@ const triggerModal = productoId => {
             <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
                 <div x-cloak @click="modelOpen = false" x-show="modelOpen" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 transition-opacity bg-gray-700 bg-opacity-80" aria-hidden="true"></div>
                 <div x-cloak x-show="modelOpen" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="inline-block w-full max-w-xl my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
-                    <div class="flex items-center justify-between space-x-4 bg-gray-100 p-8">
+                    <div class="flex items-center justify-between space-x-4 bg-gray-100 dark:bg-slate-800 p-8">
                         <div class="flex items-center gap-2">
                             <img src="./img/logo-img/${productoDetalleModal.logo}" class="w-auto h-[32.5px]">
-                            <h3 class="text-md text-gray-700 leading-tight">
+                            <h3 class="text-md text-gray-700 dark:text-white leading-tight">
                                 ${productoDetalleModal.marca}
                                 <br>
                                 <b>${productoDetalleModal.modelo}</b>
                             </h3>
                         </div>
-                        <button @click="modelOpen = false" class="text-gray-600 focus:outline-none hover:text-gray-700">
+                        <button @click="modelOpen = false" class="text-gray-600 dark:text-slate-400 focus:outline-none hover:text-gray-700 dark:hover:text-slate-600">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
@@ -978,7 +1000,7 @@ const listadoProductosCart = array => {
 
 		productoCart += `
 			<li class="flex py-6" id="product-${producto.id}">
-				<div class="relative h-32 w-32 flex flex-shrink-0 items-center justify-center p-1.5 overflow-hidden rounded-md border border-gray-200">
+				<div class="relative h-32 w-32 flex flex-shrink-0 items-center justify-center p-1.5 overflow-hidden rounded-md border border-gray-200 dark:border-slate-300/10 dark:bg-white">
 					<img src="./img/product-img/${producto.imagen}" alt="${producto.marca} ${producto.modelo}" class="object-fit object-center">
 					${nuevaBadge}
 				</div>
@@ -986,18 +1008,18 @@ const listadoProductosCart = array => {
 					<div>
 						<div class="flex justify-between">
                             <div class="flex flex-col gap-1.5">
-                                <h3 class="flex flex-col text-xs text-gray-700">
+                                <h3 class="flex flex-col text-xs text-gray-700 dark:text-white">
                                     ${producto.marca}
                                     <b>${producto.modelo}</b>
                                 </h3>
                                 <div class="flex flex-row items-center text-yellow-400">${ratingStars(producto.rating)}</div>
                             </div>
-							<p class="text-sm text-gray-700 font-bold tracking-tighter">USD ${numeroFormateado(`${producto.precio}`)}</p>
+							<p class="text-sm text-gray-700 dark:text-white font-bold tracking-tighter">USD ${numeroFormateado(`${producto.precio}`)}</p>
 						</div>
 					</div>
 					<div class="flex flex-1 items-end justify-between text-sm">
 						<div class="flex flex-col">
-							<p class="text-[.65rem] text-gray-500 leading-normal">
+							<p class="text-[.65rem] text-gray-500 dark:text-white leading-normal">
                                 <b>Cantidad:</b> <span id="cart-producto-cantidad">${producto.count}</span>
                                 </br>
                                 <b>Subtotal:</b> USD ${numeroFormateado(`${producto.precio * producto.count}`)}
@@ -1005,20 +1027,20 @@ const listadoProductosCart = array => {
 						</div>
 						<div class="flex flex-col items-end gap-3">
 							<div class="flex flex-row gap-1.5 ${hiddenButtons}">
-								<button id="botonMoverArriba" type="button" onclick="moverProducto(${producto.id}, 'arriba')" class="${hiddenFirst} cursor-pointer font-medium text-indigo-600 hover:text-indigo-500" title="Mover Arriba">
+								<button id="botonMoverArriba" type="button" onclick="moverProducto(${producto.id}, 'arriba')" class="${hiddenFirst} cursor-pointer font-medium text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-slate-400" title="Mover Arriba">
 									<svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 										<path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z" clip-rule="evenodd" />
 									</svg>
 								</button>
-								<button type="button" onclick="moverProducto(${producto.id}, 'abajo')" class="${hiddenLast} cursor-pointer font-medium text-indigo-600 hover:text-indigo-500" title="Mover Abajo">
+								<button type="button" onclick="moverProducto(${producto.id}, 'abajo')" class="${hiddenLast} cursor-pointer font-medium text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-slate-400" title="Mover Abajo">
 									<svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 										<path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-.53 14.03a.75.75 0 0 0 1.06 0l3-3a.75.75 0 1 0-1.06-1.06l-1.72 1.72V8.25a.75.75 0 0 0-1.5 0v5.69l-1.72-1.72a.75.75 0 0 0-1.06 1.06l3 3Z" clip-rule="evenodd" />
 									</svg>
 								</button>
 							</div>
 							<div class="flex flex-col gap-1 items-end">
-                                <button type="button" onclick="eliminarProductosCart(${producto.id})" class="font-medium text-xs text-indigo-600 hover:text-indigo-500" title="Eliminar">Eliminar</button>
-                                <button type="button" onclick="moverProductoDeCartAWishlist(${producto.id})" class="font-medium text-xs text-indigo-600 hover:text-indigo-500" title="Mover a Wishlist">Mover a Wishlist</button>
+                                <button type="button" onclick="eliminarProductosCart(${producto.id})" class="font-medium text-xs text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-white dark:hover:underline" title="Eliminar">Eliminar</button>
+                                <button type="button" onclick="moverProductoDeCartAWishlist(${producto.id})" class="font-medium text-xs text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-white dark:hover:underline" title="Mover a Wishlist">Mover a Wishlist</button>
                             </div>
 						</div>
 					</div>
@@ -1173,22 +1195,22 @@ const listadoProductosWishlist = array => {
 		producto.condicion == 'Nueva' ? nuevaBadge = '<span class="absolute top-1.5 right-1.5 items-center rounded-full bg-purple-100 px-2 py-1 text-[.5rem] font-semibold text-purple-700">NUEVA</span>' : nuevaBadge = '<span class="sr-only"></span>'
 
 		productoWishlist += `
-			<div class="relative flex items-center justify-between rounded-lg p-4 hover:bg-gray-100">
+			<div class="relative flex items-center justify-between rounded-lg p-4 hover:bg-gray-100 dark:hover:bg-slate-900">
 				<div class="flex flex-row items-center gap-x-5">
 					<div class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 						<div class="relative w-14 h-14 flex flex-shrink-0 items-center justify-center p-1 overflow-hidden rounded-md border border-gray-200 bg-white hover:bg-white">
 							<img src="./img/product-img/${producto.imagen}" alt="${producto.marca} ${producto.modelo}" class="object-fit object-center">
 						</div>
 					</div>
-					<div><p class="flex flex-col text-xs text-gray-700">
+					<div><p class="flex flex-col text-xs text-gray-700 dark:text-white">
 							${producto.marca}
 							<b>${producto.modelo}</b>
 						</p>
 					</div>
 				</div>
 				<div class="flex flex-col gap-1.5">
-					<button type="button" onclick="eliminarProductosWishlist(${producto.id})" class="font-medium text-xs text-indigo-600 hover:text-indigo-500 hover:underline" title="Eliminar">Eliminar</button>
-					<button type="button" onclick="moverProductoDeWishlistAlCart(${producto.id})" class="font-medium text-xs text-indigo-600 hover:text-indigo-500 hover:underline" title="Mover al Cart">Mover al Cart</button>
+					<button type="button" onclick="eliminarProductosWishlist(${producto.id})" class="font-medium text-xs text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-white hover:underline" title="Eliminar">Eliminar</button>
+					<button type="button" onclick="moverProductoDeWishlistAlCart(${producto.id})" class="font-medium text-xs text-indigo-600 dark:text-white hover:text-indigo-500 dark:hover:text-white hover:underline" title="Mover al Cart">Mover al Cart</button>
 				</div>
 			</div>
 		`
