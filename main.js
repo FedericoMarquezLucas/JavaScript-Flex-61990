@@ -146,13 +146,12 @@ SECTIONHEADING.innerHTML += `
 
                 <!-- START : DISPLAY SELECTOR -->
                 <span class="isolate hidden lg:inline-flex rounded-md shadow-sm">
-                    <button type="button" id="display-table-button" class="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10" title="Display Tabla">
+                    <button type="button" id="display-table-button" class="relative inline-flex items-center rounded-l-md px-3 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 dark:ring-slate-300/10 focus:z-10 bg-white dark:bg-transparent hover:bg-gray-50 dark:hover:bg-slate-500 text-gray-900 dark:text-gray-300" title="Display Tabla">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
                         </svg>
                     </button>
-					</button>
-                    <button type="button" id="display-grid-button" class="relative -ml-px inline-flex items-center rounded-r-md bg-gray-200 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 focus:z-10" title="Display Grilla">
+                    <button type="button" id="display-grid-button" class="relative -ml-px inline-flex items-center rounded-r-md px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 dark:ring-slate-300/10 focus:z-10 bg-gray-300 dark:bg-white dark:hover:bg-white dark:text-slate-900 hover:bg-gray-200" title="Display Grilla">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125Z" />
                         </svg>
@@ -460,7 +459,7 @@ PRODUCTLISTING.innerHTML += `
 
 // FOOTER.
 const FOOTER = document.createElement('footer')
-FOOTER.className += 'bg-gray-900 rounded-lg shadow mx-4 mb-4 dark:bg-slate-800'
+FOOTER.className += 'bg-slate-900 rounded-lg shadow mx-4 mb-4 dark:bg-slate-800'
 FOOTER.innerHTML += `
     <div class="w-full mx-auto max-w-screen-xl p-4 flex items-center flex-col gap-3 md:flex-row md:justify-between lg:px-8">
         <span class="text-xs sm:text-sm text-white dark:text-white sm:text-center">
@@ -497,8 +496,8 @@ const numeroFormateado = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // ACTIVE/INACTIVE STATE DISPLAY BUTTON.
-const buttonInactiveClasses = ['bg-white', 'hover:bg-gray-50']
-const buttonActiveClasses = ['bg-gray-200', 'hover:bg-gray-200']
+const buttonInactiveClasses = ['bg-white', 'dark:bg-transparent', 'hover:bg-gray-50', 'dark:hover:bg-slate-500', 'text-gray-900', 'dark:text-gray-300']
+const buttonActiveClasses = ['bg-gray-300', 'dark:bg-white', 'dark:hover:bg-white', 'dark:text-slate-900', 'hover:bg-gray-200']
 
 const toggleDisplay = (activeButtonId, inactiveButtonId, removeClass, addClass) => {
     document.getElementById('listado-productos').classList.replace(removeClass, addClass);
