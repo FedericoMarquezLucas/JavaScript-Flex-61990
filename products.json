@@ -926,5 +926,21 @@
 		"rating": 2,
 		"imagen": "img_gold_wing.avif",
 		"logo": "logo_honda.svg"
+	},
+	{
+		"id": 60,
+		"marca": "BMW",
+		"modelo": "R NineT",
+		"estilo": "Street",
+		"anio": 2024,
+		"condicion": "Nueva",
+		"cilindrada": 1200,
+		"cilindradaMedida": "cc",
+		"potencia": 115,
+		"kilometraje": 0,
+		"precio": 34900,
+		"rating": 4,
+		"imagen": "img_r_ninet.avif",
+		"logo": "logo_bmw.png"
 	}
 ]
