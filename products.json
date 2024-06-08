@@ -910,5 +910,21 @@
 		"rating": 5,
 		"imagen": "img_xl1200_sportster_roadster.jpeg",
 		"logo": "logo_harley_davidson.svg"
+	},
+	{
+		"id": 59,
+		"marca": "Honda",
+		"modelo": "Gold Wing",
+		"estilo": "Cruiser",
+		"anio": 2018,
+		"condicion": "Usada",
+		"cilindrada": 1800,
+		"cilindradaMedida": "cc",
+		"potencia": 125,
+		"kilometraje": 5000,
+		"precio": 26900,
+		"rating": 2,
+		"imagen": "img_gold_wing.avif",
+		"logo": "logo_honda.svg"
 	}
 ]
