@@ -881,7 +881,7 @@ const triggerModal = productoId => {
             <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
                 <div x-cloak @click="modelOpen = false" x-show="modelOpen" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 transition-opacity bg-gray-700 bg-opacity-80" aria-hidden="true"></div>
                 <div x-cloak x-show="modelOpen" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="inline-block w-full max-w-xl my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
-                    <div class="flex items-center justify-between space-x-4 bg-gray-100 dark:bg-slate-800 p-8">
+                    <div class="flex items-center justify-between space-x-4 bg-gray-100 dark:bg-slate-800 dark:border-b dark:border-slate-300/10 p-8">
                         <div class="flex items-center gap-2">
                             <img src="./img/logo-img/${productoDetalleModal.logo}" class="w-auto h-[32.5px]">
                             <h3 class="text-md text-gray-700 dark:text-white leading-tight">
@@ -896,55 +896,55 @@ const triggerModal = productoId => {
                             </svg>
                         </button>
                     </div>
-                    <div class="p-8">
-                        <div class="relative">
+                    <div class="p-8 pb-0 dark:bg-slate-800">
+                        <div class="relative bg-white rounded-xl aspect-square flex items-center">
                             <img src="./img/product-img/${productoDetalleModal.imagen}" alt="" class="object-cover object-center">
                             ${nuevaBadge}
                         </div>
-						<dl class="divide-y divide-gray-100 pt-8">
+						<dl class="divide-y divide-gray-100 dark:divide-slate-300/10 py-8">
 							<div class="py-2.5 pt-0 grid grid-cols-3 sm:grid-cols-4 gap-4">
-								<dt class="text-sm font-bold leading-6 text-gray-900">Marca</dt>
-								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.marca}</dd>
+								<dt class="text-sm font-bold leading-6 text-gray-900 dark:text-white dark:text-white">Marca</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-slate-400 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.marca}</dd>
 							</div>
 							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
-								<dt class="text-sm font-bold leading-6 text-gray-900">Modelo</dt>
-								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.modelo}</dd>
+								<dt class="text-sm font-bold leading-6 text-gray-900 dark:text-white">Modelo</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-slate-400 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.modelo}</dd>
 							</div>
 							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
-								<dt class="text-sm font-bold leading-6 text-gray-900">Estilo</dt>
-								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.estilo}</dd>
+								<dt class="text-sm font-bold leading-6 text-gray-900 dark:text-white">Estilo</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-slate-400 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.estilo}</dd>
 							</div>
 							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
-								<dt class="text-sm font-bold leading-6 text-gray-900">Año</dt>
-								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.anio}</dd>
+								<dt class="text-sm font-bold leading-6 text-gray-900 dark:text-white">Año</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-slate-400 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.anio}</dd>
 							</div>
 							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
-								<dt class="text-sm font-bold leading-6 text-gray-900">Condición</dt>
-								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.condicion}</dd>
+								<dt class="text-sm font-bold leading-6 text-gray-900 dark:text-white">Condición</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-slate-400 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.condicion}</dd>
 							</div>
 							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
-								<dt class="text-sm font-bold leading-6 text-gray-900">Cilindrada</dt>
-								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.cilindrada}${productoDetalleModal.cilindradaMedida}</dd>
+								<dt class="text-sm font-bold leading-6 text-gray-900 dark:text-white">Cilindrada</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-slate-400 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.cilindrada}${productoDetalleModal.cilindradaMedida}</dd>
 							</div>
 							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
-								<dt class="text-sm font-bold leading-6 text-gray-900">Potencia</dt>
-								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.potencia}hp</dd>
+								<dt class="text-sm font-bold leading-6 text-gray-900 dark:text-white">Potencia</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-slate-400 col-span-2 sm:col-span-3 sm:mt-0">${productoDetalleModal.potencia}hp</dd>
 							</div>
 							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
-								<dt class="text-sm font-bold leading-6 text-gray-900">Kilometraje</dt>
-								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">${kilometrajeFormateado}</dd>
+								<dt class="text-sm font-bold leading-6 text-gray-900 dark:text-white">Kilometraje</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-slate-400 col-span-2 sm:col-span-3 sm:mt-0">${kilometrajeFormateado}</dd>
 							</div>
 							<div class="py-2.5 grid grid-cols-3 sm:grid-cols-4 gap-4">
-								<dt class="text-sm font-bold leading-6 text-gray-900">Precio</dt>
-								<dd class="mt-1 text-sm leading-6 text-gray-700 col-span-2 sm:col-span-3 sm:mt-0">USD ${numeroFormateado(`${productoDetalleModal.precio}`)}</dd>
+								<dt class="text-sm font-bold leading-6 text-gray-900 dark:text-white">Precio</dt>
+								<dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-slate-400 col-span-2 sm:col-span-3 sm:mt-0">USD ${numeroFormateado(`${productoDetalleModal.precio}`)}</dd>
 							</div>
 							<div class="py-2.5 pb-0 grid grid-cols-3 sm:grid-cols-4 gap-4">
-								<dt class="text-sm font-bold leading-6 text-gray-900">Rating</dt>
+								<dt class="text-sm font-bold leading-6 text-gray-900 dark:text-white">Rating</dt>
 								<dd class="flex flex-row items-center mt-1 col-span-2 text-yellow-400 sm:col-span-3 sm:mt-0">${ratingStars(productoDetalleModal.rating)}</dd>
 							</div>
 						</dl>
                     </div>
-					<div class="pr-8 pb-8 pl-8 flex items-center flex-row-reverse">
+					<div class="p-8 flex items-center flex-row-reverse dark:bg-slate-800 dark:border-t dark:border-slate-300/10">
 						<button type="button" class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ml-5" onclick="addToCart(${productoDetalleModal.id});animarCartCount()" @click="modelOpen = false" title="Add To Cart">Add To Cart</button>
 						<button type="button" class="text-sm hover:underline font-semibold text-gray-500 sm:mt-0 sm:w-auto" onclick="addToWishlist(${productoDetalleModal.id});animarWishlistIcon()" @click="modelOpen = false" title="Add to Wishlist">Add to Wishlist</button>
 					</div>
